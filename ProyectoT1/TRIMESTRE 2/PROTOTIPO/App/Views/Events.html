@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos Escuela de Baile</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../Public/Assets/Css/Styles.css">
+    <link rel="shortcut icon" href="../../Public/Assets/img/icons/icono-dance.png" />
+    <link rel="stylesheet" href="../../Public/Assets/Css/Events.css">
     <style>
         .contenedor-imagen {
             text-align: center;
             margin-top: 20px;
         }
+
         .contenedor-imagen img {
             width: 100%;
             max-width: 300px;
@@ -19,39 +24,43 @@
     </style>
 </head>
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Offcanvas navbar</a>
-          <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+    <!-- Navigation Bar-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Offcanvas navbar</a>
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Notifications</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Switch account</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">edit profile</a></li>
-                  <li><a class="dropdown-item" href="#">sing in</a></li>
-                </ul>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Switch account</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        aria-expanded="false">Profile</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">edit profile</a></li>
+                        <li><a class="dropdown-item" href="#">sing in</a></li>
+                    </ul>
+                </li>
             </ul>
-          </div>
         </div>
-      </nav>
+    </div>
+</nav>
+    <!-- Navigation Bar Final-->
 <body>
     <br></br><br></br><br></br><br></br>
 
@@ -59,13 +68,13 @@
     <div id="carouselEventos" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/evento1.jpg" class="d-block w-100" alt="Evento 1">
+                <img src="../../Public/Assets/img/icons/Evento1.jpeg" class="d-block w-100" alt="Evento 1">
             </div>
             <div class="carousel-item">
-                <img src="img/evento2.jpg" class="d-block w-100" alt="Evento 2">
+                <img src="../../Public/Assets/img/icons/Evento2.jpeg" class="d-block w-100" alt="Evento 2">
             </div>
             <div class="carousel-item">
-                <img src="img/evento3.jpg" class="d-block w-100" alt="Evento 3">
+                <img src="../../Public/Assets/img/icons/Evento3.jpeg" class="d-block w-100" alt="Evento 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventos" data-bs-slide="prev">
@@ -90,7 +99,8 @@
                 <p>Profesores</p>
             </div>
             <div class="col-md-4 contenedor-imagen">
-                <img src="img/competencias.jpg" alt="Competencias" data-bs-toggle="modal" data-bs-target="#modalCompetencias">
+                <img src="img/competencias.jpg" alt="Competencias" data-bs-toggle="modal"
+                    data-bs-target="#modalCompetencias">
                 <p>Competencias</p>
             </div>
         </div>
@@ -112,7 +122,8 @@
     </div>
 
     <!-- Modal Profesores -->
-    <div class="modal fade" id="modalProfesores" tabindex="-1" aria-labelledby="modalProfesoresLabel" aria-hidden="true">
+    <div class="modal fade" id="modalProfesores" tabindex="-1" aria-labelledby="modalProfesoresLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -120,14 +131,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Aquí se mostrará una ficha general de las competencias de los profesores que enseñan en la escuela.</p>
+                    <p>Aquí se mostrará una ficha general de las competencias de los profesores que enseñan en la
+                        escuela.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Competencias -->
-    <div class="modal fade" id="modalCompetencias" tabindex="-1" aria-labelledby="modalCompetenciasLabel" aria-hidden="true">
+    <div class="modal fade" id="modalCompetencias" tabindex="-1" aria-labelledby="modalCompetenciasLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -140,22 +153,35 @@
             </div>
         </div>
     </div>
-
+    <!-- JS Controllers-->
+    <script src="../../Public/Controllers/ControllersEvents.js"></script>
+    <script src="../../Public/Assets/js/main.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<!-- Footer -->
 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
-      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-      <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                    <use xlink:href="#twitter"></use>
+                </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                    <use xlink:href="#instagram"></use>
+                </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                    <use xlink:href="#facebook"></use>
+                </svg></a></li>
     </ul>
-  </footer>
+</footer>
+<!-- Footer Final-->
+
 </html>

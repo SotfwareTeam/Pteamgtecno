@@ -13,7 +13,7 @@
             event.stopPropagation();
         } else {
             // Prevenir el comportamiento por defecto para manejar la redirección manualmente
-            event.preventDefault(); 
+            event.preventDefault();
             // Redirigir a la vista de inicio de sesión
             window.location.href = 'iniciar_sesion.html';
         }

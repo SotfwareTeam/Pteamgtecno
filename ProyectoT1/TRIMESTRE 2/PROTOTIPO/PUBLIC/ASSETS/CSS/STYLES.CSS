@@ -30,3 +30,11 @@ body {
 .form-label {
     color: #6c757d;
 }
+
+.btn:hover {
+    transform: scale(0.9);
+}
+
+.btn {
+    transition: transform 0.1s ease;
+}
