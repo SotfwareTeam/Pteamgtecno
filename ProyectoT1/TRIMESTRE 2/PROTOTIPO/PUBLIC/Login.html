@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="../PUBLIC/ASSETS/CSS/style-login.css">
-
-</head>
-<body>
-    <div class="container">
-    <div class="container-form">
-        <form class="sing-in">
-            <h2>Iniciar Sesion</h2>
-            <div class="social-networks">
-                <ion-icon name="logo-instagram"></ion-icon>
-                <ion-icon name="logo-facebook"></ion-icon>
-                <ion-icon name="logo-xing"></ion-icon>
-                <ion-icon name="logo-youtube"></ion-icon>  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="../PUBLIC/ASSETS/CSS/style-login.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-form">
+                <form class="sing-in">
+                    <h2>Iniciar Sesion</h2>
+                    <div class="social-networks">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                        <ion-icon name="logo-facebook"></ion-icon>
+                        <ion-icon name="logo-xing"></ion-icon>
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </div>
+                    <span>Use su correo y contraseña</span>
+                    <div class="container-input">
+                        <ion-icon name="mail"></ion-icon>
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div class="container-input">
+                        <ion-icon name="lock"></ion-icon>
+                        <input type="password" placeholder="password">
+                    </div>
+                    <a href="#">Registro</a>
+                    <button class="button">Iniciar Sesion</button>
+                </form>
             </div>
-            <span>Use su correo y contraseña</span>
-            <div class="container-input">
-                <ion-icon name="mail"></ion-icon>
-                <input type="text" placeholder="Email">
+            <div class="container-form">
+                <form class="sing-up">
+                    <h2>Cambiar contraseña</h2>
+                    <div class="social-networks">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                        <ion-icon name="logo-facebook"></ion-icon>
+                        <ion-icon name="logo-xing"></ion-icon>
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </div>
+                    <span>Escribe tu correo</span>
+                    <div class="container-input">
+                        <ion-icon name="mail"></ion-icon>
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <button class="button">Enviar correo</button>
+                </form>
             </div>
-            <div class="container-input">
-                <ion-icon name="lock"></ion-icon>
-                <input type="password" placeholder="password">
+            <div class="container-welcome">
+                <div class="welcome-sing-up welcome">
+                    <h3>¡Bienvenido!</h3>
+                    <p>ingrese sus datos personales para usar todas las
+                        funciones del sitio</p>
+                    <button class="button" id="btn-sign-up">Cambiar
+                        contraseña</button>
+                </div>
+                <div class="welcome-sing-in welcome">
+                    <h3>¡Hola!</h3>
+                    <p>Registra tus datos personales para usar todas las
+                        funciones del sitio</p>
+                    <button class="button" id="btn-sign-in">Iniciar
+                        Sesion</button>
+                </div>
             </div>
-            <a href="#">Registro</a>
-            <button class="button">Iniciar Sesion</button>
-        </form>
-    </div>
-    <div class="container-form">
-        <form class="sing-up">
-        <h2>Cambiar contraseña</h2>
-        <div class="social-networks">
-            <ion-icon name="logo-instagram"></ion-icon>
-            <ion-icon name="logo-facebook"></ion-icon>
-            <ion-icon name="logo-xing"></ion-icon>
-            <ion-icon name="logo-youtube"></ion-icon>  
         </div>
-        <span>Escribe tu correo</span>
-        <div class="container-input">
-            <ion-icon name="mail"></ion-icon>
-            <input type="text" placeholder="Email">
-        </div>
-        <button class="button">Enviar correo</button>
-    </form>
-</div>
-    <div class="container-welcome">
-        <div class="welcome-sing-up welcome">
-            <h3>¡Bienvenido!</h3>
-            <p>ingrese sus datos personales para usar todas las funciones del sitio</p>
-            <button class="button" id="btn-sign-up">Cambiar contraseña</button>
-        </div>
-        <div class="welcome-sing-in welcome">
-            <h3>Hola!</h3>
-            <p>Registra tus datos personales para usar todas las funciones del sitio</p>
-            <button class="button" id="btn-sign-in">Iniciar Sesion</button>
-        </div>
-    </div>
-</div>
-    <script src="../PUBLIC/Controllers/Login.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-</body>
+        <script src="../PUBLIC/Controllers/Login.js"></script>
+        <script
+            src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    </body>
 </html>

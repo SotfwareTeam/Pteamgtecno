@@ -17,7 +17,6 @@
             // Redirigir a la vista de inicio de sesión
             window.location.href = 'iniciar_sesion.html';
         }
-
         form.classList.add('was-validated');
     }, false);
 })();
@@ -27,10 +26,5 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     const passwordField = document.getElementById('contrasena');
     const passwordFieldType = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordField.setAttribute('type', passwordFieldType);
-
-    // Cambiar el icono
-    const icon = document.getElementById('iconoOjo');
-    icon.classList.toggle('bi-eye');
-    icon.classList.toggle('bi-eye-slash');
 });
 
