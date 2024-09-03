@@ -4,6 +4,15 @@
         padding-bottom: .25rem;
         font-size: .75rem;
     }
+
+    .container table {
+        text-align: center;
+    }
+
+    .transparent-section {
+        background-color: rgba(240, 230, 230, 0.322);
+    }
+
     /* Table Alumns Final */
 
     /* Modal Table Alumns */
@@ -36,13 +45,14 @@
         display: flex;
         justify-content: space-between;
     }
+
     /* Modal Table Alumns Final */
 
 
     /* Class Calender*/
 
     .class-calendar {
-        background-color: #212429;
+        background-color: #ffffff;
         padding: 30px;
         border-radius: 15px;
         color: #fff;
@@ -53,7 +63,7 @@
     }
 
     .class-item {
-        background-color: #495057;
+        background-color: #a1b0be9f;
         padding: 15px;
         border-radius: 10px;
         margin-bottom: 20px;
@@ -272,6 +282,7 @@
         background-color: #f7f9fc;
         border: 1px solid #d6d6d6;
     }
+
     /*Modal Form Events Final*/
 
     .h2-events {
@@ -297,3 +308,19 @@
     }
 
     /* Modal Events Final */
+
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 1.5rem;
+    }
+
+
+    .table thead th {
+        background-color: #343a40;
+        color: #fff;
+    }

@@ -2,12 +2,14 @@
     max-width: 700px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #232323;
+    background-color: #fcfafa6b;
     /* Fondo gris oscuro para el contenido */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     /* Sombra */
 }
+
+
 
 .calendar-title {
     font-size: 24px;
@@ -21,7 +23,7 @@
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
-    background-color: #343a40;
+    background-color: #ffffff;
     color: white;
 }
 
@@ -61,7 +63,7 @@
 }
 
 .modal-title {
-    color: #333;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     /* Tipografía moderna */
     font-size: 24px;
