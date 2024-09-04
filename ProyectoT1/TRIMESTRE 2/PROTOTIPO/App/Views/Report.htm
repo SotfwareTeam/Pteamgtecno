@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Baile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../PUBLIC/ASSETS/CSS/Report.css">
+</head>
+<body>
+    <body>
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Sección del acordeón a la izquierda -->
+                <div class="col-md-4">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Clases
+                                    </button>
+                                </h5>
+                                <button class="btn btn-primary btn-sm" onclick="openModal('Clase')">Agregar Reporte</button>
+                            </div>
+    
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#" onclick="registerReport('Clase 1', '2024-09-03', 'Este es el reporte relacionado a la Clase 1.', 'Sistema', 'Detalles adicionales de la Clase 1')">Clase 1</a></li>
+                                        <li><a href="#" onclick="registerReport('Clase 2', '2024-09-02', 'Este es el reporte relacionado a la Clase 2.', 'Usuario', 'Detalles adicionales de la Clase 2')">Clase 2</a></li>
+                                        <li><a href="#" onclick="registerReport('Clase 3', '2024-09-01', 'Este es el reporte relacionado a la Clase 3.', 'Sistema', 'Detalles adicionales de la Clase 3')">Clase 3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Profesores
+                                    </button>
+                                </h5>
+                                <button class="btn btn-primary btn-sm" onclick="openModal('Profesor')">Agregar Reporte</button>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#" onclick="registerReport('Profesor 1', '2024-09-03', 'Este es el reporte relacionado al Profesor 1.', 'Usuario', 'Detalles adicionales del Profesor 1')">Profesor 1</a></li>
+                                        <li><a href="#" onclick="registerReport('Profesor 2', '2024-09-02', 'Este es el reporte relacionado al Profesor 2.', 'Sistema', 'Detalles adicionales del Profesor 2')">Profesor 2</a></li>
+                                        <li><a href="#" onclick="registerReport('Profesor 3', '2024-09-01', 'Este es el reporte relacionado al Profesor 3.', 'Usuario', 'Detalles adicionales del Profesor 3')">Profesor 3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Estudiantes
+                                    </button>
+                                </h5>
+                                <button class="btn btn-primary btn-sm" onclick="openModal('Estudiante')">Agregar Reporte</button>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#" onclick="registerReport('Estudiante 1', '2024-09-03', 'Este es el reporte relacionado al Estudiante 1.', 'Sistema', 'Detalles adicionales del Estudiante 1')">Estudiante 1</a></li>
+                                        <li><a href="#" onclick="registerReport('Estudiante 2', '2024-09-02', 'Este es el reporte relacionado al Estudiante 2.', 'Usuario', 'Detalles adicionales del Estudiante 2')">Estudiante 2</a></li>
+                                        <li><a href="#" onclick="registerReport('Estudiante 3', '2024-09-01', 'Este es el reporte relacionado al Estudiante 3.', 'Sistema', 'Detalles adicionales del Estudiante 3')">Estudiante 3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Sección de reportes a la derecha -->
+                <div class="col-md-8">
+                    <div class="report-section">
+                        <h2>Reportes Seleccionados</h2>
+                        <div id="reportContent">
+                            <p>Seleccione un elemento del acordeón para ver el reporte.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal para agregar reportes -->
+        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reportModalLabel">Agregar Reporte</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reportForm">
+                            <div class="form-group">
+                                <label for="reportTitle">Título</label>
+                                <input type="text" class="form-control" id="reportTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reportDescription">Descripción</label>
+                                <textarea class="form-control" id="reportDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="reportAdditionalInfo">Información Complementaria</label>
+                                <textarea class="form-control" id="reportAdditionalInfo" rows="2"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addReport()">Guardar Reporte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bootstrap JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Custom JS -->
+    <script src="../../PUBLIC/Controllers/Report.js"></script>
+</body>
+</html>

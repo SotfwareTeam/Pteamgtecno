@@ -20,7 +20,7 @@ submitBtn = document.querySelector('.submitBtn'),
   phone = document.getElementById("phone"),
   entries = document.querySelector(".showEntries"),
   tabSize = document.getElementById("table_size"),
-  userInfo = document.querySelector(".userInfo"),
+  userInfo = document.getElementsByClassName(".userInfo","userInfo1","userInfo2","userInfo3"),
   table = document.querySelector("table"),
   filterData = document.getElementById("search")
 
@@ -448,3 +448,4 @@ filterData.addEventListener("input", ()=> {
 
 
 displayIndexBtn()
+

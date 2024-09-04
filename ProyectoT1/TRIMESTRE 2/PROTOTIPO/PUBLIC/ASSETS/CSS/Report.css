@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header .btn {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+}
+
+.card-header .btn:hover {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.card-body ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.card-body ul li {
+    padding: 8px 0;
+}
+
+.card-body ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.card-body ul li a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+.report-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-section h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#reportContent {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+}
