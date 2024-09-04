@@ -3,72 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>JavaScript CURD</title>
-    <link rel="stylesheet" href="../../PUBLIC/ASSETS/CSS/style-reporte.css">
+    <link rel="stylesheet" href="../../PUBLIC/ASSETS/CSS/style-AddProfessr.css">
     <link rel="stylesheet" href="../../PUBLIC/ASSETS/CSS/STYLES.CSS">
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg fixed-top">
-          <div class="container-fluid">
-            <a class="navbar-brand me-auto" href="#">Logo</a>
-            <div
-              class="offcanvas offcanvas-end"
-              tabindex="-1"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a
-                      class="nav-link mx-lg-2 active"
-                      aria-current="page"
-                      href="#"
-                      >Home</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link mx-lg-2" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link mx-lg-2" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link mx-lg-2" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link mx-lg-2" href="#">About</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <a href="#" class="icon">
-              <ion-icon name="person-circle-outline"></ion-icon>
-            </a>
-            <!--<a href="../../PUBLIC/Login.html" class="login-button">Login</a> -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-        </nav>
-    <div class="container mtop">
+    
+    <div class="container">
+
+        <header>
+
             <div class="filterEntries">
                 <div class="entries">
                     Show <select name="" id="table_size">
@@ -78,15 +26,22 @@
                         <option value="100">100</option>
                     </select> entries
                 </div>
+
                 <div class="filter">
                     <label for="search">Search:</label>
                     <input type="search" name="" id="search" placeholder="Enter name/city/post">
                 </div>
             </div>
+
             <div class="addMemberBtn">
                 <button>New member</button>
             </div>
+
+        </header>
+
+
         <table>
+
             <thead>
                 <tr class="heading">
                     <th>SL No</th>
@@ -101,16 +56,31 @@
                     <th>Action</th>
                 </tr>
             </thead>
+
+
             <tbody class="userInfo">
             </tbody>
+
         </table>
+
+
+        <footer>
+            <span class="showEntries">Showing 1 to 10 of 50 entries</span>
+            <div class="pagination">
+            </div>
+        </footer>
     </div>
+
+
+
     <div class="dark_bg">
+
         <div class="popup">
              <header>
                 <h2 class="modalTitle">Fill the Form</h2>
                 <button class="closeBtn">&times;</button>
              </header>
+
              <div class="body">
                 <form action="#" id="myForm">
                     <div class="imgholder">
@@ -120,41 +90,51 @@
                         </label>
                         <img src="./img/pic1.png" alt="" width="150" height="150" class="img">
                     </div>
+
                     <div class="inputFieldContainer">
+
                         <div class="nameField">
                             <div class="form_control">
                                 <label for="fName">First Name:</label>
                                 <input type="text" name="" id="fName" required>
                             </div>
+
                             <div class="form_control">
                                 <label for="lName">Last Name:</label>
                                 <input type="text" name="" id="lName" required>
                             </div>
                         </div>
+
                         <div class="ageCityField">
                             <div class="form_control">
                                 <label for="age">Age:</label>
                                 <input type="number" name="" id="age" required>
                             </div>
+
                             <div class="form_control">
                                 <label for="city">City:</label>
                                 <input type="text" name="" id="city" required>
                             </div>
                         </div>
+
                         <div class="postSalary">
                             <div class="form_control">
                                 <label for="position">Position:</label>
                                 <input type="text" name="" id="position" required>
                             </div>
+
                         </div>
+
                         <div class="form_control">
                             <label for="sDate">Start Date:</label>
                             <input type="date" name="" id="sDate" required>
                         </div>
+
                         <div class="form_control">
                             <label for="email">Email:</label>
                             <input type="email" name="" id="email" required>
                         </div>
+
                         <div class="form_control">
                             <label for="phone">Phone:</label>
                             <input type="number" name="" id="phone" required>
@@ -162,60 +142,14 @@
                     </div>
                 </form>
              </div>
+
+             <footer class="popupFooter">
+                <button form="myForm" class="submitBtn">Submit</button>
+             </footer>
         </div>
+
     </div>
-    <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="../../PUBLIC/CONTROLLER/reporte.js"></script>
+    
+    <script src="../../PUBLIC/Controllers/AddProfessr.js"></script>
 </body>
-<footer class="footer">
-    <ul class="social-icon">
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-youtube"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-tiktok"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-whatsapp"></ion-icon>
-        </a>
-      </li>
-    </ul>
-    <ul class="menu">
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Inicio</a>
-      </li>
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Equipo</a>
-      </li>
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Contacto</a>
-      </li>
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Video</a>
-      </li>
-    </ul>
-    <p class="text">@Año | todos los derechos reservados</p>
-  </footer>s
 </html>
