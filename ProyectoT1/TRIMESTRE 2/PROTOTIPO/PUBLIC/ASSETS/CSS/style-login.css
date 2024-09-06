@@ -162,3 +162,9 @@ body{
 .container.toggle .welcome-sing-up{
     transform: translateX(-100%);
 }
+
+.xd{
+    background-color: #9854b1;
+    padding: 14px;
+    border-radius: 15px;
+}
