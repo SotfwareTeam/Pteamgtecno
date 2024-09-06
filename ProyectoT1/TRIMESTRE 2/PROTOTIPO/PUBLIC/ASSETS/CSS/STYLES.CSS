@@ -13,52 +13,53 @@ body{
 }
 
 .navbar-brand{
-    font-weight: 500;
-    color: rgb(254, 254, 254);
-    font-size: 24px;
-    transition: 0.3s color;
+  font-weight: 500;
+  color: rgb(254, 254, 254);
+  font-size: 24px;
+  transition: 0.3s color;
 }
 
+
 .navbar-toggler {
-  border: none;
-  font-size: 1.25rem;
+border: none;
+font-size: 1.25rem;
 }
 
 .navbar-toggler:focus,
 .btn-close {
-  box-shadow: none;
-  outline: none;
+box-shadow: none;
+outline: none;
 }
 .nav-link {
-  color: rgb(0, 0, 0);
-  font-weight: 500;
-  position: relative;
+color: rgb(0, 0, 0);
+font-weight: 500;
+position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: azure;
+color: azure;
 }
 
 @media (min-width: 991px) {
-  .nav-link::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: rgb(228, 19, 179);
-    visibility: hidden;
-    transition: 0.3s ease-in-out;
-  }
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: rgb(228, 19, 179);
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
 
-  .nav-link:hover::before,
-  .nav-link:active::before {
-    width: 100%;
-    visibility: visible;
-  }
+.nav-link:hover::before,
+.nav-link:active::before {
+  width: 100%;
+  visibility: visible;
+}
 }
 
 .footer{
