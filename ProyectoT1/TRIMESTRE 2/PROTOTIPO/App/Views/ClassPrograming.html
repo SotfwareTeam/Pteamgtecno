@@ -4,89 +4,66 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LN7Dance</title>
-    <link rel="shortcut icon" href="../../Public/Assets/img/icons/icono-dance.png" />
-    <link rel="stylesheet" href="../../Public/Assets/Css/ProgrammingClass.css">
-    <link rel="stylesheet" href="../../Public/Assets/Css/STYLES.CSS">
+    <title>Programar Clase</title>
+    <link rel="shortcut icon" href="../../PUBLIC/ASSETS/img/icons/icono-dance.png" />
+    <link rel="stylesheet" href="../../PUBLIC/ASSETS/CSS/STYLES.CSS">
+    <link rel="stylesheet" href="../../PUBLIC/ASSETS/CSS/ProgrammingClass.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body class="bg-dark text-white mtop">
-
-    <!-- Navigation Bar-->
+<body>
     <header>
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand me-auto" href="#">Logo</a>
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto" href="#">Logo</a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2 active" aria-current="page"
+                                    href="../Views/Connection.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="../Views/StudentAdmission.html">students gestion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="../Views/Events.html">Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="../Views/TeacherPrograming.html">TeacherPrograming</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="../Views/ClassPrograming.html">ClassPrograming</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="icon">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </a>
+                <!--<a href="../../PUBLIC/Login.html" class="login-button">Login</a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a
-                    class="nav-link mx-lg-2 active"
-                    aria-current="page"
-                    href="../Views/Connection.html"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="../Views/StudentAdmission.html">students gestion</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="../Views/Events.html">Events</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="../Views/TeacherPrograming.html">TeacherPrograming</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="../Views/ClassPrograming.html">ClassPrograming</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <a href="#" class="icon">
-            <ion-icon name="person-circle-outline"></ion-icon>
-          </a>
-          <!--<a href="../../PUBLIC/Login.html" class="login-button">Login</a> -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
+        </nav>
     </header>
-    <!-- Navigation Bar Final-->
-
     <!-- Programing Calendar -->
     <div class="container mt-5">
-        <div class="calendar-title text-center mb-4">
+        <div class="calendar-title text-center mb-4 ">
             <h2>Programar Clase</h2>
         </div>
-        <div class="calendar calendar-container mx-auto p-3 rounded bg-dark border border-secondary">
+        <div class="calendar calendar-container mx-auto p-3 rounded border border-secondary">
             <div class="calendar-header d-flex justify-content-between align-items-center">
                 <button id="prevMonth" class="btn btn-dark">&lt;</button>
-                <h3 id="currentMonth" class="text-center m-0"></h3>
+                <h3 id="currentMonth" class="text-center text-black m-0"></h3>
                 <button id="nextMonth" class="btn btn-dark">&gt;</button>
             </div>
             <table class="table table-bordered text-center mt-3 table-secondary">
@@ -117,10 +94,12 @@
         </div>
     </div>
     <!-- Programing Calendar Final-->
+
+
     <!-- Modal Programar -->
-    <div class="modal fade " id="programModal" tabindex="-1" aria-labelledby="programModalLabel" aria-hidden="true">
+    <div class="modal fade" id="programModal" tabindex="-1" aria-labelledby="programModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content-calender bg-dark text-white">
+            <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="programModalLabel">Programar Clase</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
@@ -161,10 +140,11 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Eliminar -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content-calender bg-dark text-white">
+            <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteModalLabel">Eliminar Programación</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
@@ -180,10 +160,11 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Editar -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content-calender bg-dark text-white">
+            <div class="modal-content  text-black">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Editar Programación</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
@@ -224,10 +205,11 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Información -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content-calender bg-dark text-white">
+            <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="infoModalLabel">Información del Día</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
@@ -242,7 +224,9 @@
             </div>
         </div>
     </div>
+
     <!-- Info Programing-->
+
     <div class="container info-programing">
 
         <div class="row align-items-md-stretch">
@@ -266,8 +250,8 @@
             </div>
         </div>
     </div>
+
     <!-- Info Programing Final-->
-    <!-- JS Controllers-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../Public/Controllers/ControllersCalendar.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -280,51 +264,53 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <!-- JS Controllers Final-->
 </body>
+<!-- Footer -->
 <footer class="footer">
     <ul class="social-icon">
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-youtube"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-tiktok"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a>
-      </li>
-      <li class="icon-elem">
-        <a href="" class="icon">
-          <ion-icon name="logo-whatsapp"></ion-icon>
-        </a>
-      </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-tiktok"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+        </li>
     </ul>
     <ul class="menu">
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Inicio</a>
-      </li>
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Equipo</a>
-      </li>
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Contacto</a>
-      </li>
-      <li class="menu-elem">
-        <a href="" class="menu-icon">Video</a>
-      </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Inicio</a>
+        </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Equipo</a>
+        </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Contacto</a>
+        </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Video</a>
+        </li>
     </ul>
     <p class="text">@Año | todos los derechos reservados</p>
-  </footer>
+</footer>
+
+<!-- Footer Final -->
 
 </html>

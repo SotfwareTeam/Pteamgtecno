@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         cell.classList.add('selected', 'scheduled');
                     }
 
-                    cell.addEventListener('click', function () {
+                    cell.addEventListener('click', function() {
                         if (selectedCell) {
                             selectedCell.classList.remove('selected');
                         }
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Programar clase
-    document.getElementById('programForm').addEventListener('submit', function (e) {
+    document.getElementById('programForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (selectedCell) {
             const dateKey = `${currentYear}-${currentMonthIndex + 1}-${selectedCell.textContent}`;
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Eliminar clase
-    document.getElementById('confirmDelete').addEventListener('click', function () {
+    document.getElementById('confirmDelete').addEventListener('click', function() {
         if (selectedCell) {
             const dateKey = `${currentYear}-${currentMonthIndex + 1}-${selectedCell.textContent}`;
             if (scheduledClasses[dateKey]) {
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.getElementById('editForm').addEventListener('submit', function (e) {
+    document.getElementById('editForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (selectedCell) {
             const dateKey = `${currentYear}-${currentMonthIndex + 1}-${selectedCell.textContent}`;

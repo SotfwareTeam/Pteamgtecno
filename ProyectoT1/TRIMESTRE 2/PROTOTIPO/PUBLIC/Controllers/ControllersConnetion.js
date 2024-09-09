@@ -41,41 +41,39 @@ document.querySelectorAll('.instructor-img').forEach(image => {
     });
 });
 
-// JavaScript For The Gender Dance /////////////////////////////////////////////////////////
-document.addEventListener('DOMContentLoaded', function () {
-    var carouselElement = document.querySelector('#danceCarousel');
-    var carouselInfo = document.querySelector('#carouselInfo');
+// JavaScript For The Gender Dance /////////////////////////////////////////////////////////document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll('.carousel-images img');
+    const titles = ["Bachata", "Salsa", "Afrobeat", "Champeta", "Merengue", "Pole Dance"];
+    const descriptions = [
+        "La bachata es un género musical bailable originario de la República Dominicana, que se ha popularizado en todo el mundo.",
+        "La salsa es un género bailable que combina ritmos afrocaribeños y se baila con mucho sabor.",
+        "El Afrobeat combina música africana con influencias occidentales, caracterizado por ritmos fuertes y bailes enérgicos.",
+        "La champeta es un género musical de la costa caribeña colombiana con influencias africanas.",
+        "El merengue es un ritmo alegre y rápido originario de la República Dominicana, muy popular en América Latina.",
+        "Pole Dance combina acrobacias y danza, ofreciendo una forma de ejercicio intensa y desafiante."
+    ];
 
-    // Actualizar el texto de la información cuando el carrusel cambia
-    carouselElement.addEventListener('slid.bs.carousel', function () {
-        var activeItem = document.querySelector('.carousel-item.active');
-        var infoText = activeItem.getAttribute('data-info');
-        carouselInfo.textContent = infoText;
-    });
+    let currentIndex = 0;
 
-    // Detener la rotación del carrusel cuando el cursor esté encima
-    var carouselItems = document.querySelectorAll('.carousel-item');
-    carouselItems.forEach(function (item) {
-        item.addEventListener('mouseenter', function () {
-            var carousel = bootstrap.Carousel.getInstance(carouselElement);
-            carousel.pause();
+    function updateCarousel() {
+        images.forEach((img, index) => {
+            img.classList.remove('active');
+            img.style.transform = `rotateY(${(index - currentIndex) * 60}deg) translateZ(300px)`;
         });
-        item.addEventListener('mouseleave', function () {
-            var carousel = bootstrap.Carousel.getInstance(carouselElement);
-            carousel.cycle();
-        });
-    });
 
-    // Iniciar el carrusel con la actualización automática del texto
-    var carouselInstance = new bootstrap.Carousel(carouselElement, {
-        interval: 5000, // Cambiar imagen cada 5 segundos
-        ride: 'carousel'
-    });
+        images[currentIndex].classList.add('active');
+        document.getElementById("carouselTitle").textContent = titles[currentIndex];
+        document.getElementById("carouselDescription").textContent = descriptions[currentIndex];
+    }
 
-    // Forzar actualización del texto en la primera carga
-    var activeItem = document.querySelector('.carousel-item.active');
-    var infoText = activeItem.getAttribute('data-info');
-    carouselInfo.textContent = infoText;
+    function rotateCarousel() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+    }
+
+    updateCarousel();
+    setInterval(rotateCarousel, 5000);
 });
 
 // JavaScript For The PQR /////////////////////////////////////////////////////////
