@@ -2,3 +2,11 @@
     max-width: 400px;
     margin: 20px auto;
 }
+
+.btn-p{
+    background-color: antiquewhite;
+}
+
+.btn-e{
+    background-color: rgb(173, 248, 253);
+}
