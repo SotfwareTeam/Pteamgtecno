@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Eventos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../Public/Assets/Css/Styles.css" />
+    <link
+      rel="shortcut icon"
+      href="../../../Public/Assets/img/icons/icono-dance.png"
+    />
+    <link rel="stylesheet" href="../../../Public/Assets/Css/Events.css" />
+  </head>
+  <!-- Navigation Bar Final-->
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="../VGeneral/Connection.html">Logo</a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page"
+                                href="Connection.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#faltapordefinir">Clases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Events.html">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Report.htm">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Notificacion.html">Notificaciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="Perfil.html" class="icon">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+      <br><br>
+        <!-- Secciones: Espacios, Profesores, Competencias -->
+        <div class="row text-center mt-4">
+          <div class="col-md-4">
+              <h3>Espacios</h3>
+              <img src="../../../PUBLIC/ASSETS/img/salones.jpg" alt="Espacios" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#espaciosModal">
+          </div>
+          <div class="col-md-4">
+              <h3>Profesores</h3>
+              <img src="../../../PUBLIC/ASSETS/img/profesor.jpg" alt="Profesores" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#profesoresModal">
+          </div>
+          <div class="col-md-4">
+              <h3>Competencias</h3>
+              <img src="../../../PUBLIC/ASSETS/img/list.png" alt="Competencias" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#competenciasModal">
+          </div>
+      </div>
+  </div>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Eventos</h1>
+
+        <!-- Carrusel de imágenes -->
+        <div id="eventosCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../../../Public/Assets/img/icons/Evento1.jpeg" class="d-block w-100" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../Public/Assets/img/icons/Evento2.jpeg" class="d-block w-100" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../Public/Assets/img/icons/Evento3.jpeg" class="d-block w-100" alt="Imagen 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventosCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventosCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+<br><br>
+
+    <!-- Modal Espacios -->
+    <div class="modal fade" id="espaciosModal" tabindex="-1" aria-labelledby="espaciosModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="espaciosModalLabel">Detalles de Espacios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Aquí puedes ver los detalles de los espacios disponibles.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='calendario.html'">Ir a Calendario</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Profesores -->
+    <div class="modal fade" id="profesoresModal" tabindex="-1" aria-labelledby="profesoresModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profesoresModalLabel">Nuestros Profesores</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Ejemplo de card de un profesor -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../../../PUBLIC/ASSETS/img/user.jpg" class="card-img-top" alt="Profesor 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Profesor 1</h5>
+                                    <p class="card-text">Experto en salsa y bachata.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../../../PUBLIC/ASSETS/img/user.jpg" class="card-img-top" alt="Profesor 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Profesor 2</h5>
+                                    <p class="card-text">Especialista en tango y danza contemporánea.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../../../PUBLIC/ASSETS/img/user.jpg" class="card-img-top" alt="Profesor 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Profesor 3</h5>
+                                    <p class="card-text">Instructor de hip-hop y breakdance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Competencias -->
+    <div class="modal fade" id="competenciasModal" tabindex="-1" aria-labelledby="competenciasModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="competenciasModalLabel">Detalles de Competencias</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Información sobre las competencias y torneos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+        <!-- JS Controllers Final-->
+</body>
+<!-- Footer -->
+<footer class="footer">
+    <ul class="social-icon">
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-tiktok"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+        </li>
+    </ul>
+  <ul class="menu">
+    <li class="menu-elem">
+      <a href="" class="menu-icon">Inicio</a>
+    </li>
+    <li class="menu-elem">
+      <a href="" class="menu-icon">Equipo</a>
+    </li>
+    <li class="menu-elem">
+      <a href="" class="menu-icon">Contacto</a>
+    </li>
+    <li class="menu-elem">
+      <a href="" class="menu-icon">Video</a>
+    </li>
+  </ul>
+  <p class="text">@Año | todos los derechos reservados</p>
+</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

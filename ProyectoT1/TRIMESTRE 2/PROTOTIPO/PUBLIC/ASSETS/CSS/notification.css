@@ -4,9 +4,14 @@
 }
 
 .btn-p{
-    background-color: antiquewhite;
+    background-color: #9854b1;
 }
 
 .btn-e{
-    background-color: rgb(173, 248, 253);
+    background-color: #b269cd;
+}
+
+.container{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5%;
 }
