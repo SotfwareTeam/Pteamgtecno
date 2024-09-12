@@ -1,43 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* Importa la fuente 'Cormorant Garamond' desde Google Fonts para utilizarla en el proyecto */
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Cormorant Garamond", serif;
 }
+/* Elimina los márgenes y el padding predeterminado en todos los elementos y define que el box-sizing tome en cuenta el padding y el border dentro del tamaño total del elemento. Aplica la fuente importada a todo el documento */
 
-body {
+body{
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F0F4F3;
-    background: linear-gradient(317deg, #5f2f9a, #076a81, #b269cd);
+    background: linear-gradient( 317deg, #5f2f9a, #076a81, #b269cd);
     margin: 0;
     padding: 0;
     overflow: hidden;
-
 }
+/* Estilos para el body: usa toda la pantalla, alinea el contenido centrado vertical y horizontalmente, y establece un fondo degradado en lugar de un color sólido */
 
-.container {
+.container{
     width: 800px;
     height: 500px;
     display: flex;
     position: relative;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 15px;    
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+    box-shadow: 0 0 10px rgba(0, 0,0,0.3);
 }
+/* Define un contenedor con un tamaño fijo, un color de fondo blanco, bordes redondeados y una sombra alrededor */
 
-.container-form {
+.container-form{
     width: 100%;
     overflow: hidden;
 }
+/* Contenedor para el formulario que toma todo el ancho del contenedor principal y oculta cualquier contenido que desborde */
 
-.container-form form {
+.container-form form{
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -45,31 +49,36 @@ body {
     align-items: center;
     transition: 0.5s ease-in;
 }
+/* El formulario dentro del contenedor se alinea verticalmente y horizontalmente en el centro, y se le agrega una transición para posibles animaciones */
 
-.container-form h2 {
+.container-form h2{
     font-size: 30px;
     margin-bottom: 20px;
 }
+/* Define el estilo del título del formulario, con un tamaño de letra grande y espacio inferior */
 
-.social-networks {
+.social-networks{
     display: flex;
     gap: 12px;
     margin-bottom: 25px;
 }
+/* Contenedor para los íconos de redes sociales, con un margen entre los íconos y espacio inferior */
 
-.social-networks ion-icon {
+.social-networks ion-icon{
     border: 1px solid #c9cccb;
     border-radius: 6px;
     padding: 8px;
     cursor: pointer;
 }
+/* Estilos para los íconos de redes sociales, incluyendo un borde, bordes redondeados y un tamaño de relleno (padding). Hace que el cursor cambie a puntero cuando se pasa sobre ellos */
 
-.container-form span {
+.container-form span{
     font-size: 12px;
     margin-bottom: 15px;
 }
+/* Estilo de los textos pequeños dentro del formulario (por ejemplo, los placeholders o mensajes informativos) */
 
-.container-input {
+.container-input{
     width: 300px;
     height: 40px;
     margin-bottom: 10px;
@@ -80,23 +89,26 @@ body {
     padding: 0 15px;
     background-color: #EEEEEE;
 }
+/* Contenedor de cada campo de entrada del formulario, con un tamaño fijo, relleno y color de fondo gris claro */
 
-.container-input input {
+.container-input input{
     border: none;
     outline: none;
     width: 100%;
     height: 100%;
     background-color: inherit;
 }
+/* Estilo para los campos de entrada: sin borde ni contorno, ocupa todo el espacio disponible dentro del contenedor y hereda el color de fondo */
 
-.container-form a {
+.container-form a{
     color: black;
     font-size: 14px;
     margin-bottom: 20px;
     margin-top: 5px;
 }
+/* Estilos para los enlaces dentro del formulario, como los que permiten cambiar la contraseña o registrarse */
 
-.button {
+.button{
     width: 170px;
     height: 45px;
     border: none;
@@ -106,25 +118,24 @@ body {
     background-color: #9854b1;
     color: white;
 }
+/* Estilo de los botones, con tamaño fijo, sin borde, bordes redondeados y fondo color púrpura. El texto es blanco */
 
-/*Animacion form*/
-
-.sing-up {
+.sing-up{
     transform: translateX(-100%);
-
 }
+/* La clase .sing-up posiciona el formulario de registro fuera de la pantalla hacia la izquierda por defecto */
 
-.container.toggle .sing-in {
+.container.toggle .sing-in{
     transform: translateX(100%);
 }
+/* Cuando se activa la clase "toggle" en el contenedor, el formulario de inicio de sesión se mueve fuera de la pantalla hacia la derecha */
 
-.container.toggle .sing-up {
+.container.toggle .sing-up{
     transform: translateX(0%);
 }
+/* Cuando se activa la clase "toggle", el formulario de registro se posiciona en su lugar visible (0% de su posición original) */
 
-/*welcome*/
-
-.container-welcome {
+.container-welcome{
     position: absolute;
     width: 50%;
     height: 100%;
@@ -136,14 +147,16 @@ body {
     overflow: hidden;
     border-radius: 50% 0 0 50%;
 }
+/* Estilo para el panel de bienvenida (parte derecha del formulario). Ocupa el 50% del contenedor, tiene fondo verde-azulado y una forma redondeada. Por defecto, está fuera de la vista desplazado hacia la derecha */
 
-.container.toggle .container-welcome {
+.container.toggle .container-welcome{
     transform: translateX(0);
     border-radius: 0 50% 50% 0;
     background-color: #117597;
 }
+/* Cuando se activa la clase "toggle", el panel de bienvenida se mueve hacia la izquierda y cambia el radio del borde para formar una curva en el lado opuesto */
 
-.container-welcome .welcome {
+.container-welcome .welcome{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -153,31 +166,62 @@ body {
     color: white;
     transition: 0.5s ease-in-out;
 }
+/* Estilos para el contenido dentro del panel de bienvenida: texto centrado y alineado en columnas con un espacio entre ellos */
 
-.welcome-sing-in {
+.welcome-sing-in{
     transform: translateX(100%);
-
-
 }
+/* El texto y contenido del formulario de bienvenida está oculto a la derecha por defecto */
 
-.container-welcome h3 {
+.container-welcome h3{
     font-size: 40px;
 }
+/* Tamaño del título dentro del panel de bienvenida */
 
-.container-welcome p {
+.container-welcome p{
     font-size: 14px;
     text-align: center;
 }
+/* Estilo de los párrafos dentro del panel de bienvenida */
 
-.container-welcome .button {
+.container-welcome .button{
     border: 2px solid white;
     background-color: transparent;
 }
+/* Estilo de los botones dentro del panel de bienvenida, con un borde blanco y fondo transparente */
 
-.container.toggle .welcome-sing-in {
+.container.toggle .welcome-sing-in{
     transform: translateX(0%);
 }
+/* Al activarse la clase "toggle", el contenido de bienvenida para el inicio de sesión se hace visible, moviéndose hacia el centro */
 
-.container.toggle .welcome-sing-up {
+.container.toggle .welcome-sing-up{
     transform: translateX(-100%);
 }
+/* Al activarse la clase "toggle", el contenido de bienvenida para el registro se mueve hacia la izquierda, fuera de la pantalla */
+
+#dropdownMenuButton1 {
+    background-color: #9854b1; /* Color de fondo */
+    border: none; /* Eliminar borde */
+    color: white; /* Color del texto */
+}
+
+#dropdownMenuButton1:hover {
+    background-color: #9854b1; /* Color al pasar el mouse */
+    color: white; /* Asegurarse de que el texto siga siendo visible */
+}
+
+.dropdown-menu {
+    background-color: #eeecf0; /* Color de fondo del menú desplegable */
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    color: white; /* Cambiar color del texto dentro del menú */
+}
+
+.dropdown-item:hover {
+    background-color: #9854b1; /* Cambiar color de fondo cuando se pasa el mouse */
+    color: white;
+}
+/* Cambiar el color del botón de iniciar sesión */

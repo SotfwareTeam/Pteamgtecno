@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Programar Clase</title>
+    <link rel="shortcut icon" href="../../../PUBLIC/ASSETS/img/icons/icono-dance.png" />
+    <link rel="stylesheet" href="../../../PUBLIC/ASSETS/CSS/STYLES.CSS">
+    <link rel="stylesheet" href="../../../PUBLIC/ASSETS/CSS/ProgrammingClass.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto" href="#">Logo</a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2 active" aria-current="page"
+                                    href="Connection.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="../../Views/StudentAdmission.html">Gestion estudiantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="Events.html">Eventos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="vclientec.html">Programa profesor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="../Vusuario/ClassProgramingUser.html">Programacion clases</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="Perfil.html" class="icon">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </a>
+                <!--<a href="../../PUBLIC/Login.html" class="login-button">Login</a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- Programing Calendar -->
+    <div class="container mt-5">
+        <div class="calendar-title text-center mb-4 ">
+            <h2>Programar Clase</h2>
+        </div>
+        <div class="calendar calendar-container mx-auto p-3 rounded border border-secondary">
+            <div class="calendar-header d-flex justify-content-between align-items-center">
+                <button id="prevMonth" class="btn btn-dark">&lt;</button>
+                <h3 id="currentMonth" class="text-center text-black m-0"></h3>
+                <button id="nextMonth" class="btn btn-dark">&gt;</button>
+            </div>
+            <table class="table table-bordered text-center mt-3 table-secondary">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- Aquí se generarán las celdas del calendario -->
+                </tbody>
+            </table>
+            <div class="calendar-footer d-flex justify-content-center">
+                <button class="btn btn-success mx-2" data-bs-toggle="modal"
+                    data-bs-target="#programModal">Programar</button>
+                <button class="btn btn-danger mx-2" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal">Eliminar</button>
+                <button class="btn btn-warning mx-2" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                <button class="btn btn-info mx-2" data-bs-toggle="modal"
+                    data-bs-target="#infoModal">Información</button>
+            </div>
+        </div>
+    </div>
+    <!-- Programing Calendar Final-->
+
+
+    <!-- Modal Programar -->
+    <div class="modal fade" id="programModal" tabindex="-1" aria-labelledby="programModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="programModalLabel">Programar Clase</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="programForm">
+                        <div class="mb-3">
+                            <label for="profesor" class="form-label">Profesor</label>
+                            <input type="text" class="form-control" id="profesor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sede" class="form-label">Sede</label>
+                            <input type="text" class="form-control" id="sede" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hora" class="form-label">Hora</label>
+                            <input type="time" class="form-control" id="hora" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clase" class="form-label">Clase</label>
+                            <input type="text" class="form-control" id="clase" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dificultad" class="form-label">Dificultad</label>
+                            <select class="form-select" id="dificultad" required>
+                                <option value="Principiante">Principiante</option>
+                                <option value="Medio">Medio</option>
+                                <option value="Difícil">Difícil</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eliminar -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Eliminar Programación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas eliminar la programación de este día?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content  text-black">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Programación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label for="editProfesor" class="form-label">Profesor</label>
+                            <input type="text" class="form-control" id="editProfesor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editSede" class="form-label">Sede</label>
+                            <input type="text" class="form-control" id="editSede" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editHora" class="form-label">Hora</label>
+                            <input type="time" class="form-control" id="editHora" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editClase" class="form-label">Clase</label>
+                            <input type="text" class="form-control" id="editClase" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDificultad" class="form-label">Dificultad</label>
+                            <select class="form-select" id="editDificultad" required>
+                                <option value="Principiante">Principiante</option>
+                                <option value="Medio">Medio</option>
+                                <option value="Difícil">Difícil</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-warning">Guardar Cambios</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Información -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Información del Día</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="infoContent">
+                    <!-- Aquí se mostrará la información del día seleccionado -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Programing-->
+
+    <div class="container info-programing">
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-body-tertiary rounded-3">
+                    <h2 class="text-dark">Change the background</h2>
+                    <p class="text-dark">Swap the background-color utility and add a `.text-*` color utility to mix up
+                        the jumbotron look.
+                        Then, mix and match with additional component themes and more.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                    <h2 class="text-dark">Add borders</h2>
+                    <p class="text-dark">Or, keep it light and add a border for some added definition to the boundaries
+                        of your content. Be
+                        sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing
+                        of
+                        both column's content for equal-height.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Programing Final-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../Public/Controllers/ControllersCalendar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+</body>
+<!-- Footer -->
+<footer class="footer">
+    <ul class="social-icon">
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-tiktok"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+        </li>
+    </ul>
+    <ul class="menu">
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Inicio</a>
+        </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Equipo</a>
+        </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Contacto</a>
+        </li>
+        <li class="menu-elem">
+            <a href="" class="menu-icon">Video</a>
+        </li>
+    </ul>
+    <p class="text">@Año | todos los derechos reservados</p>
+</footer>
+
+<!-- Footer Final -->
+
+</html>

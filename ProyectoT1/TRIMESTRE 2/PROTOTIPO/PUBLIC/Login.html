@@ -2,86 +2,144 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Establece el viewport para que el sitio sea responsive, ajustándose correctamente en dispositivos móviles -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Importa los estilos de Bootstrap 5.0.2 desde un CDN (Content Delivery Network) para aprovechar sus componentes y utilidades -->
+
     <title>Login Page</title>
+    
     <link rel="stylesheet" href="../PUBLIC/ASSETS/CSS/style-login.css">
-    <style>
-        /* CSS para asegurar que el dropdown-menu se despliegue hacia abajo */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%; /* Asegura que el menú se despliegue hacia abajo */
-            left: 0;
-            z-index: 1000; /* Asegura que el menú se superponga correctamente */
-        }
-    </style>
+
 </head>
 <body>
     <div class="container">
+        <!-- Contenedor principal que agrupa todo el contenido de la página -->
+        
         <div class="container-form">
+            
             <form class="sing-in">
+                
                 <h2>Iniciar Sesion</h2>
+
                 <div class="social-networks">
+                    <!-- Contenedor para los iconos de redes sociales -->
                     <ion-icon name="logo-instagram"></ion-icon>
                     <ion-icon name="logo-facebook"></ion-icon>
                     <ion-icon name="logo-xing"></ion-icon>
                     <ion-icon name="logo-youtube"></ion-icon>
                 </div>
+
                 <span>Use su correo y contraseña</span>
+
                 <div class="container-input">
                     <ion-icon name="mail"></ion-icon>
                     <input type="text" placeholder="Email">
+                    <!-- Campo de entrada para el correo electrónico -->
                 </div>
+
                 <div class="container-input">
+                    <!-- Contenedor para el campo de contraseña -->
                     <ion-icon name="lock"></ion-icon>
                     <input type="password" placeholder="password">
                 </div>
-                <a href="../App/Views/Register.html">Registro</a>
+
+                <a href="../../PROTOTIPO/App/Views/VGeneral/Register.html">Registro</a>
+                <!-- Enlace hacia la página de registro de usuario -->
+
                 <div class="dropdown">
+                    
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
+                        Iniciar Sesion
                     </button>
+                    <!-- Botón con clase de Bootstrap que activa el menú desplegable -->
+
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <!-- Lista desplegable activada por el botón -->
+                        <li><a class="dropdown-item" href="../App/Views/Vusuario/Connection.html">Estudiante</a></li>
+                        <!-- Opción del menú con enlace -->
+                        <li><a class="dropdown-item" href="../App/Views/VAdmin/Connection.html">Administrador</a></li>
+                        <!-- Otra opción del menú -->
+                        <li><a class="dropdown-item" href="../App/Views/VProfesor/Connection.html">Profesor</a></li>
+                        <!-- Tercera opción del menú -->
                     </ul>
                 </div>
+                <!-- Fin del menú desplegable -->
             </form>
+            <!-- Fin del formulario de inicio de sesión -->
         </div>
+
         <div class="container-form">
+            <!-- Segundo formulario para cambiar la contraseña -->
+            
             <form class="sing-up">
+                <!-- Formulario para cambiar la contraseña con clase "sing-up" -->
+                
                 <h2>Cambiar contraseña</h2>
+
                 <div class="social-networks">
+                    <!-- Contenedor para los iconos de redes sociales -->
                     <ion-icon name="logo-instagram"></ion-icon>
                     <ion-icon name="logo-facebook"></ion-icon>
                     <ion-icon name="logo-xing"></ion-icon>
                     <ion-icon name="logo-youtube"></ion-icon>
                 </div>
+
                 <span>Escribe tu correo</span>
+
                 <div class="container-input">
                     <ion-icon name="mail"></ion-icon>
+                    <!-- Ícono del correo -->
                     <input type="text" placeholder="Email">
+                    <!-- Campo de entrada para el correo electrónico -->
                 </div>
+
                 <button class="button">Enviar correo</button>
-                <button class="button" type="button">Enviar correo</button>
+                <!-- Botón para enviar la solicitud de cambio de contraseña -->
             </form>
         </div>
+
         <div class="container-welcome">
+            <!-- Contenedor para el mensaje de bienvenida -->
+
             <div class="welcome-sing-up welcome">
+                <!-- Mensaje y botón para la opción de cambio de contraseña -->
+                
                 <h3>¡Bienvenido!</h3>
+                <!-- Título del mensaje -->
+
                 <p>Ingrese sus datos personales para usar todas las funciones del sitio</p>
+                <!-- Mensaje descriptivo -->
+
                 <button class="button" id="btn-sign-up">Cambiar contraseña</button>
+                <!-- Botón que posiblemente active la opción de cambio de contraseña -->
             </div>
+
             <div class="welcome-sing-in welcome">
+                <!-- Mensaje y botón para la opción de iniciar sesión -->
+                
                 <h3>¡Hola!</h3>
+                <!-- Título del mensaje -->
+
                 <p>Registra tus datos personales para usar todas las funciones del sitio</p>
+                <!-- Mensaje descriptivo -->
+
                 <button class="button" id="btn-sign-in">Iniciar Sesion</button>
+                <!-- Botón que posiblemente active el formulario de inicio de sesión -->
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Carga el script de Bootstrap para hacer que los componentes interactivos, como el dropdown, funcionen -->
+
     <script src="../PUBLIC/Controllers/Login.js"></script>
+    <!-- Enlace al archivo JavaScript personalizado que contiene la lógica del formulario de inicio de sesión -->
+
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <!-- Carga la librería de iconos Ionicons para utilizar los iconos personalizados en los formularios -->
 </body>
+
 </html>
