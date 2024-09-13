@@ -1,6 +1,26 @@
-.card {
-  margin: 20px;
+.img-thumbnail {
+  width: 100%;
+  height: auto;
 }
-.custom-btn {
-  margin-top: 10px;
+
+.card {
+  margin-top: 20px;
+  margin: 10px 0;
+}
+
+
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid {
+  max-width: 150px;
+  height: auto;
+}
+
+.card img {
+  max-height: 150px;
 }
