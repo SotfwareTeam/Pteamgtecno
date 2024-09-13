@@ -4,8 +4,10 @@
     padding-bottom: .25rem;
     font-size: .75rem;
 }
-
-
+.nav-link:hover,
+.nav-link.active {
+color: azure;
+}
 
 .container table {
     text-align: center;
