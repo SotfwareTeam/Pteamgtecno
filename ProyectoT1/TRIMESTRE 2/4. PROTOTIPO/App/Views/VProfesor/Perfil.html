@@ -10,40 +10,90 @@
 
 </head>
 <body>
-    <h2>Perfil de Profesor</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <!-- Información Personal -->
-        <h3>Información Personal</h3>
-        <ul class="list-group">
-          <li class="list-group-item">Nombre: Juan Pérez</li>
-          <li class="list-group-item">Email: juanperez@example.com</li>
-          <li class="list-group-item">Especialidad: Salsa</li>
-        </ul>
-        <button class="btn btn-primary custom-btn">Editar Información</button>
-      </div>
-      <div class="col-md-8">
-        <!-- Clases Asignadas -->
-        <h3>Clases Asignadas</h3>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Clase</th>
-              <th>Estudiantes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>12/09/2024</td>
-              <td>Salsa</td>
-              <td>15</td>
-            </tr>
-            <!-- Más filas de clases asignadas -->
-          </tbody>
-        </table>
-      </div>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand me-auto" href="../VGeneral/Connection.html">Logo</a>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page"
+                                href="Connection.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="ClassProgramingAdmin.html">Clases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Events.html">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Report.htm">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Notificacion.html">Notificaciones</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link mx-lg-2" href="vadminc.html">Novedades del sistema</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <a href="Perfil.html" class="icon">
+            <ion-icon name="person-circle-outline"></ion-icon>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
+</nav>
+<br>
+<br>
+    <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-3">
+              <img src="img/profesor.jpg" alt="Foto de Perfil" class="img-thumbnail">
+              <input type="file" class="form-control mt-2" id="upload-profile-image">
+          </div>
+          <div class="col-md-9">
+              <h2>Perfil del Profesor</h2>
+              <form id="profesor-info-form">
+                  <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre:</label>
+                      <input type="text" class="form-control" id="nombre" value="Ana Perez">
+                  </div>
+                  <div class="mb-3">
+                      <label for="email" class="form-label">Correo Electrónico:</label>
+                      <input type="email" class="form-control" id="email" value="ana@ejemplo.com">
+                  </div>
+                  <div class="mb-3">
+                      <label for="telefono" class="form-label">Teléfono:</label>
+                      <input type="tel" class="form-control" id="telefono" value="987654321">
+                  </div>
+                  <div class="mb-3">
+                      <label for="especialidad" class="form-label">Especialidad:</label>
+                      <input type="text" class="form-control" id="especialidad" value="Salsa">
+                  </div>
+                  <div>
+                      <button type="button" class="btn btn-primary" onclick="guardarCambios('profesor')">Guardar Cambios</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+      <div class="mt-4">
+          <h3>Clases Asignadas</h3>
+          <ul class="list-group" id="clases-list">
+              <li class="list-group-item">Clase de Salsa - Lunes, 5 PM</li>
+              <li class="list-group-item">Clase de Bachata - Miércoles, 7 PM</li>
+          </ul>
+      </div>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../PUBLIC/Controllers/perfil.js"></script>
 </body>
 </html>

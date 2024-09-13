@@ -51,44 +51,66 @@
         </button>
     </div>
 </nav>
-  <br><br>
-    <h2>Perfil de Administrador</h2>
-    <div class="row">
-      <!-- Gestión de Clases -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="gestionar_clases.jpg" class="card-img-top" alt="Gestión de Clases">
-          <div class="card-body">
-            <h5 class="card-title">Gestión de Clases</h5>
-            <p class="card-text">Administra las clases de la academia.</p>
-            <a href="gestionar_clases.html" class="btn btn-primary">Ir a Gestión de Clases</a>
-          </div>
+  <br><br>s
+<div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="img/admin.jpg" alt="Foto de Perfil" class="img-thumbnail">
+                <input type="file" class="form-control mt-2" id="upload-profile-image">
+            </div>
+            <div class="col-md-9">
+                <h2>Perfil del Administrador</h2>
+                <form id="admin-info-form">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" value="Carlos Rodriguez">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" value="carlos@ejemplo.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" value="5647382910">
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" onclick="guardarCambios('admin')">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-      <!-- Gestión de Usuarios -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="gestionar_usuarios.jpg" class="card-img-top" alt="Gestión de Usuarios">
-          <div class="card-body">
-            <h5 class="card-title">Gestión de Usuarios</h5>
-            <p class="card-text">Administra los usuarios de la academia.</p>
-            <a href="gestionar_usuarios.html" class="btn btn-primary">Ir a Gestión de Usuarios</a>
-          </div>
+        <div class="mt-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/reportes.jpg" class="card-img-top" alt="Reportes">
+                        <div class="card-body">
+                            <h5 class="card-title">Reportes y Estadísticas</h5>
+                            <button class="btn btn-primary">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/usuarios.jpg" class="card-img-top" alt="Usuarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Gestión de Usuarios</h5>
+                            <button class="btn btn-primary">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/clases.jpg" class="card-img-top" alt="Clases">
+                        <div class="card-body">
+                            <h5 class="card-title">Gestión de Clases</h5>
+                            <button class="btn btn-primary">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Reportes y Estadísticas -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="../../../PUBLIC/ASSETS/img/estadistica.jfif" class="card-img-top" alt="Reportes y Estadísticas">
-          <div class="card-body">
-            <h5 class="card-title">Reportes y Estadísticas</h5>
-            <p class="card-text">Consulta reportes y estadísticas.</p>
-            <a href="reportes_estadisticas.html" class="btn btn-primary">Ir a Reportes y Estadísticas</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
   <br><br><br>
   <footer class="footer">
       <ul class="social-icon">
@@ -151,5 +173,6 @@
   <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
   <script src="../../../PUBLIC/Controllers/Notificacion.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../PUBLIC/Controllers/perfil.js"></script>
 </body>
 </html>
