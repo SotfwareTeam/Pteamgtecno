@@ -261,7 +261,7 @@ body{
     }
 
     .button {
-        width: 100%; /* Ocupa todo el ancho del contenedor en móviles */
+        width: 100%; /*Ocupa todo el ancho del contenedor en móviles */
         height: 50px;
     }
 
