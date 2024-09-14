@@ -23,15 +23,17 @@ body{
 }
 /* Estilos para el body: usa toda la pantalla, alinea el contenido centrado vertical y horizontalmente, y establece un fondo degradado en lugar de un color sólido */
 
-.container{
-    width: 800px;
-    height: 500px;
+.container {
+    width: 90vw; /* Ancho relativo al viewport */
+    max-width: 800px; /* Limita el ancho máximo en pantallas grandes */
+    height: auto; /* Deja que la altura se ajuste al contenido */
+    min-height: 500px; /* Altura mínima */
     display: flex;
     position: relative;
     background-color: white;
-    border-radius: 15px;    
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0,0,0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 /* Define un contenedor con un tamaño fijo, un color de fondo blanco, bordes redondeados y una sombra alrededor */
 
@@ -225,3 +227,72 @@ body{
     color: white;
 }
 /* Cambiar el color del botón de iniciar sesión */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+    
+    .container-form, .container-welcome {
+        width: 100%;
+    }
+
+    .container-welcome {
+        transform: translateX(0);
+        border-radius: 0;
+    }
+
+    .container-form form {
+        padding: 20px;
+    }
+
+    .container-welcome .welcome {
+        padding: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .container-form h2 {
+        font-size: 24px;
+    }
+
+    .container-input {
+        width: 90%; /* Ajusta el ancho para dispositivos móviles */
+    }
+
+    .button {
+        width: 100%; /* Ocupa todo el ancho del contenedor en móviles */
+        height: 50px;
+    }
+
+    .container-welcome h3 {
+        font-size: 32px;
+    }
+
+    .container-welcome p {
+        font-size: 12px;
+    }
+
+    .social-networks ion-icon {
+        padding: 6px;
+    }
+}
+@media (max-width: 576px) {
+    .social-networks {
+        gap: 8px;
+    }
+
+    .social-networks ion-icon {
+        padding: 5px;
+    }
+
+    .button {
+        width: 80%;
+    }
+}
+@media (max-width: 768px) {
+    .container-welcome {
+        height: auto;
+        padding: 20px;
+    }
+}
