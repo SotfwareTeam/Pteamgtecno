@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admision</title>
-    <link rel="shortcut icon" href="../../Public/Assets/img/icons/icono-dance.png" />
-    <link rel="stylesheet" href="../../Public/Assets/Css/Styles.css">
+    <link rel="shortcut icon" href="../../../Public/Assets/img/icons/icono-dance.png" />
+    <link rel="stylesheet" href="../../../Public/Assets/Css/STYLES.CSS">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../Public/Assets/Css/StudentAdmission.css">
+    <link rel="stylesheet" href="../../../Public/Assets/Css/StudentAdmission.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">´
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -22,33 +22,39 @@
             <div class="container-fluid">
                 <a class="navbar-brand me-auto" href="#">Logo</a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2 active" aria-current="page"
-                                    href="../Views/Connection.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="../Views/StudentAdmission.html">students gestion</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="../Views/Events.html">Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="../Views/TeacherPrograming.html">TeacherPrograming</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="../Views/ClassPrograming.html">ClassPrograming</a>
-                            </li>
-                        </ul>
-                    </div>
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <a href="#" class="icon">
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page"
+                                href="Connection.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="ClassProgramingAdmin.html">Clases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Events.html">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Report.htm">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Notificacion.html">Notificaciones</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link mx-lg-2" href="vadminc.html">Novedades del sistema</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link mx-lg-2" href="StudentAdmission.html">Administracion de Roles</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                <a href="Perfil.html" class="icon">
                     <ion-icon name="person-circle-outline"></ion-icon>
                 </a>
                 <!--<a href="../../PUBLIC/Login.html" class="login-button">Login</a> -->
@@ -60,7 +66,7 @@
         </nav>
     </header>
     <!-- Navigation Bar Final-->
-
+<br><br><br>
     <!-- Alumns Table-->
     <section class="align-items-center  container">
 
@@ -79,7 +85,9 @@
                             <th scope="col">Profesor</th>
                             <th scope="col">Clase</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Rol</th>
                             <th scope="col">Modificar</th>
+
                         </tr>
                     </thead>
                     <tbody id="alumnosTable">
@@ -89,6 +97,7 @@
                             <td>12</td>
                             <td>Juan</td>
                             <td>Salsa</td>
+                            <td>profesor</td>
                             <td>Activo</td>
                             <td>
                                 <button type="button" class="btn btn-success btn-modification" data-toggle="modal"
@@ -103,6 +112,7 @@
                             <td>12</td>
                             <td>Juan</td>
                             <td>Salsa</td>
+                            <td>Estudiantes</td>
                             <td>Activo</td>
                             <td>
                                 <button type="button" class="btn btn-success btn-modification" data-toggle="modal"
@@ -117,6 +127,7 @@
                             <td>12</td>
                             <td>Juan</td>
                             <td>Salsa</td>
+                            <td>Estudiantes</td>
                             <td>Activo</td>
                             <td>
                                 <button type="button" class="btn btn-success btn-modification" data-toggle="modal"
@@ -131,6 +142,7 @@
                             <td>12</td>
                             <td>Juan</td>
                             <td>Salsa</td>
+                            <td>Estudiantes</td>
                             <td>Activo</td>
                             <td>
                                 <button type="button" class="btn btn-success btn-modification" data-toggle="modal"
@@ -145,6 +157,7 @@
                             <td>12</td>
                             <td>Juan</td>
                             <td>Salsa</td>
+                            <td>profesor</td>
                             <td>Activo</td>
                             <td>
                                 <button type="button" class="btn btn-success btn-modification" data-toggle="modal"
@@ -159,6 +172,7 @@
                             <td>12</td>
                             <td>Juan</td>
                             <td>Salsa</td>
+                            <td>profesor</td>
                             <td>Activo</td>
                             <td>
                                 <button type="button" class="btn btn-success btn-modification" data-toggle="modal"
@@ -208,6 +222,13 @@
                                 <option value="Tango">Tango</option>
                                 <option value="AfroDance">Afro Dance</option>
                                 <option value="Varios">Varios</option>
+                            </select>
+                        </div>
+                        <div class="form-group"></div>
+                            <label for="Rol">Rol</label>
+                            <select class="form-control" id="Rol" required>
+                                <option value="Estudiantes">Estudiante</option>
+                                <option value="Profesor">Profesor</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -274,7 +295,7 @@
                             <div class="flip-card" onclick="flipCard(this)">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="../../Public/Assets/img/icons/Evento1.jpeg" id="eventImage1"
+                                        <img src="../../../Public/Assets/img/icons/Evento1.jpeg" id="eventImage1"
                                             class=" py-1 d-block w-100 img-fluid height-400" alt="Primera Imagen">
                                     </div>
                                     <div class="flip-card-back event1">
@@ -293,7 +314,7 @@
                             <div class="flip-card" onclick="flipCard(this)">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="../../Public/Assets/img/icons/Evento2.jpeg" id="eventImage2"
+                                        <img src="../../../Public/Assets/img/icons/Evento2.jpeg" id="eventImage2"
                                             class="d-block w-100 img-fluid" alt="Segunda Imagen">
                                     </div>
                                     <div class="flip-card-back event2">
@@ -312,7 +333,7 @@
                             <div class="flip-card" onclick="flipCard(this)">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="../../Public/Assets/img/icons/Evento3.jpeg" id="eventImage3"
+                                        <img src="../../../Public/Assets/img/icons/Evento3.jpeg" id="eventImage3"
                                             class="d-block w-100 img-fluid" alt="Tercera Imagen">
                                     </div>
                                     <div class="flip-card-back event3">
@@ -375,8 +396,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../Public/Assets/js/main.js"></script>
-    <script src="../../Public/Controllers/ControllersAdmission.js"></script>
+    <script src="../../../Public/Assets/js/main.js"></script>
+    <script src="../../../Public/Controllers/ControllersAdmission.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
