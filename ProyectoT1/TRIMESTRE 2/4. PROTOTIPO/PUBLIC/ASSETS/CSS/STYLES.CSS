@@ -14,6 +14,14 @@ body{
     background: linear-gradient( 317deg, #5f2f9a, #076a81, #b269cd) no-repeat center;
     min-height: 100vh;
 }
+.imgt{
+  width: 110px;
+  height: 50px;
+
+}
+.nb{
+  background: repeating-linear-gradient(#5f2f9a, #b269cd);
+}
 
 .navbar-brand{
   font-weight: 500;
@@ -28,8 +36,7 @@ border: none;
 font-size: 1.25rem;
 }
 
-.navbar-toggler:focus,
-.btn-close {
+.navbar-toggler:focus,.btn-close {
 box-shadow: none;
 outline: none;
 }
@@ -39,8 +46,7 @@ font-weight: 500;
 position: relative;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover, .nav-link.active {
 color: azure;
 }
 
@@ -93,6 +99,13 @@ color: azure;
 .icon{
   color: rgb(255, 255, 255);
   font-size: 32px;
+  display: inline-block;
+  margin: 0 10px;
+  transition: 0.5s;
+}
+.iconp{
+  color: rgb(255, 255, 255);
+  font-size: 40px;
   display: inline-block;
   margin: 0 10px;
   transition: 0.5s;
