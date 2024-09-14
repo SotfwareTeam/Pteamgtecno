@@ -1,0 +1,73 @@
+login
+configurar idioma o es español o ingles 
+boton cambiar contraseña debe ser olvidate tu contraseña 
+configurar los link de redes sociales 
+configurar el icocno del navegador
+
+todas las vistas /
+cambiar el navbar por el que tiene el img y el icon de perfil mas grande 
+poner la imagen del aplicativo como logo mini del navegador 
+
+admin/Conecction/
+Fondo
+Cards de precios
+eliminar el buscador de la zona de preguntas frecuentes 
+acomodar direccionamiento del logo al coneccion 
+acomodar logo en la zona de logo del navbar
+
+
+admin/clases/
+cambiar el documento a solo clases 
+el navbar tiene mas lugares a los que ir 
+eliminar la linea que rodea el calendario
+colores de los botones
+arreglar los colores en los car de eliminar y editar 
+boton en el card de editar
+
+admin/eventos/ 
+fondo
+poner el carrusel mas pequeño 
+acomodar footer
+
+admin/reportes/
+arreglar espaciados se ve muy pegado
+donde dice deleccione esta fuera de su zona
+acomodar footer al fondo
+
+ admin/Notificacion/
+acomodar footer al fondo 
+
+ admin/novedades del sistema/
+esta vista es por clase se puede poner que redireccione de la zona de clases de reportes, esta vista tambien la debe terner el profesor 
+acomodar footer al fondo 
+cambiar nombre del documento adetalles de clase
+
+ admin/Perfil/ 
+responsive de las card
+
+Profesor queda pendiente por revisar ya que juan hizo cambios
+
+Usuario general/
+cambiar el nombre de los archivos
+
+usuario/Conecction/
+Fondo
+Cards de precios
+eliminar el buscador de la zona de preguntas frecuentes 
+acomodar direccionamiento del logo al coneccion 
+acomodar logo en la zona de logo del navbar
+
+usuario/eventos/ 
+fondo
+poner el carrusel mas pequeño 
+acomodar footer
+
+usuario/programa profesor
+cambiar colores 
+acomodar navbar
+
+usuario/programacion clases
+cambiar botones 
+quitar linea que rodea el calendario
+
+
