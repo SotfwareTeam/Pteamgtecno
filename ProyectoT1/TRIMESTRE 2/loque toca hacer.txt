@@ -5,7 +5,6 @@ acomodar logo en la zona de logo del navbar
 
 
 admin/clases/
-cambiar el documento a solo clases 
 el navbar tiene mas lugares a los que ir 
 eliminar la linea que rodea el calendario
 colores de los botones
@@ -18,17 +17,14 @@ poner el carrusel mas pequeño
 acomodar footer
 
 admin/reportes/
-arreglar espaciados se ve muy pegado
-donde dice deleccione esta fuera de su zona
-acomodar footer al fondo
 
- admin/Notificacion/
-acomodar footer al fondo 
+donde dice deleccione esta fuera de su zona
+
 
  admin/novedades del sistema/
 esta vista es por clase se puede poner que redireccione de la zona de clases de reportes, esta vista tambien la debe terner el profesor 
 acomodar footer al fondo 
-cambiar nombre del documento adetalles de clase
+
 
  admin/Perfil/ 
 responsive de las card
