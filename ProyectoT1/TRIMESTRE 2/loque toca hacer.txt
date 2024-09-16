@@ -1,18 +1,6 @@
-login
-configurar idioma o es español o ingles 
-boton cambiar contraseña debe ser olvidate tu contraseña 
-configurar los link de redes sociales 
-configurar el icocno del navegador
-
-todas las vistas /
-cambiar el navbar por el que tiene el img y el icon de perfil mas grande 
-poner la imagen del aplicativo como logo mini del navegador 
-
 admin/Conecction/
 Fondo
 Cards de precios
-eliminar el buscador de la zona de preguntas frecuentes 
-acomodar direccionamiento del logo al coneccion 
 acomodar logo en la zona de logo del navbar
 
 
