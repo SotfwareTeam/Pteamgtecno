@@ -21,7 +21,7 @@
 
 .calendar-header {
     padding: 20px;
-    border-radius: 10px;
+
     margin-bottom: 20px;
     background-color: #ffffff;
     color: white;
@@ -46,6 +46,20 @@
     background-color: #ffc107;
     /* Amarillo para el día seleccionado */
     color: yellow;
+}
+
+.btn-success{
+    background-color: #495057;
+}
+.btn-danger{
+    background-color: #495057;
+}
+.btn-warning{
+    background-color: #495057;
+}
+
+.btn-info{
+    background-color: #495057;
 }
 
 /*modals*/
@@ -97,3 +111,5 @@
     padding-bottom: 5rem !important;
 }
 
+
+ 
