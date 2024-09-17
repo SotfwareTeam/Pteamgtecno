@@ -14,7 +14,6 @@ poner el carrusel mas pequeño
 acomodar footer
 
 admin/reportes/
-
 donde dice deleccione esta fuera de su zona
 
 
@@ -33,10 +32,6 @@ cambiar el nombre de los archivos
 
 usuario/Conecction/
 Fondo
-Cards de precios
-eliminar el buscador de la zona de preguntas frecuentes 
-acomodar direccionamiento del logo al coneccion 
-acomodar logo en la zona de logo del navbar
 
 usuario/eventos/ 
 fondo
