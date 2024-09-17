@@ -326,3 +326,18 @@ form textarea {
     background-color: #343a40;
     color: #fff;
 }
+#ln7-search-container {
+    position: relative;
+    display: inline-block;
+}
+
+#ln7-search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#ln7-search-input {
+    padding-right: 40px;
+}

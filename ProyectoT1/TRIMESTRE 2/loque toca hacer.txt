@@ -1,8 +1,5 @@
 admin/Conecction/
 Fondo
-Cards de precios
-acomodar logo en la zona de logo del navbar
-
 
 admin/clases/
 el navbar tiene mas lugares a los que ir 
