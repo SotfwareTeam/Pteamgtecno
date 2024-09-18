@@ -1,581 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../../../PUBLIC/ASSETS/CSS/ConnectionClass.css" />
-    <link rel="stylesheet" href="../../../PUBLIC/ASSETS/CSS/STYLES.CSS">
-    <link rel="shortcut icon" href="../../../Public/Assets/img/icons/icono-dance.png" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inicio</title>
-  </head>
-  <body>
-        <!-- Navigation Bar-->
-        <nav class="navbar navbar-expand-lg fixed-top nb">
-            <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="Connection.html"><img class="imgt" src="../../../PUBLIC/ASSETS/img/icons/Sin título.png" alt=""></a>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../../PUBLIC/ASSETS/img/icons/Sin título.png" alt=""></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2 active" aria-current="page"
-                                    href="Connection.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="Events.html">Eventos</a>
-                            </li>
-                            <li class="nav-item"></li>
-                            <a class="nav-link mx-lg-2" href="TeacherPrograming.html">Programacion de Profesores</a>
+    <link rel="shortcut icon" href="../../../Public/Assets/img/icons/icono-dance.png" />
+    <link rel="stylesheet" href="../../../Public/Assets/Css/STYLES.CSS">
+    <link rel="stylesheet" href="../../../Public/Assets/Css/ConnectionClass.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <nav class="navbar navbar-expand-lg fixed-top nb">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="Connection.html"><img class="imgt"
+                    src="../../../PUBLIC/ASSETS/img/icons/Sin título.png" alt=""></a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img
+                            src="../../../PUBLIC/ASSETS/img/icons/Sin título.png" alt=""></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="Connection.html">Home</a>
                         </li>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Events.html">Eventos</a>
+                        </li>
+                        <li class="nav-item"></li>
+                        <a class="nav-link mx-lg-2" href="TeacherPrograming.html">Programacion de Profesores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="Perfil.html" class="icon iconp">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        </div>
+    </nav>
+    <br><br>
+    <br><br>
+
+    <!-- Navigation Bar Final-->
+
+    <!-- Quiénes Somos -->
+    <section id="about-us-section" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Columna de texto -->
+                <div class="col-md-6">
+                    <h2 class="section-title-about">Quiénes Somos</h2>
+                    <p class="about-us-text">Somos una academia dedicada a enseñar los mejores estilos de baile,
+                        brindando una experiencia única para todos los niveles de habilidad. Nuestro equipo de
+                        instructores profesionales está comprometido con el éxito y el crecimiento personal de cada
+                        estudiante.</p>
+                    <!-- Botón Conócenos -->
+                    <a href="https://www.instagram.com/ln7dancestudio_/" class="btn btn-primary mt-4">Conócenos</a>
+                </div>
+                <!-- Columna de video -->
+                <div class="col-md-6">
+                    <div class="about-video-container">
+                        <video id="aboutUsVideoPlayer" class="about-us-video img-fluid"
+                            src="../../../Public/Assets/img/Video/Dance.mp4" controls></video>
                     </div>
                 </div>
-                <a href="Perfil.html" class="icon iconp">
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </div>
-        </nav>
-        <br><br>
-          <br><br>
-    
-        <!-- Navigation Bar Final-->
-     
-        <!-- Quiénes Somos -->
-        <section id="about-us-section" class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Columna de texto -->
-                    <div class="col-md-6">
-                        <h2 class="section-title-about">Quiénes Somos</h2>
-                        <p class="about-us-text">Somos una academia dedicada a enseñar los mejores estilos de baile,
-                            brindando una experiencia única para todos los niveles de habilidad. Nuestro equipo de
-                            instructores profesionales está comprometido con el éxito y el crecimiento personal de cada
-                            estudiante.</p>
-                        <!-- Botón Conócenos -->
-                        <a href="https://www.instagram.com/ln7dancestudio_/" class="btn btn-primary mt-4">Conócenos</a>
-                    </div>
-                    <!-- Columna de video -->
-                    <div class="col-md-6">
-                        <div class="about-video-container">
-                            <video id="aboutUsVideoPlayer" class="about-us-video img-fluid"
-                                src="../../../Public/Assets/img/Video/Dance.mp4" controls></video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-        <!-- Our Team  -->
-        <section id="team" class="py-5">
-            <div class="container">
-                <h2 class="text-center text-white">Nuestro Equipo</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <div class="instructor-card">
-                            <div class="instructor-img"
-                                style="background-image: url('../../../Public/Assets/img/logos/Afro_Luis.png');"></div>
-                            <div class="instructor-info">
-                                <h3>Luis</h3>
-                                <p><strong>Habilidades:</strong> Afro Dance</p>
-                                <p><strong>Descripción:</strong> Experto en ritmos afro.</p>
-                                <p><strong>Experiencia:</strong> 5 años.</p>
-                                <p><strong>Mejor Movimiento:</strong> Afro Beats.</p>
-                                <p><strong>Popularidad:</strong></p>
-                                <div class="star-rating">★★★★★</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="instructor-card">
-                            <div class="instructor-img"
-                                style="background-image: url('../../../Public/Assets/img/logos/Chokola_T.png');"></div>
-                            <div class="instructor-info">
-                                <h3>Chokola T</h3>
-                                <p><strong>Habilidades:</strong> Perreo</p>
-                                <p><strong>Descripción:</strong> Experto en ritmos afro.</p>
-                                <p><strong>Experiencia:</strong> 8 años.</p>
-                                <p><strong>Mejor Movimiento:</strong> Movimiento de cadera.</p>
-                                <p><strong>Popularidad:</strong></p>
-                                <div class="star-rating">★★★★</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="instructor-card">
-                            <div class="instructor-img"
-                                style="background-image: url('../../../Public/Assets/img/logos/Brandon.png');"></div>
-                            <div class="instructor-info">
-                                <h3>Brandon</h3>
-                                <p><strong>Habilidades:</strong> Electro Dance</p>
-                                <p><strong>Descripción:</strong> Experto en ritmos Electro.</p>
-                                <p><strong>Experiencia:</strong> 6 años.</p>
-                                <p><strong>Mejor Movimiento:</strong> handstand.</p>
-                                <p><strong>Popularidad:</strong></p>
-                                <div class="star-rating">★★</div>
-                            </div>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-        </section>
-    
-        <!--Our Team Final -->
-    
-    
-        <!-- Gender Dance -->
-        <section class="container my-5">
-            <h2 class="text-center text-white">Nuestras Clases</h2>
-            <p class="text-center text-white">Ven y disfruta de nuestras clases presenciales grupales, personalizadas,
-                semipersonalizadas y recuerda que también tenemos clases a domicilio!</p>
-    
-            <div id="clasesCarousel" class="carousel-container">
-                <div class="carousel-images">
-                    <img src="../../../PUBLIC/ASSETS/img/logos/Bachata.png" alt="Bachata" class="active">
-                    <img src="../../../PUBLIC/ASSETS/img/logos/Salsa.png" alt="Salsa">
-                    <img src="../../../PUBLIC/ASSETS/img/logos/AfroDance.png" alt="Afrobeat">
-                    <img src="../../../PUBLIC/ASSETS/img/logos/Champeta.jpg" alt="Champeta">
-                    <img src="../../../PUBLIC/ASSETS/img/logos/merengue.jpg" alt="Merengue">
-                    <img src="../../../PUBLIC/ASSETS/img/logos/PolDance.png" alt="Pole Dance">
-                </div>
-                <div class="carousel-text">
-                    <h3 id="carouselTitle" class="text-white">Bachata</h3>
-                    <p id="carouselDescription">La bachata es un género musical bailable originario de la República
-                        Dominicana, que se ha popularizado en todo el mundo.</p>
-                </div>
-            </div>
-        </section>
-        <!-- Gender Dance Final-->
-    
-    
-        <!-- Preguntas Frecuentes sobre Nuestra Academia de Baile -->
-        <section id="ln7-faqs" class="container mt-5 mb-5">
-            <h2 class="text-center mb-4">Preguntas más frecuentes</h2>
-    
-            <!-- Pestañas para las categorías de preguntas frecuentes -->
-            <ul class="nav nav-tabs mb-4" id="ln7-faq-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#faq-category-1">LN7 FAQs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#faq-category-2">General</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#faq-category-3">Ubicación</a>
-                </li>
-            </ul>
-    
-            <!-- Contenido de las pestañas -->
-            <div class="tab-content">
-                <!-- LN7 FAQs -->
-                <div class="tab-pane fade show active" id="faq-category-1">
-                    <div class="accordion" id="ln7-faqs-ln7">
-                        <!-- Pregunta 1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ln7-q1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ln7-a1" aria-expanded="true" aria-controls="ln7-faq-ln7-a1">
-                                    ¿Cómo puedo ver los horarios de clases?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ln7-a1" class="accordion-collapse collapse show"
-                                aria-labelledby="ln7-faq-ln7-q1" data-bs-parent="#ln7-faqs-ln7">
-                                <div class="accordion-body">
-                                    Puedes ver los horarios de clases en la sección de horarios de nuestra página web.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ln7-q2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ln7-a2" aria-expanded="false" aria-controls="ln7-faq-ln7-a2">
-                                    ¿Cómo puedo hacer una reserva?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ln7-a2" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q2"
-                                data-bs-parent="#ln7-faqs-ln7">
-                                <div class="accordion-body">
-                                    Puedes hacer una reserva a través de nuestra aplicación o en la recepción del estudio.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 3 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ln7-q3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ln7-a3" aria-expanded="false" aria-controls="ln7-faq-ln7-a3">
-                                    ¿Es necesario comprar matrícula?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ln7-a3" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q3"
-                                data-bs-parent="#ln7-faqs-ln7">
-                                <div class="accordion-body">
-                                    No es necesario comprar matrícula, pero te recomendamos registrarte para recibir
-                                    beneficios adicionales.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 4 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ln7-q4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ln7-a4" aria-expanded="false" aria-controls="ln7-faq-ln7-a4">
-                                    ¿Qué significa: BAS, INT, AVAN?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ln7-a4" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q4"
-                                data-bs-parent="#ln7-faqs-ln7">
-                                <div class="accordion-body">
-                                    Estos términos se refieren a los niveles de las clases: Básico (BAS), Intermedio (INT),
-                                    y Avanzado (AVAN).
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 5 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ln7-q5">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ln7-a5" aria-expanded="false" aria-controls="ln7-faq-ln7-a5">
-                                    ¿Qué es Elenco?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ln7-a5" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q5"
-                                data-bs-parent="#ln7-faqs-ln7">
-                                <div class="accordion-body">
-                                    Elenco es un grupo de bailarines seleccionados para representar al estudio en
-                                    competiciones y eventos especiales.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- General -->
-                <div class="tab-pane fade general-faq" id="faq-category-2">
-                    <div class="accordion" id="ln7-faqs-general">
-                        <!-- Pregunta 1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-general-q1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-general-a1" aria-expanded="true"
-                                    aria-controls="ln7-faq-general-a1">
-                                    ¿Cuáles son los horarios de Bureo Dance Studio?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-general-a1" class="accordion-collapse collapse show"
-                                aria-labelledby="ln7-faq-general-q1" data-bs-parent="#ln7-faqs-general">
-                                <div class="accordion-body">
-                                    Los horarios varían según el día y el tipo de clase. Consulta nuestra página web para
-                                    ver el horario completo.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-general-q2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-general-a2" aria-expanded="false"
-                                    aria-controls="ln7-faq-general-a2">
-                                    ¿Cómo hago para matricularme?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-general-a2" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-general-q2" data-bs-parent="#ln7-faqs-general">
-                                <div class="accordion-body">
-                                    Puedes matricularte en línea a través de nuestro sitio web o visitando el estudio en
-                                    persona.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 3 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-general-q3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-general-a3" aria-expanded="false"
-                                    aria-controls="ln7-faq-general-a3">
-                                    ¿Cómo puedo comprar un paquete de clases?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-general-a3" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-general-q3" data-bs-parent="#ln7-faqs-general">
-                                <div class="accordion-body">
-                                    Los paquetes de clases se pueden comprar en línea o en la recepción del estudio.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 4 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-general-q4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-general-a4" aria-expanded="false"
-                                    aria-controls="ln7-faq-general-a4">
-                                    ¿Qué métodos de pago aceptan?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-general-a4" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-general-q4" data-bs-parent="#ln7-faqs-general">
-                                <div class="accordion-body">
-                                    Aceptamos pagos con tarjeta de crédito, débito y transferencias bancarias.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 5 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-general-q5">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-general-a5" aria-expanded="false"
-                                    aria-controls="ln7-faq-general-a5">
-                                    ¿Ofrecen clases para principiantes?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-general-a5" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-general-q5" data-bs-parent="#ln7-faqs-general">
-                                <div class="accordion-body">
-                                    Sí, ofrecemos una variedad de clases diseñadas específicamente para principiantes.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Ubicación -->
-                <div class="tab-pane fade" id="faq-category-3">
-                    <div class="accordion" id="ln7-faqs-ubicacion">
-                        <!-- Pregunta 1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ubicacion-q1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ubicacion-a1" aria-expanded="true"
-                                    aria-controls="ln7-faq-ubicacion-a1">
-                                    ¿Dónde están ubicados?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ubicacion-a1" class="accordion-collapse collapse show"
-                                aria-labelledby="ln7-faq-ubicacion-q1" data-bs-parent="#ln7-faqs-ubicacion">
-                                <div class="accordion-body">
-                                    Estamos ubicados en el centro de la ciudad, en la Calle 123, Edificio ABC.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ubicacion-q2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ubicacion-a2" aria-expanded="false"
-                                    aria-controls="ln7-faq-ubicacion-a2">
-                                    ¿Tienen estacionamiento?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ubicacion-a2" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-ubicacion-q2" data-bs-parent="#ln7-faqs-ubicacion">
-                                <div class="accordion-body">
-                                    Sí, contamos con un estacionamiento subterráneo para nuestros clientes.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 3 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ubicacion-q3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ubicacion-a3" aria-expanded="false"
-                                    aria-controls="ln7-faq-ubicacion-a3">
-                                    ¿Cómo puedo llegar en transporte público?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ubicacion-a3" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-ubicacion-q3" data-bs-parent="#ln7-faqs-ubicacion">
-                                <div class="accordion-body">
-                                    Puedes llegar en metro, autobús o taxi. La estación de metro más cercana es la Estación
-                                    XYZ.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 4 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ubicacion-q4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ubicacion-a4" aria-expanded="false"
-                                    aria-controls="ln7-faq-ubicacion-a4">
-                                    ¿Tienen sucursales en otras ciudades?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ubicacion-a4" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-ubicacion-q4" data-bs-parent="#ln7-faqs-ubicacion">
-                                <div class="accordion-body">
-                                    Por el momento, solo tenemos esta ubicación, pero estamos planeando expandirnos en el
-                                    futuro.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pregunta 5 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="ln7-faq-ubicacion-q5">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#ln7-faq-ubicacion-a5" aria-expanded="false"
-                                    aria-controls="ln7-faq-ubicacion-a5">
-                                    ¿Cuáles son sus horas de operación?
-                                </button>
-                            </h2>
-                            <div id="ln7-faq-ubicacion-a5" class="accordion-collapse collapse"
-                                aria-labelledby="ln7-faq-ubicacion-q5" data-bs-parent="#ln7-faqs-ubicacion">
-                                <div class="accordion-body">
-                                    Estamos abiertos de lunes a viernes de 9:00 AM a 9:00 PM y los sábados de 10:00 AM a
-                                    6:00 PM.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
+    </section>
 
-        <!-- Nuestros Precios -->
-        <section id="pricing" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Nuestros Precios</h2>
-                <div class="row">
-                    <!-- Plan Básico -->
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Plan Básico</h5>
-                                <p class="card-text">
-                                    Ideal para quienes están empezando. Incluye acceso limitado a funciones básicas:
-                                    <ul>
-                                        <li>Acceso a 5 clases mensuales</li>
-                                        <li>Soporte por correo electrónico</li>
-                                        <li>Acceso a la comunidad de usuarios</li>
-                                    </ul>
-                                </p>
-                                <a href="https://wa.me/3184217657?text=Estoy%20interesado%20en%20el%20Plan%20Básico" target="_blank" class="btn btn-primary">Elegir Plan</a>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Plan Intermedio -->
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Plan Intermedio</h5>
-                                <p class="card-text">
-                                    Perfecto para quienes desean más flexibilidad. Incluye funciones adicionales:
-                                    <ul>
-                                        <li>Acceso a 15 clases mensuales</li>
-                                        <li>Soporte por correo electrónico y chat</li>
-                                        <li>Acceso prioritario a eventos en vivo</li>
-                                    </ul>
-                                </p>
-                                <a href="https://wa.me/3184217657?text=Estoy%20interesado%20en%20el%20Plan%20Intermedio" target="_blank" class="btn btn-primary">Elegir Plan</a>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Plan Avanzado -->
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Plan Avanzado</h5>
-                                <p class="card-text">
-                                    Para los usuarios más exigentes. Incluye todas las funciones premium:
-                                    <ul>
-                                        <li>Acceso ilimitado a clases</li>
-                                        <li>Soporte personalizado 24/7</li>
-                                        <li>Acceso VIP a todos los eventos y recursos</li>
-                                    </ul>
-                                </p>
-                                <a href="https://wa.me/3184217657?text=Estoy%20interesado%20en%20el%20Plan%20Avanzado" target="_blank" class="btn btn-primary">Elegir Plan</a>
-                            </div>
+    <!-- Our Team  -->
+    <section id="team" class="py-5">
+        <div class="container">
+            <h2 class="text-center text-white">Nuestro Equipo</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="instructor-card">
+                        <div class="instructor-img"
+                            style="background-image: url('../../../Public/Assets/img/logos/Afro_Luis.png');"></div>
+                        <div class="instructor-info">
+                            <h3>Luis</h3>
+                            <p><strong>Habilidades:</strong> Afro Dance</p>
+                            <p><strong>Descripción:</strong> Experto en ritmos afro.</p>
+                            <p><strong>Experiencia:</strong> 5 años.</p>
+                            <p><strong>Mejor Movimiento:</strong> Afro Beats.</p>
+                            <p><strong>Popularidad:</strong></p>
+                            <div class="star-rating">★★★★★</div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 mb-3">
+                    <div class="instructor-card">
+                        <div class="instructor-img"
+                            style="background-image: url('../../../Public/Assets/img/logos/Chokola_T.png');"></div>
+                        <div class="instructor-info">
+                            <h3>Chokola T</h3>
+                            <p><strong>Habilidades:</strong> Perreo</p>
+                            <p><strong>Descripción:</strong> Experto en ritmos afro.</p>
+                            <p><strong>Experiencia:</strong> 8 años.</p>
+                            <p><strong>Mejor Movimiento:</strong> Movimiento de cadera.</p>
+                            <p><strong>Popularidad:</strong></p>
+                            <div class="star-rating">★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="instructor-card">
+                        <div class="instructor-img"
+                            style="background-image: url('../../../Public/Assets/img/logos/Brandon.png');"></div>
+                        <div class="instructor-info">
+                            <h3>Brandon</h3>
+                            <p><strong>Habilidades:</strong> Electro Dance</p>
+                            <p><strong>Descripción:</strong> Experto en ritmos Electro.</p>
+                            <p><strong>Experiencia:</strong> 6 años.</p>
+                            <p><strong>Mejor Movimiento:</strong> handstand.</p>
+                            <p><strong>Popularidad:</strong></p>
+                            <div class="star-rating">★★</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </section>
-    
-        <!-- JS Controllers-->
-        
-        <script src="../../../Public/Controllers/ControllersConnetion.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-            <!-- JS Controllers Final-->
-    </body>
-    <footer class="footer">
-        <ul class="social-icon">
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-youtube"></ion-icon>
-                </a>
+        </div>
+    </section>
+
+    <!--Our Team Final -->
+
+
+    <!-- Gender Dance -->
+    <section class="container my-5">
+        <h2 class="text-center text-white">Nuestras Clases</h2>
+        <p class="text-center text-white">Ven y disfruta de nuestras clases presenciales grupales, personalizadas,
+            semipersonalizadas y recuerda que también tenemos clases a domicilio!</p>
+
+        <div id="clasesCarousel" class="carousel-container">
+            <div class="carousel-images">
+                <img src="../../../PUBLIC/ASSETS/img/logos/Bachata.png" alt="Bachata" class="active">
+                <img src="../../../PUBLIC/ASSETS/img/logos/Salsa.png" alt="Salsa">
+                <img src="../../../PUBLIC/ASSETS/img/logos/AfroDance.png" alt="Afrobeat">
+                <img src="../../../PUBLIC/ASSETS/img/logos/Champeta.jpg" alt="Champeta">
+                <img src="../../../PUBLIC/ASSETS/img/logos/merengue.jpg" alt="Merengue">
+                <img src="../../../PUBLIC/ASSETS/img/logos/PolDance.png" alt="Pole Dance">
+            </div>
+            <div class="carousel-text">
+                <h3 id="carouselTitle" class="text-white">Bachata</h3>
+                <p id="carouselDescription">La bachata es un género musical bailable originario de la República
+                    Dominicana, que se ha popularizado en todo el mundo.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Gender Dance Final-->
+
+
+    <!-- Preguntas Frecuentes sobre Nuestra Academia de Baile -->
+    <section id="ln7-faqs" class="container mt-5 mb-5">
+        <h2 class="text-center mb-4">Preguntas más frecuentes</h2>
+
+        <!-- Pestañas para las categorías de preguntas frecuentes -->
+        <ul class="nav nav-tabs mb-4" id="ln7-faq-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#faq-category-1">LN7 FAQs</a>
             </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#faq-category-2">General</a>
             </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-tiktok"></ion-icon>
-                </a>
-            </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-            </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </a>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#faq-category-3">Ubicación</a>
             </li>
         </ul>
-      <ul class="menu">
+
+        <!-- Contenido de las pestañas -->
+        <div class="tab-content">
+            <!-- LN7 FAQs -->
+            <div class="tab-pane fade show active" id="faq-category-1">
+                <div class="accordion" id="ln7-faqs-ln7">
+                    <!-- Pregunta 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ln7-q1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ln7-a1" aria-expanded="true" aria-controls="ln7-faq-ln7-a1">
+                                ¿Cómo puedo ver los horarios de clases?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ln7-a1" class="accordion-collapse collapse show"
+                            aria-labelledby="ln7-faq-ln7-q1" data-bs-parent="#ln7-faqs-ln7">
+                            <div class="accordion-body">
+                                Puedes ver los horarios de clases en la sección de horarios de nuestra página web.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ln7-q2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ln7-a2" aria-expanded="false" aria-controls="ln7-faq-ln7-a2">
+                                ¿Cómo puedo hacer una reserva?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ln7-a2" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q2"
+                            data-bs-parent="#ln7-faqs-ln7">
+                            <div class="accordion-body">
+                                Puedes hacer una reserva a través de nuestra aplicación o en la recepción del estudio.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ln7-q3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ln7-a3" aria-expanded="false" aria-controls="ln7-faq-ln7-a3">
+                                ¿Es necesario comprar matrícula?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ln7-a3" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q3"
+                            data-bs-parent="#ln7-faqs-ln7">
+                            <div class="accordion-body">
+                                No es necesario comprar matrícula, pero te recomendamos registrarte para recibir
+                                beneficios adicionales.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ln7-q4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ln7-a4" aria-expanded="false" aria-controls="ln7-faq-ln7-a4">
+                                ¿Qué significa: BAS, INT, AVAN?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ln7-a4" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q4"
+                            data-bs-parent="#ln7-faqs-ln7">
+                            <div class="accordion-body">
+                                Estos términos se refieren a los niveles de las clases: Básico (BAS), Intermedio (INT),
+                                y Avanzado (AVAN).
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ln7-q5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ln7-a5" aria-expanded="false" aria-controls="ln7-faq-ln7-a5">
+                                ¿Qué es Elenco?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ln7-a5" class="accordion-collapse collapse" aria-labelledby="ln7-faq-ln7-q5"
+                            data-bs-parent="#ln7-faqs-ln7">
+                            <div class="accordion-body">
+                                Elenco es un grupo de bailarines seleccionados para representar al estudio en
+                                competiciones y eventos especiales.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General -->
+            <div class="tab-pane fade general-faq" id="faq-category-2">
+                <div class="accordion" id="ln7-faqs-general">
+                    <!-- Pregunta 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-general-q1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-general-a1" aria-expanded="true"
+                                aria-controls="ln7-faq-general-a1">
+                                ¿Cuáles son los horarios de Bureo Dance Studio?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-general-a1" class="accordion-collapse collapse show"
+                            aria-labelledby="ln7-faq-general-q1" data-bs-parent="#ln7-faqs-general">
+                            <div class="accordion-body">
+                                Los horarios varían según el día y el tipo de clase. Consulta nuestra página web para
+                                ver el horario completo.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-general-q2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-general-a2" aria-expanded="false"
+                                aria-controls="ln7-faq-general-a2">
+                                ¿Cómo hago para matricularme?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-general-a2" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-general-q2" data-bs-parent="#ln7-faqs-general">
+                            <div class="accordion-body">
+                                Puedes matricularte en línea a través de nuestro sitio web o visitando el estudio en
+                                persona.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-general-q3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-general-a3" aria-expanded="false"
+                                aria-controls="ln7-faq-general-a3">
+                                ¿Cómo puedo comprar un paquete de clases?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-general-a3" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-general-q3" data-bs-parent="#ln7-faqs-general">
+                            <div class="accordion-body">
+                                Los paquetes de clases se pueden comprar en línea o en la recepción del estudio.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-general-q4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-general-a4" aria-expanded="false"
+                                aria-controls="ln7-faq-general-a4">
+                                ¿Qué métodos de pago aceptan?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-general-a4" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-general-q4" data-bs-parent="#ln7-faqs-general">
+                            <div class="accordion-body">
+                                Aceptamos pagos con tarjeta de crédito, débito y transferencias bancarias.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-general-q5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-general-a5" aria-expanded="false"
+                                aria-controls="ln7-faq-general-a5">
+                                ¿Ofrecen clases para principiantes?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-general-a5" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-general-q5" data-bs-parent="#ln7-faqs-general">
+                            <div class="accordion-body">
+                                Sí, ofrecemos una variedad de clases diseñadas específicamente para principiantes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ubicación -->
+            <div class="tab-pane fade" id="faq-category-3">
+                <div class="accordion" id="ln7-faqs-ubicacion">
+                    <!-- Pregunta 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ubicacion-q1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ubicacion-a1" aria-expanded="true"
+                                aria-controls="ln7-faq-ubicacion-a1">
+                                ¿Dónde están ubicados?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ubicacion-a1" class="accordion-collapse collapse show"
+                            aria-labelledby="ln7-faq-ubicacion-q1" data-bs-parent="#ln7-faqs-ubicacion">
+                            <div class="accordion-body">
+                                Estamos ubicados en el centro de la ciudad, en la Calle 123, Edificio ABC.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ubicacion-q2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ubicacion-a2" aria-expanded="false"
+                                aria-controls="ln7-faq-ubicacion-a2">
+                                ¿Tienen estacionamiento?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ubicacion-a2" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-ubicacion-q2" data-bs-parent="#ln7-faqs-ubicacion">
+                            <div class="accordion-body">
+                                Sí, contamos con un estacionamiento subterráneo para nuestros clientes.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ubicacion-q3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ubicacion-a3" aria-expanded="false"
+                                aria-controls="ln7-faq-ubicacion-a3">
+                                ¿Cómo puedo llegar en transporte público?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ubicacion-a3" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-ubicacion-q3" data-bs-parent="#ln7-faqs-ubicacion">
+                            <div class="accordion-body">
+                                Puedes llegar en metro, autobús o taxi. La estación de metro más cercana es la Estación
+                                XYZ.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ubicacion-q4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ubicacion-a4" aria-expanded="false"
+                                aria-controls="ln7-faq-ubicacion-a4">
+                                ¿Tienen sucursales en otras ciudades?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ubicacion-a4" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-ubicacion-q4" data-bs-parent="#ln7-faqs-ubicacion">
+                            <div class="accordion-body">
+                                Por el momento, solo tenemos esta ubicación, pero estamos planeando expandirnos en el
+                                futuro.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pregunta 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="ln7-faq-ubicacion-q5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ln7-faq-ubicacion-a5" aria-expanded="false"
+                                aria-controls="ln7-faq-ubicacion-a5">
+                                ¿Cuáles son sus horas de operación?
+                            </button>
+                        </h2>
+                        <div id="ln7-faq-ubicacion-a5" class="accordion-collapse collapse"
+                            aria-labelledby="ln7-faq-ubicacion-q5" data-bs-parent="#ln7-faqs-ubicacion">
+                            <div class="accordion-body">
+                                Estamos abiertos de lunes a viernes de 9:00 AM a 9:00 PM y los sábados de 10:00 AM a
+                                6:00 PM.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Precios -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestros Precios</h2>
+            <div class="row">
+                <!-- Plan Básico -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan Básico</h5>
+                            <p class="card-text">
+                                Ideal para quienes están empezando. Incluye acceso limitado a funciones básicas:
+                            <ul>
+                                <li>Acceso a 5 clases mensuales</li>
+                                <li>Soporte por correo electrónico</li>
+                                <li>Acceso a la comunidad de usuarios</li>
+                            </ul>
+                            </p>
+                            <a href="https://wa.me/3184217657?text=Estoy%20interesado%20en%20el%20Plan%20Básico"
+                                target="_blank" class="btn btn-primary">Elegir Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Intermedio -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan Intermedio</h5>
+                            <p class="card-text">
+                                Perfecto para quienes desean más flexibilidad. Incluye funciones adicionales:
+                            <ul>
+                                <li>Acceso a 15 clases mensuales</li>
+                                <li>Soporte por correo electrónico y chat</li>
+                                <li>Acceso prioritario a eventos en vivo</li>
+                            </ul>
+                            </p>
+                            <a href="https://wa.me/3184217657?text=Estoy%20interesado%20en%20el%20Plan%20Intermedio"
+                                target="_blank" class="btn btn-primary">Elegir Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Avanzado -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan Avanzado</h5>
+                            <p class="card-text">
+                                Para los usuarios más exigentes. Incluye todas las funciones premium:
+                            <ul>
+                                <li>Acceso ilimitado a clases</li>
+                                <li>Soporte personalizado 24/7</li>
+                                <li>Acceso VIP a todos los eventos y recursos</li>
+                            </ul>
+                            </p>
+                            <a href="https://wa.me/3184217657?text=Estoy%20interesado%20en%20el%20Plan%20Avanzado"
+                                target="_blank" class="btn btn-primary">Elegir Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- JS Controllers-->
+
+    <script src="../../../Public/Controllers/ControllersConnetion.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- JS Controllers Final-->
+</body>
+<footer class="footer">
+    <ul class="social-icon">
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-tiktok"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-elem">
+            <a href="" class="icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+        </li>
+    </ul>
+    <ul class="menu">
         <li class="menu-elem">
-          <a href="" class="menu-icon">Inicio</a>
+            <a href="" class="menu-icon">Inicio</a>
         </li>
         <li class="menu-elem">
-          <a href="" class="menu-icon">Equipo</a>
+            <a href="" class="menu-icon">Equipo</a>
         </li>
         <li class="menu-elem">
-          <a href="" class="menu-icon">Contacto</a>
+            <a href="" class="menu-icon">Contacto</a>
         </li>
         <li class="menu-elem">
-          <a href="" class="menu-icon">Video</a>
+            <a href="" class="menu-icon">Video</a>
         </li>
-      </ul>
-      <p class="text">@Año | todos los derechos reservados</p>
-    </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      
-    ></script>
-  </body>
+    </ul>
+    <p class="text">@Año | todos los derechos reservados</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>
