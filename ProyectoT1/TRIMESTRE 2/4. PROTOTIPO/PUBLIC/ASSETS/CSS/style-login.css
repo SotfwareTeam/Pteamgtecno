@@ -26,7 +26,7 @@ body{
 .container {
     width: 90vw; /* Ancho relativo al viewport */
     max-width: 800px; /* Limita el ancho máximo en pantallas grandes */
-    min-height: auto; /* Deja que la altura se ajuste al contenido */
+    height: auto; /* Deja que la altura se ajuste al contenido */
     min-height: 500px; /* Altura mínima */
     display: flex;
     position: relative;
