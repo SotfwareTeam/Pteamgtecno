@@ -5,7 +5,7 @@
 }
 
 thead.thead-dark th {
-    background-color: #ffc107;
+    background-color: #8550c7;
     color: #000;
 }
 
@@ -13,4 +13,8 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+.bgcc{
+    background-color: #8550c7;
+    color: #000;
 }
