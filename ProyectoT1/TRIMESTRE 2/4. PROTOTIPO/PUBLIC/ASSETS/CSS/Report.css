@@ -1,64 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* Custom styles */
 
-.container {
-    width: 800px;
-    height: 500px;
-    display: flex;
-    position: relative;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-header .btn {
-    text-decoration: none;
-    color: #0a0a0a;
+.card-title {
+    font-size: 1.25rem;
     font-weight: bold;
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 0 10px rgba(0, 0,0,0.3)
 }
 
-.card-header .btn:hover {
-    text-decoration: none;
-    color: #000000;
+.card-text {
+    font-size: 1.5rem;
 }
 
-.card-body ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.card-body ul li {
-    padding: 8px 0;
-}
-
-.card-body ul li a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.card-body ul li a:hover {
-    text-decoration: underline;
-    color: #076a81;
-}
-
-.report-section {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.report-section h2 {
-    margin-bottom: 15px;
-    color: #333;
+.accordion-button {
+    font-size: 1.2rem;
 }
 
 #reportContent {
-    height: 400px;
-    padding: 60px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 4px;
+    min-height: 300px;
 }
