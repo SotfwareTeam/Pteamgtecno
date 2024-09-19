@@ -1,0 +1,17 @@
+/* Ajustes personalizados para el carrusel */
+.custom-carousel {
+    max-width: 600px; /* Ancho máximo del carrusel */
+    margin: 0 auto; /* Centrar el carrusel */
+}
+
+/* Ajustes para las imágenes del carrusel */
+.custom-carousel .carousel-inner img {
+    height: 350px; /* Altura ajustada para las imágenes */
+    object-fit: cover; /* Recorta la imagen para que ocupe el espacio */
+}
+
+/* Sección de imágenes */
+.col-md-4 img {
+    max-height: 200px;
+    object-fit: cover;
+}

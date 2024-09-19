@@ -1,82 +1,70 @@
-let currentCategory = '';
-
-document.addEventListener('DOMContentLoaded', function () {
-    loadReports();
-});
-
-function openModal(category) {
-    currentCategory = category; // Guardar la categoría actual (Clase, Profesor, Estudiante)
-    document.getElementById('reportForm').reset(); // Limpiar el formulario
-    $('#reportModal').modal('show'); // Mostrar el modal
-}
-
-function addReport() {
-    const reportTitle = document.getElementById('reportTitle').value;
-    const reportDescription = document.getElementById('reportDescription').value;
-    const reportAdditionalInfo = document.getElementById('reportAdditionalInfo').value;
-    const createdBy = "Usuario"; // Asumiendo que el usuario está creando el reporte
-    const currentDate = new Date().toISOString().split('T')[0]; // Obtener la fecha actual en formato AAAA-MM-DD
-
-    if (reportTitle && reportDescription) {
-        const report = {
-            title: reportTitle,
-            date: currentDate,
-            description: reportDescription,
-            createdBy: createdBy,
-            additionalInfo: reportAdditionalInfo
-        };
-
-        saveReport(currentCategory, report);
-        addReportToDOM(currentCategory, report);
-        $('#reportModal').modal('hide'); // Ocultar el modal después de agregar el reporte
-    } else {
-        alert("Debe ingresar un título y una descripción para el reporte.");
-    }
-}
-
-function saveReport(category, report) {
-    let reports = JSON.parse(localStorage.getItem('reports')) || {};
-    if (!reports[category]) {
-        reports[category] = [];
-    }
-    reports[category].push(report);
-    localStorage.setItem('reports', JSON.stringify(reports));
-}
-
-function loadReports() {
-    let reports = JSON.parse(localStorage.getItem('reports')) || {};
-    for (const category in reports) {
-        reports[category].forEach(report => {
-            addReportToDOM(category, report);
-        });
-    }
-}
-
-function addReportToDOM(category, report) {
-    const newReport = document.createElement('li');
-    newReport.innerHTML = `<a href="#" onclick="registerReport('${report.title}', '${report.date}', '${report.description}', '${report.createdBy}', '${report.additionalInfo}')">${report.title}</a>`;
-
-    if (category === 'Clase') {
-        document.querySelector('#collapseOne .card-body ul').appendChild(newReport);
-    } else if (category === 'Profesor') {
-        document.querySelector('#collapseTwo .card-body ul').appendChild(newReport);
-    } else if (category === 'Estudiante') {
-        document.querySelector('#collapseThree .card-body ul').appendChild(newReport);
-    }
-}
-
-function registerReport(title, date, description, createdBy, additionalInfo) {
-    const reportContent = document.getElementById('reportContent');
-
-    // Crear el contenido del reporte
-    const reportHTML = `
-        <h3>${title}</h3>
-        <p><strong>Fecha de Creación:</strong> ${date}</p>
-        <p><strong>Descripción:</strong> ${description}</p>
-        <p><strong>Creado por:</strong> ${createdBy}</p>
-        <p><strong>Información Complementaria:</strong> ${additionalInfo}</p>
+// Función para mostrar reporte de clase con gráfico y tabla
+function showClassReport(className) {
+    document.getElementById('reportContent').innerHTML = `
+        <h4>${className}</h4>
+        <canvas id="classChart" width="400" height="200"></canvas>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Asistencia</th>
+                    <th>Comentarios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-09-01</td>
+                    <td>30</td>
+                    <td>Excelente</td>
+                </tr>
+                <tr>
+                    <td>2024-09-08</td>
+                    <td>28</td>
+                    <td>Buena</td>
+                </tr>
+            </tbody>
+        </table>
     `;
 
-    // Colocar el contenido en la sección de reportes
-    reportContent.innerHTML = reportHTML;
+    // Crear gráfico con Chart.js
+    const ctx = document.getElementById('classChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+            datasets: [{
+                label: 'Asistentes',
+                data: [30, 28, 32, 25],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+// Función para mostrar reporte de profesor
+function showTeacherReport(teacherName) {
+    document.getElementById('reportContent').innerHTML = `
+        <h4>${teacherName}</h4>
+        <p><strong>Fecha:</strong> 2024-09-03</p>
+        <p>Este es el reporte relacionado a ${teacherName}.</p>
+    `;
+}
+
+// Función para mostrar reporte de estudiante
+function showStudentReport(studentName) {
+    document.getElementById('reportContent').innerHTML = `
+        <h4>${studentName}</h4>
+        <p><strong>Fecha:</strong> 2024-09-10</p>
+        <p>Este es el reporte relacionado a ${studentName}.</p>
+    `;
 }
