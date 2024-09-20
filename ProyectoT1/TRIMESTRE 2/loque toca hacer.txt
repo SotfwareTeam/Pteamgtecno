@@ -3,32 +3,18 @@ admin/clases/
 colores de los botones
 
 
-admin/eventos/ 
 
-poner el carrusel mas pequeño/mr 
-acomodar footer
-
-
-
-Profesor/eventos/ 
-poner el carrusel mas pequeño/mr 
-acomodar foote
-
-Usuario general/
+Usuario general/Futuro
 cambiar el nombre de los archivos
-
-
-
-usuario/eventos/ 
-poner el carrusel mas pequeño/mr 
-acomodar footer
-
-usuario/programa profesor
-cambiar colores 
-acomodar navbar
 
 usuario/programacion clases
 cambiar botones 
 quitar linea que rodea el calendario
 
 
+Admin/clases
+arreglar boton de programar
+
+admin/roles
+
+cambiar los roles y el admin
