@@ -1,0 +1,28 @@
+Trimestre III	En el proyecto evidencia la construcción de la base de datos usando Schema Validation (MongoDB) miguel
+
+Trimestre III	En el proyecto se evidencia el uso de la base de datos a través de MongoDB CRUD Operations y aggregations. miguel
+
+Trimestre III	Dentro del esquema de seguridad de la Base de Datos se observa que el password o contraseñas contemplan encriptación de datos. Igualmente se evidencia la práctica de seguridad a los datos. juan
+
+Trimestre III	Se evidencia en el proyecto la realización del FrontEnd, utilizando un Framework como Bootstrap, Materialize, etc; con conexión a la base de datos y codificación de los requisitos en un 50%, de acuerdo con el diseño establecido en el prototipo y la Base de Datos. todos 
+
+Trimestre III	En el proyecto se evidencia la implementación de la API REST agregando seguridad. investigar como 
+
+
+
+por hacer:
+
+Register: migue: cuadrar con base de datos 
+
+Login: juanjop: implementar ingreso {atravez de la base de datos}
+recuperacion de contraseña: juanjop solo pasar a vue
+
+{reviar bien nav: camilo}
+home:Cami 2 y 1: agregar botones/funcionalidad para la navegacion de administrador vistas de estudiante y profesor muy similares tal vez sin cambios 
+eventos 2 y 1:cami agregar botones/funcionalidad para la navegacion de administrador vistas de estudiante y profesor muy similares tal vez sin cambios 
+
+{revisar bien footer: miguel}
+notificaciones:migue: implententar nav (post) funcionalidad desde base de datos {cuadrar info por base de datos}
+
+
+
