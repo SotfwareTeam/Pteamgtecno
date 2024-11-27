@@ -17,12 +17,14 @@ Register: migue: cuadrar con base de datos
 Login: juanjop: implementar ingreso {atravez de la base de datos}
 recuperacion de contraseña: juanjop solo pasar a vue
 
-{reviar bien nav: camilo}
+{revisar bien nav: camilo}
 home:Cami 2 y 1: agregar botones/funcionalidad para la navegacion de administrador vistas de estudiante y profesor muy similares tal vez sin cambios 
 eventos 2 y 1:cami agregar botones/funcionalidad para la navegacion de administrador vistas de estudiante y profesor muy similares tal vez sin cambios 
 
 {revisar bien footer: miguel}
-notificaciones:migue: implententar nav (post) funcionalidad desde base de datos {cuadrar info por base de datos}
+notificaciones:migue: implententar nav (post=echo) funcionalidad desde base de datos {cuadrar info por base de datos pendiente vista ya lista} 
+
+juntar todos los componentes juanjop
 
 
 

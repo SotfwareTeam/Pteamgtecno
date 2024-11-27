@@ -9,6 +9,7 @@ var selectedDate = null;
 var selectedClass = null;
 
 // Inicializar el calendario
+
 var picker = new Pikaday({
     field: document.getElementById('datepicker'),
     format: 'DD/MM/YYYY',
