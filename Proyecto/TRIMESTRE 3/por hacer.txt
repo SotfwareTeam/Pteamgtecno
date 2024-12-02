@@ -12,19 +12,25 @@ Trimestre III	En el proyecto se evidencia la implementación de la API REST agre
 
 por hacer:
 
-Register: migue: cuadrar con base de datos 
+Register: juanjop: cuadrar con base de datos 
 
 Login: juanjop: implementar ingreso {atravez de la base de datos}
-recuperacion de contraseña: juanjop solo pasar a vue
+recuperacion de contraseña: miguel solo pasar a vue
 
-{revisar bien nav: camilo}
+
 home:Cami 2 y 1: agregar botones/funcionalidad para la navegacion de administrador vistas de estudiante y profesor muy similares tal vez sin cambios 
 eventos 2 y 1:cami agregar botones/funcionalidad para la navegacion de administrador vistas de estudiante y profesor muy similares tal vez sin cambios 
 
 {revisar bien footer: miguel}
-notificaciones:migue: implententar nav (post=echo) funcionalidad desde base de datos {cuadrar info por base de datos pendiente vista ya lista} 
+notificaciones:juanjop: funcionalidad desde base de datos {cuadrar info por base de datos pendiente vista ya lista} 
 
 juntar todos los componentes juanjop
+
+
+completado:
+implententar nav (post=echo)
+{revisar nav:}
+
 
 
 
