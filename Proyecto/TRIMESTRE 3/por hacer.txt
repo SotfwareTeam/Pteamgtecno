@@ -1,8 +1,6 @@
-Trimestre III	En el proyecto evidencia la construcción de la base de datos usando Schema Validation (MongoDB) miguel
+Trimestre III	En el proyecto se evidencia el uso de la base de datos a través de MongoDB CRUD Operations y aggregations. juanjop
 
-Trimestre III	En el proyecto se evidencia el uso de la base de datos a través de MongoDB CRUD Operations y aggregations. miguel
-
-Trimestre III	Dentro del esquema de seguridad de la Base de Datos se observa que el password o contraseñas contemplan encriptación de datos. Igualmente se evidencia la práctica de seguridad a los datos. juan
+Trimestre III	Dentro del esquema de seguridad de la Base de Datos se observa que el password o contraseñas contemplan encriptación de datos. Igualmente se evidencia la práctica de seguridad a los datos. juan en sql
 
 Trimestre III	Se evidencia en el proyecto la realización del FrontEnd, utilizando un Framework como Bootstrap, Materialize, etc; con conexión a la base de datos y codificación de los requisitos en un 50%, de acuerdo con el diseño establecido en el prototipo y la Base de Datos. todos 
 
@@ -30,6 +28,7 @@ juntar todos los componentes juanjop
 completado:
 implententar nav (post=echo)
 {revisar nav:}
+Trimestre III	En el proyecto evidencia la construcción de la base de datos usando Schema Validation (MongoDB) 
 
 
 
