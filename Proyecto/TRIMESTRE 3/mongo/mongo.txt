@@ -1,0 +1,180 @@
+use Dance;
+
+// Colección de roles
+db.roles.insertMany([
+    { _id: ObjectId(), nombre_rol: "Administrador" },
+    { _id: ObjectId(), nombre_rol: "Profesor" },
+    { _id: ObjectId(), nombre_rol: "Estudiante" }
+]);
+
+// Colección de usuarios
+db.usuarios.insertMany([
+    {
+        _id: ObjectId(),
+        id_rol: db.roles.findOne({ nombre_rol: "Administrador" })._id,
+        estado: true,
+        nombres: "Admin",
+        apellidos: "Principal",
+        tipo_documento: "Cédula",
+        numero_documento: "12345678",
+        correo: "admin@example.com",
+        contraseña: "clave123",
+        sexo: "Masculino",
+        telefono: "123456789",
+        direccion: "Calle Principal 123",
+        fecha_nacimiento: ISODate("1980-01-01"),
+        fecha_creacion: new Date()
+    },
+    {
+        _id: ObjectId(),
+        id_rol: db.roles.findOne({ nombre_rol: "Profesor" })._id,
+        estado: true,
+        nombres: "Carlos",
+        apellidos: "Martínez",
+        tipo_documento: "Cédula",
+        numero_documento: "23456789",
+        correo: "profesor1@example.com",
+        contraseña: "clave123",
+        sexo: "Masculino",
+        telefono: "987654321",
+        direccion: "Calle Secundaria 456",
+        fecha_nacimiento: ISODate("1990-02-15"),
+        fecha_creacion: new Date()
+    },
+    {
+        _id: ObjectId(),
+        id_rol: db.roles.findOne({ nombre_rol: "Estudiante" })._id,
+        estado: true,
+        nombres: "Laura",
+        apellidos: "Gómez",
+        tipo_documento: "Cédula",
+        numero_documento: "34567890",
+        correo: "estudiante1@example.com",
+        contraseña: "clave123",
+        sexo: "Femenino",
+        telefono: "654987321",
+        direccion: "Calle Tercera 789",
+        fecha_nacimiento: ISODate("2000-06-10"),
+        fecha_creacion: new Date()
+    }
+]);
+
+// Colección de clases
+db.clases.insertMany([
+    {
+        _id: ObjectId(),
+        nombre: "Salsa Básica",
+        tipo_clase: "Presencial",
+        duracion: 60,
+        generos: ["Salsa"],
+        niveles: "Básico",
+        fecha: ISODate("2024-12-05")
+    },
+    {
+        _id: ObjectId(),
+        nombre: "Bachata Intermedia",
+        tipo_clase: "Virtual",
+        duracion: 90,
+        generos: ["Bachata"],
+        niveles: "Intermedio",
+        fecha: ISODate("2024-12-10")
+    },
+    {
+        _id: ObjectId(),
+        nombre: "Hip Hop Avanzado",
+        tipo_clase: "Presencial",
+        duracion: 120,
+        generos: ["Hip Hop"],
+        niveles: "Avanzado",
+        fecha: ISODate("2024-12-15")
+    }
+]);
+
+// Colección de clases_usuarios (relación entre clases y usuarios)
+db.clases_usuarios.insertMany([
+    {
+        id_clase: db.clases.findOne({ nombre: "Salsa Básica" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id
+    },
+    {
+        id_clase: db.clases.findOne({ nombre: "Bachata Intermedia" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id
+    }
+]);
+
+// Colección de reportes de asistencias
+db.reporte_asistencias.insertMany([
+    {
+        id_clase: db.clases.findOne({ nombre: "Salsa Básica" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id,
+        asistencia: true
+    },
+    {
+        id_clase: db.clases.findOne({ nombre: "Bachata Intermedia" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id,
+        asistencia: false
+    }
+]);
+
+// Colección de reportes de calificaciones
+db.reporte_calificaciones.insertMany([
+    {
+        id_clase: db.clases.findOne({ nombre: "Salsa Básica" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id,
+        calificacion: 85,
+        promedio: 87.5,
+        fecha: new Date()
+    },
+    {
+        id_clase: db.clases.findOne({ nombre: "Bachata Intermedia" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id,
+        calificacion: 90,
+        promedio: 87.5,
+        fecha: new Date()
+    }
+]);
+
+// Colección de notificaciones
+db.notificaciones.insertMany([
+    {
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id,
+        mensaje: "Recuerda tu clase de Salsa Básica",
+        fecha_envio: new Date()
+    },
+    {
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id,
+        mensaje: "No olvides practicar para Bachata Intermedia",
+        fecha_envio: new Date()
+    }
+]);
+
+// Colección de eventos
+db.eventos.insertMany([
+    {
+        _id: ObjectId(),
+        nombre: "Campeonato de Salsa",
+        tipo_evento: "Competencia",
+        fecha: ISODate("2025-01-15")
+    },
+    {
+        _id: ObjectId(),
+        nombre: "Taller de Hip Hop",
+        tipo_evento: "Taller",
+        fecha: ISODate("2025-02-20")
+    }
+]);
+
+// Colección de eventos_usuarios (relación entre eventos y usuarios)
+db.eventos_usuarios.insertMany([
+    {
+        id_evento: db.eventos.findOne({ nombre: "Campeonato de Salsa" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id
+    },
+    {
+        id_evento: db.eventos.findOne({ nombre: "Taller de Hip Hop" })._id,
+        id_usuario: db.usuarios.findOne({ nombres: "Laura" })._id
+    }
+]);
+
+
+
