@@ -1,208 +1,215 @@
-use Dance;
-{
-  "_id": ObjectId(),
-  "nombre_rol": "Administrador"
-},
-{
-  "_id": ObjectId(),
-  "nombre_rol": "Profesor"
-},
-{
-  "_id": ObjectId(),
-  "nombre_rol": "Estudiante"
-}
+use dance
 
-{
-  "validator": {
-    "$jsonSchema": {
-      "bsonType": "object",
-      "required": ["id_rol", "estado", "nombres", "apellidos", "tipo_documento", "numero_documento", "correo", "contraseña", "sexo", "telefono", "direccion", "fecha_nacimiento"],
-      "properties": {
-        "id_rol": {
-          "bsonType": "objectId",
-          "description": "debe ser un ObjectId"
-        },
-        "estado": {
-          "bsonType": "bool",
-          "description": "debe ser un booleano"
-        },
-        "nombres": {
-          "bsonType": "string",
-          "minLength": 3,
-          "description": "el nombre debe ser una cadena con al menos 3 caracteres"
-        },
-        "apellidos": {
-          "bsonType": "string",
-          "minLength": 3,
-          "description": "el apellido debe ser una cadena con al menos 3 caracteres"
-        },
-        "correo": {
-          "bsonType": "string",
-          "pattern": "^.+@.+\\..+$",
-          "description": "el correo debe tener un formato válido"
-        },
-        "contraseña": {
-          "bsonType": "string",
-          "minLength": 8,
-          "description": "la contraseña debe ser una cadena con al menos 8 caracteres"
-        },
-        "telefono": {
-          "bsonType": "string",
-          "description": "debe ser una cadena"
-        },
-        "direccion": {
-          "bsonType": "string",
-          "description": "debe ser una cadena"
-        },
-        "fecha_nacimiento": {
-          "bsonType": "date",
-          "description": "debe ser una fecha"
-        }
+
+db.createCollection("roles", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["nombre_rol"],
+      properties: {
+        nombre_rol: { bsonType: "string" }
       }
     }
   }
+})
+
+
+
+
+db.createCollection("usuarios", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id_rol", "estado", "nombres", "apellidos", "tipo_documento", "numero_documento", "correo", "contraseña", "fecha_creacion"],
+      properties: {
+        id_rol: { bsonType: "int" },
+        estado: { bsonType: "int" },
+        nombres: { bsonType: "string" },
+        apellidos: { bsonType: "string" },
+        tipo_documento: { bsonType: "string" },
+        numero_documento: { bsonType: "string" },
+        correo: { bsonType: "string" },
+        contraseña: { bsonType: "binData" },
+        sexo: { bsonType: "string" },
+        telefono: { bsonType: "string" },
+        direccion: { bsonType: "string" },
+        fecha_nacimiento: { bsonType: "date" },
+        fecha_creacion: { bsonType: "date" }
+      }
+    }
+  }
+})
+
+
+db.createCollection("clases", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["nombre", "tipo_clase", "duracion", "generos", "niveles", "fecha"],
+      properties: {
+        nombre: { bsonType: "string" },
+        tipo_clase: { bsonType: "string" },
+        duracion: { bsonType: "int" },
+        generos: { bsonType: "string" },
+        niveles: { bsonType: "string" },
+        fecha: { bsonType: "date" }
+      }
+    }
+  }
+})
+
+
+
+
+db.createCollection("clases_usuarios")
+
+
+
+db.createCollection("reporte_asistencias", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id_clase", "id_usuario", "asistencia"],
+      properties: {
+        id_clase: { bsonType: "objectId" },
+        id_usuario: { bsonType: "objectId" },
+        asistencia: { bsonType: "bool" }
+      }
+    }
+  }
+})
+
+
+
+
+db.createCollection("reporte_calificaciones", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id_clase", "id_usuario", "calificacion", "promedio", "fecha"],
+      properties: {
+        id_clase: { bsonType: "objectId" },
+        id_usuario: { bsonType: "objectId" },
+        calificacion: { bsonType: "int" },
+        promedio: { bsonType: "double" },
+        fecha: { bsonType: "date" }
+      }
+    }
+  }
+})
+
+
+
+
+
+
+db.createCollection("notificaciones", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["mensaje", "fecha_envio", "id_usuario"],
+      properties: {
+        mensaje: { bsonType: "string" },
+        fecha_envio: { bsonType: "date" },
+        id_usuario: { bsonType: "objectId" }
+      }
+    }
+  }
+})
+
+
+
+
+
+
+
+
+db.createCollection("eventos", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["nombre", "tipo_evento", "fecha"],
+      properties: {
+        nombre: { bsonType: "string" },
+        tipo_evento: { bsonType: "string" },
+        fecha: { bsonType: "date" }
+      }
+    }
+  }
+})
+
+
+
+
+
+
+
+db.createCollection("eventos_usuarios")
+
+
+
+db.roles.insertMany([
+   { nombre_rol: "Administrador" },
+   { nombre_rol: "Profesor" },
+   { nombre_rol: "Estudiante" }
+])
+
+
+
+db.usuarios.insertMany([
+  {
+    id_rol: ObjectId("id_de_rol_administrador"),
+    estado: 1,
+    nombres: "Admin",
+    apellidos: "Principal",
+    tipo_documento: "Cédula",
+    numero_documento: "12345678",
+    correo: "admin@example.com",
+    contraseña: new BinData(0, "clave123"),
+    sexo: "Masculino",
+    telefono: "123456789",
+    direccion: "Calle Principal 123",
+    fecha_nacimiento: new Date("1980-01-01"),
+    fecha_creacion: new Date()
+  },
+  // Inserta más usuarios
+])
+
+
+
+
+function registrarCalificacion(clase_id, usuario_id, calificacion) {
+  var promedio = db.reporte_calificaciones.aggregate([
+    { $match: { id_usuario: usuario_id } },
+    { $group: { _id: null, avgCalificacion: { $avg: "$calificacion" } } }
+  ]).toArray()[0].avgCalificacion;
+
+  db.reporte_calificaciones.insertOne({
+    id_clase: ObjectId(clase_id),
+    id_usuario: ObjectId(usuario_id),
+    calificacion: calificacion,
+    promedio: promedio,
+    fecha: new Date()
+  });
 }
 
 
 
-------- uso con javascript --------------
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 
-// Conexión a MongoDB
-mongoose.connect('mongodb://localhost:27017/danceschudueler', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Conectado a MongoDB'))
-    .catch(err => console.error('Error de conexión a MongoDB', err));
 
-// Definición del esquema de Usuario
-const usuarioSchema = new mongoose.Schema({
-    id_rol: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'roles'
-    },
-    estado: {
-        type: Boolean,
-        required: true
-    },
-    nombres: {
-        type: String,
-        required: true,
-        minlength: 3
-    },
-    apellidos: {
-        type: String,
-        required: true,
-        minlength: 3
-    },
-    tipo_documento: {
-        type: String,
-        required: true
-    },
-    numero_documento: {
-        type: String,
-        required: true,
-        minlength: 8
-    },
-    correo: {
-        type: String,
-        required: true,
-        match: /.+\@.+\..+/
-    },
-    contraseña: {
-        type: String,
-        required: true,
-        minlength: 8
-    },
-    sexo: {
-        type: String,
-        required: true
-    },
-    telefono: {
-        type: String,
-        required: true
-    },
-    direccion: {
-        type: String,
-        required: true
-    },
-    fecha_nacimiento: {
-        type: Date,
-        required: true
-    },
-    fecha_creacion: {
-        type: Date,
-        default: Date.now
-    }
-});
 
-// Hook para encriptar la contraseña antes de guardarla
-usuarioSchema.pre('save', async function(next) {
-    if (this.isModified('contraseña')) {
-        this.contraseña = await bcrypt.hash(this.contraseña, 10);
-    }
-    next();
-});
+________________para presentación_____________________
+show collections
 
-// Crear el modelo de usuario
-const Usuario = mongoose.model('usuarios', usuarioSchema);
 
-// Función para insertar usuarios con contraseñas encriptadas
-const insertarUsuarios = async () => {
-    const usuarios = [
-        {
-            id_rol: mongoose.Types.ObjectId(), // Asigna ObjectId válido
-            estado: true,
-            nombres: "Admin",
-            apellidos: "Principal",
-            tipo_documento: "Cédula",
-            numero_documento: "12345678",
-            correo: "admin@example.com",
-            contraseña: "clave123", // Se encriptará
-            sexo: "Masculino",
-            telefono: "123456789",
-            direccion: "Calle Principal 123",
-            fecha_nacimiento: new Date("1980-01-01")
-        },
-        {
-            id_rol: mongoose.Types.ObjectId(),
-            estado: true,
-            nombres: "Carlos",
-            apellidos: "Martínez",
-            tipo_documento: "Cédula",
-            numero_documento: "23456789",
-            correo: "profesor1@example.com",
-            contraseña: "clave123",
-            sexo: "Masculino",
-            telefono: "987654321",
-            direccion: "Calle Secundaria 456",
-            fecha_nacimiento: new Date("1990-02-15")
-        },
-        {
-            id_rol: mongoose.Types.ObjectId(),
-            estado: true,
-            nombres: "Laura",
-            apellidos: "Gómez",
-            tipo_documento: "Cédula",
-            numero_documento: "34567890",
-            correo: "estudiante1@example.com",
-            contraseña: "clave123",
-            sexo: "Femenino",
-            telefono: "654987321",
-            direccion: "Calle Tercera 789",
-            fecha_nacimiento: new Date("2000-06-10")
-        }
-    ];
 
-    // Insertar usuarios
-    for (const usuario of usuarios) {
-        const nuevoUsuario = new Usuario(usuario);
-        await nuevoUsuario.save();
-    }
+para  ver datos de x
+db.usuarios.find()
 
-    console.log("Usuarios insertados con contraseñas encriptadas");
-};
 
-// Llamar a la función para insertar usuarios
-insertarUsuarios().catch(console.error);
+
+
+
+
+
 
