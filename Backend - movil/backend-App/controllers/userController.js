@@ -23,9 +23,6 @@ module.exports = {
                 });
             }
 
-            console.log('Password del body:', password);
-            console.log('Password del usuario en BD:', myUser.contraseña);
-
             const isPasswordValid = await bcrypt.compare(password, myUser.contraseña);
             if(isPasswordValid){
                 const token = jwt.sign({id: myUser.id_usuario, correo: myUser.email}, key.secretOrKey, {})
