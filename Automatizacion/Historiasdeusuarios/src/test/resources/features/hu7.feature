@@ -14,5 +14,5 @@ Característica: Visualización de profesores destacados
 
     @eventos @profesores
     Escenario: Visualizar profesores desde la sección de eventos
-      Cuando hace clic en el botón "Eventos" de la barra de navegación y en el modulo calendario
+      Cuando hace clic en el botón "Profesores" de la barra de navegación y en el modulo calendario
       Entonces debe visualizarse una sección emergente con los profesores más destacados
