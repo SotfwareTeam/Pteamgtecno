@@ -17,9 +17,8 @@ Característica: Modificación de perfil y cierre de sesión
       Cuando el usuario hace clic en el ícono de perfil ubicado en la parte superior derecha y registra nueva informacion
         | nombre    | correo                | telefono   | direccion       |
         | Juan Peña | jpenaquinoz@gmail.com | 3184217657 | calle 163#62-95 |
-    Entonces se debe mostrar un mensaje emergente "Cambios guardados"
-    Y el usuario puede hacer clic en el botón azul "Cerrar sesión"
-    Entonces debe ser redirigido a la vista de inicio de sesión
+    Entonces se debe mostrar que la informacion cambio y poder salir del aplicativo
+
 
 
 
