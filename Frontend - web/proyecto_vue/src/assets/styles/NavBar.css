@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.custom-header {
+    background: repeating-linear-gradient(#5f2f9a, #b269cd);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 30px;
+}
+
+.custom-header .custom-logo img {
+    object-fit: contain;
+    width: 60%;
+}
+
+.custom-header .custom-nav-links {
+    list-style: none;
+}
+
+.custom-header .custom-nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.custom-header .custom-nav-links li:hover {
+    transform: scale(1.1);
+}
+
+.custom-header .custom-nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.custom-header .custom-side-buttons button {
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+    padding-top: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.custom-header .custom-side-buttons button:hover {
+    transform: scale(1.1);
+}
+
+@media(min-width: 901px) {
+    .custom-header .custom-side-buttons .custom-menu {
+        display: none;
+    }
+
+    .custom-dropdown-menu {
+        display: none;
+    }
+}
+
+@media(max-width: 900px) {
+    .custom-header .custom-nav-links {
+        display: none;
+    }
+
+    .custom-header .custom-side-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .custom-dropdown-menu {
+        background: repeating-linear-gradient(#5f2f9a, #b269cd);
+        width: 45%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        padding-top: 80px;
+        z-index: 2;
+    }
+
+    .custom-dropdown-menu.toggle {
+        transform: translateX(-100%);
+        position: absolute;
+        top: 0;  
+        overflow: visible; 
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links li {
+        padding: 20px 30px;
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links li:hover {
+        border-right: 8px solid white;
+        background-color: #5f2f9a66;
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links button {
+        font-size: 50px;
+        background-color: transparent;
+        border: none;
+        padding-top: 10px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links button {
+        position: absolute;
+        left: 10px;
+        top: 0;
+    }
+
+    .custom-dropdown-menu .custom-dropdown-menu-links button:hover {
+        transform: scale(1.1);
+    }
+}
