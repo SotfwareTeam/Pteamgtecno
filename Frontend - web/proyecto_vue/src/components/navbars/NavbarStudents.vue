@@ -15,7 +15,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
               <li class="nav-item">
-                <router-link class="nav-link mx-lg-2 active" aria-current="page" to="/Estudiante/Inicio">Inicio</router-link>
+                <router-link class="nav-link mx-lg-2" aria-current="page" to="/Estudiante/Inicio">Inicio</router-link>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link mx-lg-2" to="/Estudiante/Eventos">Eventos</router-link>
