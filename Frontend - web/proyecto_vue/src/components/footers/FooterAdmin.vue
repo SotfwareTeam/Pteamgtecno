@@ -22,7 +22,7 @@
           </a>
         </li>
         <li class="icon-elem">
-          <a href="https://wa.me/3184217657" class="icon">
+          <a href="https://wa.me/3184217657" class="icon">r
             <ion-icon name="logo-whatsapp"></ion-icon>
           </a>
         </li>
