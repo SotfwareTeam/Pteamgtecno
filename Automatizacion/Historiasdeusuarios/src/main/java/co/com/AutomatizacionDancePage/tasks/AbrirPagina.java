@@ -1,18 +1,18 @@
 package co.com.AutomatizacionDancePage.tasks;
 
-import co.com.AutomatizacionDancePage.userinterface.InicioDulceria;
+import co.com.AutomatizacionDancePage.userinterface.InicioDance;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Open;
 
 public class AbrirPagina implements Task {
-    InicioDulceria inicioDulceria;
+    InicioDance inicioDance;
         public static AbrirPagina laPagina(){ return Tasks.instrumented(AbrirPagina.class);}
 
     @Override
 
     public <T extends Actor> void performAs(T actor) {
-        actor.wasAbleTo(Open.browserOn(inicioDulceria));
+        actor.wasAbleTo(Open.browserOn(inicioDance));
     }
 }

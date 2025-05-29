@@ -5,5 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class Redireccion extends PageObject{
-    public static Target BTN_BASKET = Target.the(" Click Boton Basket").located(By.xpath("//*[@id=\"navbarColor01\"]/ul/li[4]/a"));
+    public static Target BTN_PERFIL = Target.the(" Click Boton Basket").located(By.xpath("//*[@id=\"app\"]/div/nav/div/a[2]"));
+    public static Target BTN_EVENTOS = Target.the(" Click Boton Basket").located(By.xpath("//*[@id=\"offcanvasNavbar\"]/div[2]/ul/li[2]/a"));
+
 }
