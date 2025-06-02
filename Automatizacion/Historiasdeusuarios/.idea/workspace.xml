@@ -5,45 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8104ed8d-a339-408d-aac0-c3a3f08112fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/questions/ValidacionCompetencias.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/tasks/hu9pap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/userinterface/hu9defpasos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/runners/hu9Runner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu9StepDefinitions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/co/com/AutomatizacionDancePage/stepsdefinitions/hu5StepDefinitions.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/co/com/AutomatizacionDancePage/stepsdefinitions/hu5StepDefinitions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/co/com/AutomatizacionDancePage/stepsdefinitions/hu6StepDefinitions.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/co/com/AutomatizacionDancePage/stepsdefinitions/hu6StepDefinitions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/Visualizaci#f3n#20de#20competencias#20de#20la#20escuela.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/Visualizaci#f3n#20de#20competencias#20de#20la#20escuela.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/co.com.AutomatizacionDancePage.runners.hu7Runner.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/co.com.AutomatizacionDancePage.runners.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/co.com.AutomatizacionDancePage.runners.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/features/hu9.feature" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/features/hu9.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-Visualizaci#f3n#20de#20competencias#20de#20la#20escuela.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-Visualizaci#f3n#20de#20competencias#20de#20la#20escuela.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-co.com.AutomatizacionDancePage.runners.hu7Runner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/models/CredencialesInicioSesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/models/CredencialesInicioSesion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/userinterface/InicioDance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/AutomatizacionDancePage/userinterface/InicioDance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu5StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu5StepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu6StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu6StepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu7StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/AutomatizacionDancePage/stepsdefinitions/hu7StepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/hu5.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/hu5.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/hu6.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/hu6.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/hu7.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/hu7.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/hu9.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/hu9.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e_screenshots.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e_screenshots.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3_screenshots.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3_screenshots.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a_screenshots.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a_screenshots.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-1ccdcfa47eae82b82e8bac3623a4aa00318411fb4a7d5a8ced3fe6078010b14e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-31ff6ec982f03325973f387f5881c7e10558eb1ccee77ff624834e60dcfe09f3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-38511215fa1504c961f73a29c065d1d96d5022719b454a002df4ebe779304e3a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/serenity/browser-chrome.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/browser-chrome.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,26 +80,7 @@
       <recent name="C:\Users\PC\Documents\Pteamgtecno\Automatizacion\Historiasdeusuarios" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.hu7Runner">
-    <configuration name="Feature: hu6" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/hu6.feature" />
-      <option name="GLUE" value="co.com.AutomatizacionDancePage.utils.hooks net.serenitybdd.cucumber.actors co.com.AutomatizacionDancePage.stepsdefinitions" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="Historiasdeusuarios.test" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm2SMFormatter --monochrome" />
-      <option name="SUGGESTED_NAME" value="Feature: hu6" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.hu9Runner">
     <configuration name="AutoLoginRunner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -205,13 +173,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="hu9Runner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.com.AutomatizacionDancePage.runners.hu9Runner&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.hu9Runner" />
         <item itemvalue="Gradle.hu7Runner" />
         <item itemvalue="Gradle.hu6Runner" />
         <item itemvalue="Gradle.hu5Runner" />
         <item itemvalue="Gradle.AutoLoginRunner" />
-        <item itemvalue="Cucumber Java.Feature: hu6" />
       </list>
     </recent_temporary>
   </component>

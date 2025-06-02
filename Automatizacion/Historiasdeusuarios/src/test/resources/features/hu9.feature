@@ -13,7 +13,7 @@
         | mn2@mn.com | 201381828Mm. |
 
 
-    @eventos @
+    @eventos @competencias
     Escenario: Visualizar competencias desde la sección de eventos
-      Cuando hace clic en el botón "Competencias" de la barra de navegación y en el modulo calendario
+      Cuando hace clic en el botón "Competencias" de la barra de navegación y en el modulo Competencias
      Entonces debe mostrarse una sección emergente con información gestionada por el administrador para las competencias
