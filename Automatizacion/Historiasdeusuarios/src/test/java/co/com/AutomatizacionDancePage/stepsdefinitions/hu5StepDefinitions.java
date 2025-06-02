@@ -32,6 +32,7 @@ public class hu5StepDefinitions {
 
     @Entonces("^se debe mostrar que la informacion cambio y poder salir del aplicativo$")
     public void seDebeMostrarQueLaInformacionCambioYPoderSalirDelAplicativo() {
+        theActorInTheSpotlight().should(seeThat(ValidacionDatosPerfil.validacionDatosPerfil()))
         ;
     }
 

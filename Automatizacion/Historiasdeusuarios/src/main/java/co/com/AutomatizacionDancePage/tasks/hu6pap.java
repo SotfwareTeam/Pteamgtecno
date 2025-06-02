@@ -17,7 +17,8 @@ public class hu6pap implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(BTN_CALENDARIO),
-                Click.on(BTN_CALENDARIOMODAL)
+                Click.on(BTN_CALENDARIOMODAL),
+                RefreshPage.now()
         );
     }
 }
