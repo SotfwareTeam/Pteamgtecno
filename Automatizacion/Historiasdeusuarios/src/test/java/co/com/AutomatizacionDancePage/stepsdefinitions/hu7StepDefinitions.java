@@ -14,7 +14,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 public class hu7StepDefinitions {
     @Cuando("^hace clic en el botón Profesores$")
     public void haceClicEnElBotónProfesores() {
-        theActorInTheSpotlight().wasAbleTo(AbrirPagina.laPagina());
         theActorInTheSpotlight().attemptsTo(Redireccioneventos.ahora());
         theActorInTheSpotlight().attemptsTo(hu7pap.ahora());
     }
