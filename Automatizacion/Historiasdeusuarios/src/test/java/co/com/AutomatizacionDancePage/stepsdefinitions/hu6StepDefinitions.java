@@ -15,7 +15,6 @@ public class hu6StepDefinitions {
 
     @Dado("^que el usuario se encuentra en la pagina de inicio$")
     public void queElUsuarioSeEncuentraEnLaPaginaDeInicio() {
-        theActorInTheSpotlight().wasAbleTo(AbrirPagina.laPagina());
         theActorInTheSpotlight().attemptsTo(Redireccioneventos.ahora());
     }
 

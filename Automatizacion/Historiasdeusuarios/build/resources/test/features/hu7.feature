@@ -6,8 +6,14 @@
     Quiero ver las competencias en las que participa la escuela
     Para estar informado sobre sus eventos y logros
 
+    Antecedentes:
+      Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
+      Cuando ingrese las credenciales correctas (usuario y contraseña)
+        | correo     | contraseña   |
+        | mn2@mn.com | 201381828Mm. |
+
 
   @eventos @profesores
-  Escenario: Visualizar competencias desde la sección de profesores
+  Escenario: Visualizar a los profesores desde la sección de Eventos
   Cuando hace clic en el botón Profesores
   Entonces debe mostrarse una sección emergente con información gestionada por el administrador para losprofesores
