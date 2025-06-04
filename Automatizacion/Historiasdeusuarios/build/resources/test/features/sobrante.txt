@@ -24,3 +24,21 @@ Entonces se debe mostrar que la informacion cambio y poder salir del aplicativo
 
 
 ---------h6
+
+
+------------------h7
+  Característica: Visualización de competencias de la escuela
+  Como usuario registrado en la plataforma
+  Quiero ver las competencias en las que participa la escuela
+  Para estar informado sobre sus eventos y logros
+
+    Antecedentes:
+      Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
+      Cuando ingrese las credenciales correctas de ingreso (usuario y contraseña)
+        | correo    | contraseña |
+        | mn@mn.com | 123456789  |
+
+    @eventos @profesores
+    Escenario: Visualizar competencias desde la sección de profesores
+      Cuando hace clic en el botón Profesores
+     Entonces debe mostrarse una sección emergente con información gestionada por el administrador para losprofesores

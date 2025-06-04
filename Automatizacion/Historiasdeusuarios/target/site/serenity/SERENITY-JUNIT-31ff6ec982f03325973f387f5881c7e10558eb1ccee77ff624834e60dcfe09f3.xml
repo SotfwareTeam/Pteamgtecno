@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Modificación de perfil y cierre de sesión" skipped="0" tests="1" time="7.05" timestamp="2025-05-29 12:10:20"><testcase name="Modificar información del perfil y cerrar sesión exitosamente"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Modificación de perfil y cierre de sesión" skipped="0" tests="1" time="7.83" timestamp="2025-06-02 04:34:24"><testcase name="Modificar información del perfil y cerrar sesión exitosamente"><failure message="Expected validacion datos perfil&#13;&#10;Expected: is &lt;true&gt;&#13;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected validacion datos perfil&#13;
+Expected: is &lt;true&gt;&#13;
+     but: was &lt;false&gt;</failure><system-err>Expected validacion datos perfil&#13;
+Expected: is &lt;true&gt;&#13;
+     but: was &lt;false&gt;&#13;
+co.com.AutomatizacionDancePage.stepsdefinitions.hu5StepDefinitions.seDebeMostrarQueLaInformacionCambioYPoderSalirDelAplicativo(hu5StepDefinitions.java:41)&#13;
+✽.se debe mostrar que la informacion cambio y poder salir del aplicativo(src/test/resources/features/hu5.feature:21)&#13;
+</system-err></testcase></testsuite>

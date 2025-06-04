@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 
 import static co.com.AutomatizacionDancePage.userinterface.DatosPerfil.INPUT_NOMBRE;
+import static co.com.AutomatizacionDancePage.userinterface.h6defpasos.MES_CALENDARIO;
 import static jxl.biff.FormatRecord.logger;
 
 public class ValidacionDatosPerfil implements Question<Boolean> {
@@ -22,5 +23,8 @@ public class ValidacionDatosPerfil implements Question<Boolean> {
             logger.info(" No encontró el texto o hubo otro error");
             return false;
         }
+
     }
 }
+
+

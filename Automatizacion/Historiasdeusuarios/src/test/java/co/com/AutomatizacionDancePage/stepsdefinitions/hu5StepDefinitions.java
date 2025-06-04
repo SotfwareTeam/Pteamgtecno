@@ -2,6 +2,7 @@ package co.com.AutomatizacionDancePage.stepsdefinitions;
 
 
 
+import co.com.AutomatizacionDancePage.models.CredencialesInicioSesion;
 import co.com.AutomatizacionDancePage.models.DatosParaPerfil;
 import co.com.AutomatizacionDancePage.questions.ValidacionDatosPerfil;
 import co.com.AutomatizacionDancePage.tasks.AbrirPagina;
@@ -19,9 +20,14 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class hu5StepDefinitions {
-    @Dado("^que el usuario se encuentra en la pagina de perfil$")
-    public void queElUsuarioSeEncuentraEnLaPaginaDePerfil() {
-        theActorInTheSpotlight().wasAbleTo(AbrirPagina.laPagina());
+
+    @Cuando("^ingrese las credenciales correctas \\(usuario y contraseña\\)$")
+    public void ingreseLasCredencialesCorrectasUsuarioYContraseña(List<CredencialesInicioSesion> credenciales) {
+        theActorInTheSpotlight().attemptsTo(co.com.AutomatizacionDancePage.task.Autenticarse.aute(credenciales));
+    }
+
+    @Dado("^el usuario se dirija a la pantalla de perfil$")
+    public void elUsuarioSeDirijaALaPantallaDePerfil() {
         theActorInTheSpotlight().attemptsTo(RedirigirAlPerfil.ahora());
     }
 
@@ -32,6 +38,7 @@ public class hu5StepDefinitions {
 
     @Entonces("^se debe mostrar que la informacion cambio y poder salir del aplicativo$")
     public void seDebeMostrarQueLaInformacionCambioYPoderSalirDelAplicativo() {
+        theActorInTheSpotlight().should(seeThat(ValidacionDatosPerfil.validacionDatosPerfil()))
         ;
     }
 
