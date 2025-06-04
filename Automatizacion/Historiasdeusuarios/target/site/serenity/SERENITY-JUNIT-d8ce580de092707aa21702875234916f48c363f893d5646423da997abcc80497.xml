@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Cancelación de clases" skipped="0" tests="1" time="9.95" timestamp="2025-05-30 11:53:27"><testcase name="Cancelar una clase"><error message="Cannot invoke &quot;Object.getClass()&quot; because &quot;target&quot; is null" type="java.lang.NullPointerException">Cannot invoke "Object.getClass()" because "target" is null</error><system-err>Cannot invoke "Object.getClass()" because "target" is null&#13;
+co.com.AutomatizacionDancePage.tasks.Hu2Tasks.clicks(Hu2Tasks.java:17)&#13;
+co.com.AutomatizacionDancePage.stepsdefinitions.hu2StepDefinitions.elUsuarioSeleccionaUnaClaseProgramadaYLaCancela(hu2StepDefinitions.java:14)&#13;
+✽.el usuario selecciona una clase programada y la cancela(src/test/resources/features/hu2.feature:18)&#13;
+</system-err></testcase></testsuite>

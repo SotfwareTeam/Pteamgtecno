@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Visualización de información de clases" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-06-04T23:22:33" hostname="KMILO" time="14.93">
+  <properties/>
+  <testcase name="Ver detalles de una clase programada" classname="Visualización de información de clases" time="14.93">
+    <failure message="org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;td data-v-f47b720c=&quot;&quot; class=&quot;scheduled&quot;&gt;...&lt;/td&gt; is not clickable at point (685, 377). Other element would receive the click: &lt;div data-v-f47b720c=&quot;&quot; class=&quot;modal-footer&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=137.0.7151.56)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'KMILO', ip: '192.168.137.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.56, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\capm7\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56737}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: ee94446cd1fa4f46dd3898f9562cebc4" type="org.openqa.selenium.ElementClickInterceptedException">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;td data-v-f47b720c=&quot;&quot; class=&quot;scheduled&quot;&gt;...&lt;/td&gt; is not clickable at point (685, 377). Other element would receive the click: &lt;div data-v-f47b720c=&quot;&quot; class=&quot;modal-footer&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=137.0.7151.56)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'KMILO', ip: '192.168.137.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.56, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\capm7\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56737}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ee94446cd1fa4f46dd3898f9562cebc4
+	at java.base@15.0.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@15.0.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
+	at java.base@15.0.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@15.0.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base@15.0.1/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at app//org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at app//org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at app//org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at app//org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at app//org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at app//net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1231)
+	at app//net.serenitybdd.screenplay.actions.ClickOnTarget.performAs(ClickOnTarget.java:13)
+	at app//net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$KHFHMS4o.performAs$accessor$c3pP27bj(Unknown Source)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base@15.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@15.0.1/java.lang.reflect.Method.invoke(Method.java:564)
+	at app//net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
+	at app//net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
+	at app//net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
+	at app//net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
+	at app//net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
+	at app//net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
+	at app//net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$KHFHMS4o.performAs(Unknown Source)
+	at app//net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
+	at app//net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
+	at app//net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
+	at app//co.com.AutomatizacionDancePage.tasks.Hu4Tasks.performAs(Hu4Tasks.java:21)
+	at app//co.com.AutomatizacionDancePage.tasks.Hu4Tasks$ByteBuddy$4oNFUpFX.performAs$accessor$GomT1BAZ(Unknown Source)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base@15.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@15.0.1/java.lang.reflect.Method.invoke(Method.java:564)
+	at app//net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
+	at app//net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
+	at app//net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
+	at app//net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
+	at app//net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
+	at app//net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
+	at app//co.com.AutomatizacionDancePage.tasks.Hu4Tasks$ByteBuddy$4oNFUpFX.performAs(Unknown Source)
+	at app//net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
+	at app//net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
+	at app//net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
+	at app//co.com.AutomatizacionDancePage.stepsdefinitions.hu4StepDefinitions.elUsuarioSeleccionaUnaFechaConUnaClaseProgramada(hu4StepDefinitions.java:18)
+	at ✽.el usuario selecciona una fecha con una clase programada(src/test/resources/features/hu4.feature:17)
+</failure>
+  </testcase>
+  <system-out><![CDATA[    ?[32mDado ?[0m?[32mque el usuario ingresa al calendario?[0m          ?[90m# hu1StepDefinitions.queElUsuarioIngresaAlCalendario()?[0m
+    ?[32mCuando ?[0m?[32mel usuario diligencia los campos requeridos?[0m ?[90m# hu1StepDefinitions.elUsuarioDiligenciaLosCamposRequeridos(ClassesData>)?[0m
+
+  @flujo
+  Escenario: Ver detalles de una clase programada                   ?[90m# src/test/resources/features/hu4.feature:15?[0m
+    ?[31mCuando ?[0m?[31mel usuario selecciona una fecha con una clase programada?[0m ?[90m# hu4StepDefinitions.elUsuarioSeleccionaUnaFechaConUnaClaseProgramada()?[0m
+      ?[31morg.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <td data-v-f47b720c="" class="scheduled">...</td> is not clickable at point (685, 377). Other element would receive the click: <div data-v-f47b720c="" class="modal-footer">...</div>
+  (Session info: chrome=137.0.7151.56)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'KMILO', ip: '192.168.137.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.56, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\capm7\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56737}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ee94446cd1fa4f46dd3898f9562cebc4
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1231)
+	at net.serenitybdd.screenplay.actions.ClickOnTarget.performAs(ClickOnTarget.java:13)
+	at net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$KHFHMS4o.performAs$accessor$c3pP27bj(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
+	at net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$KHFHMS4o.performAs(Unknown Source)
+	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
+	at net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
+	at co.com.AutomatizacionDancePage.tasks.Hu4Tasks.performAs(Hu4Tasks.java:21)
+	at co.com.AutomatizacionDancePage.tasks.Hu4Tasks$ByteBuddy$4oNFUpFX.performAs$accessor$GomT1BAZ(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
+	at co.com.AutomatizacionDancePage.tasks.Hu4Tasks$ByteBuddy$4oNFUpFX.performAs(Unknown Source)
+	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
+	at net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
+	at co.com.AutomatizacionDancePage.stepsdefinitions.hu4StepDefinitions.elUsuarioSeleccionaUnaFechaConUnaClaseProgramada(hu4StepDefinitions.java:18)
+	at ?.el usuario selecciona una fecha con una clase programada(src/test/resources/features/hu4.feature:17)
+?[0m
+    ?[36mEntonces ?[0m?[36mse visualizan las clases programadas de esa fecha?[0m      ?[90m# hu4StepDefinitions.seVisualizanLasClasesProgramadasDeEsaFecha()?[0m
+]]></system-out>
+  <system-err><![CDATA[jun. 04, 2025 6:22:33 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+[Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
+[Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 3058
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully on port 3058.
+[1749079356.346][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 04, 2025 6:22:36 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Ver detalles de una clase programada
+---------------------------------------------------------------------
+[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP usuario clicks on Fecha seleccionada 1
+[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - element click intercepted: Element <td data-v-f47b720c="" class="scheduled">...</td> is not clickable at point (685, 377). Other element would receive the click: <div data-v-f47b720c="" class="modal-footer">...</div>
+]]></system-err>
+</testsuite>
