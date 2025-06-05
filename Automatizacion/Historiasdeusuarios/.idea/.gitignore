@@ -1,4 +1,84 @@
-# Default ignored files
-/shelf/
-workspace.xml
+# === IntelliJ IDEA ===
+.idea/
+!.idea/inspectionProfiles
+!.idea/codeStyles
+!.idea/runConfigurations
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+*.iws
+*.iml
+*.ipr
+
+# === Mac/Linux System Files ===
+.DS_Store
+Thumbs.db
+
+# === Build output ===
+/target/
+/out/
+/bin/
+/build/
+
+# === Maven ===
+*.log
+!**/src/**/logback.xml
+dependency-reduced-pom.xml
+release.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+mvnd.*
+.mvn/timing.properties
+
+# === Gradle ===
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# === Serenity BDD ===
+.serenity/
+target/site/serenity/
+serenity-output/
+
+# === JUnit/Cucumber test results ===
+*.class
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+# === Logs and reports ===
+*.log
+*.tmp
+*.out
+*.xml
+test-output/
+surefire-reports/
+cucumber-report/
+
+# === Operating system files ===
+ehthumbs.db
+Icon?
+*.bak
+*.old
+
+# === Java ===
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+
+# === Node modules (if you also use JS tools) ===
+node_modules/
+dist/
+
+# === VSCode (if used) ===
+.vscode/
+
+# === Custom: ignore workspace.xml globally ===
 .idea/workspace.xml
