@@ -33,13 +33,13 @@ public class hu5StepDefinitions {
 
     @Cuando("^el usuario hace clic en el ícono de perfil ubicado en la parte superior derecha y registra nueva informacion$")
     public void elUsuarioHaceClicEnElÍconoDePerfilUbicadoEnLaParteSuperiorDerechaYRegistraNuevaInformacion(List<DatosParaPerfil> datos) {
+        theActorInTheSpotlight().remember("datosPerfil", datos.get(0));
         theActorInTheSpotlight().attemptsTo(LlenadoDatosPerfil.dat(datos));
     }
 
     @Entonces("^se debe mostrar que la informacion cambio y poder salir del aplicativo$")
     public void seDebeMostrarQueLaInformacionCambioYPoderSalirDelAplicativo() {
-        theActorInTheSpotlight().should(seeThat(ValidacionDatosPerfil.validacionDatosPerfil()))
-        ;
+        theActorInTheSpotlight().should(seeThat(ValidacionDatosPerfil.validacionDatosPerfil()));
     }
 
 }

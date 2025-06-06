@@ -33,19 +33,6 @@ public class LlenadoDatosPerfil implements Task {
                 Click.on(INPUT_DIRECCION),
                 Enter.theValue(datos.get(0).getDireccion()).into(INPUT_DIRECCION),
                 Click.on(BTN_CONTINUECHECKS),
-                AceptarAlert.ahora(),
-                Click.on(INPUT_NOMBRE),
-                Enter.theValue(datos.get(0).getNombre()).into(INPUT_NOMBRE),
-                Click.on(INPUT_EMAIL),
-                Enter.theValue(datos.get(0).getEmail()).into(INPUT_EMAIL),
-                Click.on(INPUT_TELEFONO),
-                Enter.theValue(datos.get(0).getTelefono()).into(INPUT_TELEFONO),
-                Click.on(INPUT_DIRECCION),
-                Enter.theValue(datos.get(0).getDireccion()).into(INPUT_DIRECCION),
-                Click.on(BTN_CONTINUECHECKS)
-
-
-
-        );
+                AceptarAlert.ahora());
     }
 }

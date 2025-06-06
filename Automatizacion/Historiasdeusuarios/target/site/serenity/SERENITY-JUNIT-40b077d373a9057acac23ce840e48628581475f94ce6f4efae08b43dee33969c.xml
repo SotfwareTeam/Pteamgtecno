@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Programación de clases" skipped="0" tests="1" time="24.42" timestamp="2025-06-05 09:12:14"><testcase name="Programar una clase"><failure message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</failure><system-err>Expected enabled element was not enabled&#13;
+co.com.AutomatizacionDancePage.tasks.Hu1Tasks.performAs(Hu1Tasks.java:28)&#13;
+co.com.AutomatizacionDancePage.stepsdefinitions.hu1StepDefinitions.elUsuarioDiligenciaLosCamposRequeridos(hu1StepDefinitions.java:19)&#13;
+cucumber.runner.Runner.runPickle(Runner.java:80)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase></testsuite>
