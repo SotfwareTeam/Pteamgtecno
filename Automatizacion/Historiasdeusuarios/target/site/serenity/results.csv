@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Programación de clases","Programar una clase","FAILURE","2025-06-05T21:12:14.5285153-05:00[America/Bogota]","0.0","24.42"
+"Visualización de información de clases","Ver detalles de una clase programada","ERROR","2025-06-05T20:46:32.3472158-05:00[America/Bogota]","0.0","7.98"
+"Visualización del calendario de clases","Acceder al calendario de clases desde eventos","SUCCESS","2025-06-05T21:00:43.3371472-05:00[America/Bogota]","0.0","5.27"

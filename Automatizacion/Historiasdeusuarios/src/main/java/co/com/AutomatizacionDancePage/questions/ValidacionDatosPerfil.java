@@ -1,30 +1,33 @@
 package co.com.AutomatizacionDancePage.questions;
 
+import co.com.AutomatizacionDancePage.models.DatosParaPerfil;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.questions.Text;
+import net.serenitybdd.screenplay.questions.Value;
 
-import static co.com.AutomatizacionDancePage.userinterface.DatosPerfil.INPUT_NOMBRE;
-import static co.com.AutomatizacionDancePage.userinterface.h6defpasos.MES_CALENDARIO;
-import static jxl.biff.FormatRecord.logger;
+import static co.com.AutomatizacionDancePage.userinterface.DatosPerfil.*;
 
 public class ValidacionDatosPerfil implements Question<Boolean> {
+
     public static ValidacionDatosPerfil validacionDatosPerfil() {
         return new ValidacionDatosPerfil();
     }
 
     @Override
-
     public Boolean answeredBy(Actor actor) {
-        try {
-            String texto = Text.of(INPUT_NOMBRE).viewedBy(actor).asString();
-            return "Juan Peña".equals(texto);
-        } catch (Exception e) {
-            logger.info(" No encontró el texto o hubo otro error");
-            return false;
-        }
+        DatosParaPerfil datos = actor.recall("datosPerfil");
 
+        String nombreActual = Value.of(INPUT_NOMBRE).viewedBy(actor).asString();
+        String emailActual = Value.of(INPUT_EMAIL).viewedBy(actor).asString();
+        String telefonoActual = Value.of(INPUT_TELEFONO).viewedBy(actor).asString();
+        String direccionActual = Value.of(INPUT_DIRECCION).viewedBy(actor).asString();
+
+        return datos.getNombre().equals(nombreActual) &&
+                datos.getEmail().equals(emailActual) &&
+                datos.getTelefono().equals(telefonoActual) &&
+                datos.getDireccion().equals(direccionActual);
     }
 }
+
 
 

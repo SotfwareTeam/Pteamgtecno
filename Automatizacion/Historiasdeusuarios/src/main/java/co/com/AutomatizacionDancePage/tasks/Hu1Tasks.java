@@ -1,0 +1,48 @@
+package co.com.AutomatizacionDancePage.tasks;
+
+import co.com.AutomatizacionDancePage.models.ClassesData;
+import net.serenitybdd.core.steps.Instrumented;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
+
+import java.util.List;
+
+import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
+import static co.com.AutomatizacionDancePage.userinterface.h6defpasos.BTN_CALENDARIO;
+import static co.com.AutomatizacionDancePage.userinterface.h6defpasos.BTN_CALENDARIOMODAL;
+
+public class Hu1Tasks implements Task {
+    private List<ClassesData> classes;
+    public Hu1Tasks(List<ClassesData> classes) {this.classes = classes;}
+
+    public static Hu1Tasks insertarDatos(List<ClassesData> classes){
+        return Instrumented.instanceOf(Hu1Tasks.class).withProperties(classes);
+    }
+
+    @Override
+
+    public <T extends Actor> void performAs(T actor){
+        actor.attemptsTo(
+                Redireccioneventos.ahora(),
+                Click.on(BTN_CALENDARIO),
+                Click.on(BTN_CALENDARIOMODAL),
+                RefreshPage.now(),
+                Click.on(BOTON_MES_SIG),
+                Click.on(BOTON_FECHA1),
+                Scroll.to(BOTON_PROGRAMAR),
+                Click.on(BOTON_PROGRAMAR),
+                Click.on(INPUT_PROFESOR),
+                Enter.theValue(classes.get(0).getProfesor()).into(INPUT_PROFESOR),
+                Click.on(INPUT_HORA),
+                Enter.theValue(classes.get(0).getHora()).into(INPUT_HORA),
+                Click.on(INPUT_CLASE),
+                Enter.theValue(classes.get(0).getClase()).into(INPUT_CLASE),
+                Click.on(INPUT_DIFICULTAD),
+                Click.on(SELECT_PRINCIPIANTE),
+                Click.on(BOTON_GUARDAR)
+        );
+    }
+}
