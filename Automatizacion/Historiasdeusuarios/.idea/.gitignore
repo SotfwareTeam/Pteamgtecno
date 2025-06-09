@@ -91,3 +91,32 @@ target/*.json
 target/serenity/
 .serenity/
 .serenity.properties
+
+# ───── Serenity & Build reports ─────
+/target/
+/**/target/
+**/target/*.json
+**/target/*.html
+**/target/*.xml
+**/target/serenity/
+**/target/site/
+
+/build/
+/**/build/
+**/build/test-results/
+**/build/reports/
+
+# ───── Gradle ─────
+.gradle/
+**/.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# ───── IntelliJ IDEA ─────
+.idea/
+*.iml
+*.iws
+
+# ───── OS / Temp ─────
+.DS_Store
+Thumbs.db
