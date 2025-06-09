@@ -2,29 +2,29 @@ package co.com.AutomatizacionDancePage.models;
 
 public class CredencialesInicioSesion {
 
-    private String usuarios;
+    private String correo;
 
-    private String clave;
+    private String contraseña;
 
 
-    public String getUsuario() {
-        return usuarios;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setUsuario(String usuarios) {
-        this.usuarios = usuarios;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getClave() {
-        return clave;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    public CredencialesInicioSesion(String usuarios, String clave) {
-        this.usuarios = usuarios;
-        this.clave =clave;
+    public CredencialesInicioSesion(String correo, String contraseña) {
+        this.correo = correo;
+        this.contraseña =contraseña;
     }
 }

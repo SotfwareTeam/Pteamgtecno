@@ -1,25 +1,15 @@
 #language:es
-  #author:Camilo Perez
+  #author:JuanJose
 
-Característica: Programación de clases
-  Como usuario autenticado
-  Quiero programar una clase
-  Para vincularme a una clase y visualizarla posteriormente en mi calendario
 
-//  Antecedentes:
-//    Dado que el usuario se encuentra en la pagina de inicio
-//    Cuando hace clic en el botón Eventos de la barra de navegación y en el modulo calendario
+Característica: Autenticacion en la pagina de Dance
+  como usuario de Dance
+  Quiero autenticarme en el portal de Dance
+  Para poder acceder al contenido y funcionalidades disponibles en mi cuenta.
 
-  @ProgramarClase
-  Esquema del escenario: Programar una clase
-
-    Dado que el usuario ingresa al calendario
-
-    Cuando el usuario diligencia los campos requeridos
-      | profesor   | hora   | clase   |
-      | <profesor> | <hora> | <clase> |
-    Entonces se visualiza la clase programada
-
-    Ejemplos:
-      | profesor | hora   | clase    |
-      | Carlos   | 0800AM | Salsa    |
+  Escenario: Verificar la autenticacion exitosa en la pagina de Applitools
+    Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
+    Cuando ingrese las credenciales correctas (usuario y contrasena)
+      | usuarios                 | clave       |
+      | jjpea406@soy.sena.edu.co | 84693254Jp* |
+    Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Dance

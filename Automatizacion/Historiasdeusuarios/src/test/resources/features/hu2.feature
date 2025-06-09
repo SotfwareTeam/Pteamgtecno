@@ -1,21 +1,16 @@
-#language: es
-#author: Camilo Perez
+# language: es
+# author: JuanJose
 
-Característica: Cancelación de clases
-  Como usuario autenticado
-  Quiero cancelar una clase
-  Para desvincularme a una clase y dejar de visualizarla en mi calendario
+Característica:Registro completo de nuevos usuarios en la plataforma
+  Como visitante del sitio
+  Quiero poder registrarme mediante el formulario "New User Signup!" y completar mi información
+  Para crear una cuenta y acceder a funcionalidades personalizadas
 
-  Antecedentes:
-    Dado que el usuario ingresa al calendario
-    Cuando el usuario diligencia los campos requeridos
-      | profesor | hora   | clase    |
-      | Carlos   | 0800AM | Salsa    |
-
-  @CancelarClase
-  Escenario: Cancelar una clase previamente programada
-
-    Cuando el usuario selecciona una clase programada y la cancela
-      | profesor | hora   | clase   |
-      | Tania    | 1030AM | Bachata |
-    Entonces se deja de visualizar la clase programada
+  @registro
+  Escenario: Registro de usuario completando todos los pasos del formulario
+    Dado que el visitante está en la página de register
+    Cuando ingrese los datos necesarios
+      | Nombre | Apellido | Tipodedocumento | Numerodedocumento | Telefono  | Genero    | Edad | Nombredeusuario | Correo         | Contraseña |
+      | dfghjk | dfghqd   | Cedula          | 234567            | 345674789 | Masculino | 76   | yik             | rtyu@gmail.com | 9663937ty* |
+    Y presiona el botón "Create Account"
+    Entonces la cuenta debe ser creada y el usuario redirigido a la vista de login

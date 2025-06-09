@@ -82,3 +82,12 @@ dist/
 
 # === Custom: ignore workspace.xml globally ===
 .idea/workspace.xml
+
+# Serenity reports
+target/site/
+target/*.html
+target/*.xml
+target/*.json
+target/serenity/
+.serenity/
+.serenity.properties
