@@ -108,7 +108,7 @@ export default {
         { name: 'Clase de Salsa', grade: 4.5 },
         { name: 'Clase de Bachata', grade: 3.8 }
       ],
-      testEmail: 'migue@rtyik.com' // este debe coincidir con el correo del admin logueado
+      testEmail: 'sotfwareteam@gmail.com' // este debe coincidir con el correo del admin logueado
     }
   },
   mounted() {
