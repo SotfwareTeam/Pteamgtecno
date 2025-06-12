@@ -26,6 +26,13 @@ public class hu5StepDefinitions {
         theActorInTheSpotlight().attemptsTo(co.com.AutomatizacionDancePage.task.Autenticarse.aute(credenciales));
     }
 
+
+
+
+
+
+
+
     @Dado("^el usuario se dirija a la pantalla de perfil$")
     public void elUsuarioSeDirijaALaPantallaDePerfil() {
         theActorInTheSpotlight().attemptsTo(RedirigirAlPerfil.ahora());
