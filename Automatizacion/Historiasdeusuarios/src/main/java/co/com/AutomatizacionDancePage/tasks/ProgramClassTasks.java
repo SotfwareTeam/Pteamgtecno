@@ -25,6 +25,9 @@ public class Hu1Tasks implements Task {
 
     public <T extends Actor> void performAs(T actor){
         actor.attemptsTo(
+                Click.on(BTN_CALENDARIO),
+                Click.on(BTN_CALENDARIOMODAL),
+                RefreshPage.now(),
                 Click.on(BOTON_MES_SIG),
                 Click.on(BOTON_FECHA1),
                 Click.on(BOTON_PROGRAMAR),

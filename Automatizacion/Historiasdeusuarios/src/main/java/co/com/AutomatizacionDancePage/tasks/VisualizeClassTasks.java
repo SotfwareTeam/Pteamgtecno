@@ -1,12 +1,9 @@
 package co.com.AutomatizacionDancePage.tasks;
 
-import co.com.AutomatizacionDancePage.models.ClassesData;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.DoubleClick;
-import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;

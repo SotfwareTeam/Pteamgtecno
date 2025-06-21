@@ -8,8 +8,8 @@ import net.serenitybdd.screenplay.questions.Text;
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
 import static jxl.biff.FormatRecord.logger;
 
-public class Hu4Validation implements Question<Boolean> {
-    public static Hu4Validation hu4Validation() {return new Hu4Validation();}
+public class Hu3Validation implements Question<Boolean> {
+    public static Hu3Validation hu3Validation(){return new Hu3Validation();}
 
     @Override
     public Boolean answeredBy(Actor actor){
@@ -19,12 +19,12 @@ public class Hu4Validation implements Question<Boolean> {
         String claseValidacion = "Clase: " + clase;
 
         try{
-            String texto1 = Text.of(VALIDACION_PROFESOR).viewedBy(actor).asString();
+            String texto1 = Text.of(VALIDACION_PROFESOR_O_ELIMINADO).viewedBy(actor).asString();
             String texto2 = Text.of(VALIDACION_HORA).viewedBy(actor).asString();
             String texto3 = Text.of(VALIDACION_CLASE).viewedBy(actor).asString();
             String texto4 = Text.of(VALIDACION_DIFICULTAD).viewedBy(actor).asString();
-            return profesorValidacion.equals(texto1) && "Hora: 08:00:00".equals(texto2) &&
-                    claseValidacion.equals(texto3) && "Dificultad: Principiante".equals(texto4);
+            return profesorValidacion.equals(texto1) && "Hora: 17:00:00".equals(texto2) &&
+                    claseValidacion.equals(texto3) && "Dificultad: Difícil".equals(texto4);
         } catch (Exception e){
             logger.info(" Validations doesn´t match");
             return false;

@@ -1,10 +1,7 @@
 package co.com.AutomatizacionDancePage.stepsdefinitions;
 
 import co.com.AutomatizacionDancePage.models.ClassesData;
-import co.com.AutomatizacionDancePage.questions.Hu1Validation;
-import co.com.AutomatizacionDancePage.questions.Hu2Validation;
 import co.com.AutomatizacionDancePage.questions.Hu3Validation;
-import co.com.AutomatizacionDancePage.tasks.Hu2Tasks;
 import co.com.AutomatizacionDancePage.tasks.Hu3Tasks;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
