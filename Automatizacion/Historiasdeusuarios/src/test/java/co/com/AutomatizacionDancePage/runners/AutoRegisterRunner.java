@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/AñadirDulces.feature",
-        glue = {"co.com.AutomatizacionDulceriaPage.stepsdefinitions", "co.com.AutomatizacionDulceriaPage.utils.hooks"},
+        features = "src/test/resources/features/AutoRegister.feature",
+        glue = {"co.com.AutomatizacionDancePage.stepsdefinitions", "co.com.AutomatizacionDancePage.utils.hooks"},
         snippets = SnippetType.CAMELCASE)
 
 
-public class AdicionarDulcesRunner {
+public class AutoRegisterRunner {
 }

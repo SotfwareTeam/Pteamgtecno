@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
 import static jxl.biff.FormatRecord.logger;
 
-public class Hu2Validation implements Question<Boolean> {
-    public static Hu2Validation hu2Validation(){return new Hu2Validation();}
+public class CancelClassValidation implements Question<Boolean> {
+    public static CancelClassValidation hu2Validation(){return new CancelClassValidation();}
 
     private WebDriver driver;
 

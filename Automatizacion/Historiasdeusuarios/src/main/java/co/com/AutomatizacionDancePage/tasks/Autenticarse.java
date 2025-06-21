@@ -1,6 +1,7 @@
-package co.com.AutomatizacionDancePage.task;
+package co.com.AutomatizacionDancePage.tasks;
 
 import co.com.AutomatizacionDancePage.models.CredencialesInicioSesion;
+import co.com.AutomatizacionDancePage.tasks.RedirigirPerfil;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;

@@ -9,8 +9,8 @@
     Antecedentes:
       Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
       Cuando ingrese las credenciales correctas (usuario y contraseña)
-        | correo     | contraseña   |
-        | mn2@mn.com | 201381828Mm. |
+        | correo                  | contraseña |
+        | jpenaquinonez@gmail.com | 1234       |
 
 
     @eventos @competencias

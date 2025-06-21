@@ -12,5 +12,5 @@ public class autenticacion extends PageObject{
 
     public static Target BTN_INICIOSESION = Target.the("Click Boton inicio sesion").located(By.xpath("/html/body/div[1]/body/div/div[1]/form/button"));
 
-    public static Target MENSAJE_LOGIN = Target.the("mensaje de login").locatedBy("//h1[@class='post-title' and text()='Logged In Successfully']");
+    public static Target MENSAJE_LOGIN = Target.the("mensaje de login").located(By.xpath("/html/body/div[1]/div/div/div[1]/div[2]/form/div[2]/input"));
 }

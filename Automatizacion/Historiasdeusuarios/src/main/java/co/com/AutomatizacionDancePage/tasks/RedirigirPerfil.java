@@ -6,9 +6,9 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import static co.com.AutomatizacionDancePage.userinterface.Redireccion.BTN_PERFIL;
 
-public class RedirigirAlPerfil implements Task {
-    public static RedirigirAlPerfil ahora() {
-        return Instrumented.instanceOf(RedirigirAlPerfil.class).withProperties();
+public class RedirigirPerfil implements Task {
+    public static RedirigirPerfil ahora() {
+        return Instrumented.instanceOf(RedirigirPerfil.class).withProperties();
     }
 
     @Override

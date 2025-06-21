@@ -7,10 +7,11 @@ Característica: Cancelación de clases
   Para desvincularme a una clase y dejar de visualizarla en mi calendario
 
   Antecedentes:
-    Dado que el usuario ingresa al calendario
-    Cuando el usuario diligencia los campos requeridos
-      | profesor | hora   | clase    |
-      | Carlos   | 0800AM | Salsa    |
+    Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
+    Cuando ingrese las credenciales correctas (usuario y contrasena)
+      | correo            | contraseña |
+      | juanjop@gmail.com | 1234       |
+    Dado que el usuario se ha autenticado
 
   @CancelarClase
   Escenario: Cancelar una clase previamente programada

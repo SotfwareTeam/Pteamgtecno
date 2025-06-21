@@ -10,5 +10,4 @@ public class DatosPerfil extends PageObject {
     public static Target INPUT_DIRECCION = Target.the("Ingreso del direccion").located(By.xpath("//*[@id=\"direccion\"]"));
     public static Target INPUT_TELEFONO = Target.the("Ingreso del direccion secundaria").located(By.xpath("//*[@id=\"telefono\"]"));
     public static Target BTN_CONTINUECHECKS = Target.the("Click Boton continuar chequeo").located(By.xpath("//*[@id=\"app\"]/div/div/div[1]/div[2]/form/div[5]/div[1]/button"));
-    public static Target MENSAJE_BASKET = Target.the("mensaje de login").locatedBy("/html/body/div/header/h1");
 }

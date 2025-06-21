@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/hu12.feature",
         glue = {"co.com.AutomatizacionDancePage.stepsdefinitions", "co.com.AutomatizacionDancePage.utils.hooks"},
         snippets = SnippetType.CAMELCASE)
-public class hu3Runner {
+public class EditClassRunner {
 }

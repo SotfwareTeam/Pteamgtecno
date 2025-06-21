@@ -7,18 +7,20 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
 
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
-import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.BOTON_ELIMINAR;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class Hu3Tasks implements Task {
+public class EditClassTasks implements Task {
     private List<ClassesData> classes;
-    public Hu3Tasks(List<ClassesData> classes) {this.classes = classes;}
+    public EditClassTasks(List<ClassesData> classes) {this.classes = classes;}
 
-    public static Hu3Tasks insertarDatos(List<ClassesData> classes){
-        return Instrumented.instanceOf(Hu3Tasks.class).withProperties(classes);
+    public static EditClassTasks insertarDatos(List<ClassesData> classes){
+        return Instrumented.instanceOf(EditClassTasks.class).withProperties(classes);
     }
 
     @Override
@@ -26,6 +28,10 @@ public class Hu3Tasks implements Task {
     public <T extends Actor> void performAs(T actor){
         actor.attemptsTo(
                 Click.on(BOTON_FECHA1),
+                Click.on(BOTON_INFORMACION),
+                WaitUntil.the(MODAL_CERRAR, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(MODAL_CERRAR, isEnabled()).forNoMoreThan(10).seconds(),
+                Click.on(MODAL_CERRAR),
                 Click.on(BOTON_PROGRAMAR),
                 Click.on(INPUT_PROFESOR),
                 Enter.theValue(classes.get(0).getProfesor()).into(INPUT_PROFESOR),

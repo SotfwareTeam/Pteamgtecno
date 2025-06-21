@@ -6,23 +6,30 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
 
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class Hu2Tasks implements Task {
+public class CancelClassTasks implements Task {
 
     private List<ClassesData> classes;
-    public Hu2Tasks(List<ClassesData> classes) {this.classes = classes;}
-    public static Hu2Tasks insertarDatos(List<ClassesData> classes){
-        return Instrumented.instanceOf(Hu2Tasks.class).withProperties(classes);
+    public CancelClassTasks(List<ClassesData> classes) {this.classes = classes;}
+    public static CancelClassTasks insertarDatos(List<ClassesData> classes){
+        return Instrumented.instanceOf(CancelClassTasks.class).withProperties(classes);
     }
 
     @Override
 
     public <T extends Actor> void performAs(T actor){
         actor.attemptsTo(
+                Click.on(BTN_CALENDARIO),
+                Click.on(BTN_CALENDARIOMODAL),
+                RefreshPage.now(),
+                Click.on(BOTON_MES_SIG),
                 Click.on(BOTON_FECHA2),
                 Click.on(BOTON_PROGRAMAR),
                 Click.on(INPUT_PROFESOR),
@@ -35,6 +42,8 @@ public class Hu2Tasks implements Task {
                 Click.on(SELECT_MEDIO),
                 Click.on(BOTON_GUARDAR),
                 Click.on(BOTON_ELIMINAR),
+                WaitUntil.the(MODAL_ELIMINAR, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(MODAL_ELIMINAR, isEnabled()).forNoMoreThan(10).seconds(),
                 Click.on(MODAL_ELIMINAR),
                 Click.on(BOTON_INFORMACION)
         );

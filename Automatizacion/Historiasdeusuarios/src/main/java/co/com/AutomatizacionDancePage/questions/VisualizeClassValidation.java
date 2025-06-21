@@ -8,8 +8,8 @@ import net.serenitybdd.screenplay.questions.Text;
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
 import static jxl.biff.FormatRecord.logger;
 
-public class Hu4Validation implements Question<Boolean> {
-    public static Hu4Validation hu4Validation() {return new Hu4Validation();}
+public class VisualizeClassValidation implements Question<Boolean> {
+    public static VisualizeClassValidation hu4Validation() {return new VisualizeClassValidation();}
 
     @Override
     public Boolean answeredBy(Actor actor){

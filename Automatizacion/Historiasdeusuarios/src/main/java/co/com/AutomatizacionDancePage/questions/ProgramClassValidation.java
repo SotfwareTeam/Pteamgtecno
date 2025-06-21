@@ -1,37 +1,37 @@
 package co.com.AutomatizacionDancePage.questions;
 
-import co.com.AutomatizacionDancePage.utils.hooks.ClasesVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.questions.Text;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
+
+import java.awt.*;
 
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
 import static jxl.biff.FormatRecord.logger;
 
-public class Hu1Validation implements Question<Boolean> {
-    public static Hu1Validation hu1Validation(){
-        return new Hu1Validation();
+public class ProgramClassValidation implements Question<Boolean> {
+    public static ProgramClassValidation hu1Validation(){
+        return new ProgramClassValidation();
     }
-
-    private WebDriver driver;
 
     @Override
     public Boolean answeredBy(Actor actor){
-        //String profesor = actor.recall(ClasesVariables.profesor.toString());
-        //String profesorValidacion = "Profesor: " + profesor;
+        WebDriver driver = BrowseTheWeb.as(actor).getDriver();
+        WebElement element = driver.findElement(By.xpath(xpathFecha1));
 
         try{
-            //String texto1 = Text.of(VALIDACION_PROFESOR).viewedBy(actor).asString();
-            //String texto2 = Text.of(VALIDACION_HORA).viewedBy(actor).asString();
-            //String texto3 = Text.of(VALIDACION_CLASE).viewedBy(actor).asString();
-            //String texto4 = Text.of(VALIDACION_DIFICULTAD).viewedBy(actor).asString();
-            //return profesorValidacion.equals(texto1) && "Hora: 08:00:00".equals(texto2) &&
-            //        "Clase: Salsa".equals(texto3) && "Dificultad: Principiante".equals(texto4);
+            String colorRgb = element.getCssValue("background-color");
+            String colorHex = Color.fromString(colorRgb).asHex();
             String texto1 = Text.of(VALIDACION_MES).viewedBy(actor).asString();
             String texto2 = Text.of(BOTON_FECHA1).viewedBy(actor).asString();
             String texto3 = Text.of(DIA_FECHA1).viewedBy(actor).asString();
-            return "julio 2025".equals(texto1) && "1".equals(texto2) && "Tue".equals(texto3);
+            return "julio 2025".equals(texto1) && "1".equals(texto2) &&
+                    "Tue".equals(texto3) && "#28a745".equals(colorHex);
         } catch (Exception e){
             logger.info(" Validations doesn´t match");
             return false;

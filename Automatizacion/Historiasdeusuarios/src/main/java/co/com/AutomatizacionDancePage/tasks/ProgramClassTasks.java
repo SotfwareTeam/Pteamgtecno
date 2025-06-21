@@ -11,14 +11,13 @@ import net.serenitybdd.screenplay.actions.Enter;
 import java.util.List;
 
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class Hu1Tasks implements Task {
+public class ProgramClassTasks implements Task {
     private List<ClassesData> classes;
-    public Hu1Tasks(List<ClassesData> classes) {this.classes = classes;}
+    public ProgramClassTasks(List<ClassesData> classes) {this.classes = classes;}
 
-    public static Hu1Tasks insertarDatos(List<ClassesData> classes){
-        return Instrumented.instanceOf(Hu1Tasks.class).withProperties(classes);
+    public static ProgramClassTasks insertarDatos(List<ClassesData> classes){
+        return Instrumented.instanceOf(ProgramClassTasks.class).withProperties(classes);
     }
 
     @Override

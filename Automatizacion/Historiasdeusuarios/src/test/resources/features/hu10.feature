@@ -6,15 +6,16 @@ Característica: Programación de clases
   Quiero programar una clase
   Para vincularme a una clase y visualizarla posteriormente en mi calendario
 
-//  Antecedentes:
-//    Dado que el usuario se encuentra en la pagina de inicio
-//    Cuando hace clic en el botón Eventos de la barra de navegación y en el modulo calendario
+  Antecedentes:
+    Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
+    Cuando ingrese las credenciales correctas (usuario y contrasena)
+      | correo            | contraseña |
+      | juanjop@gmail.com | 1234       |
 
   @ProgramarClase
   Esquema del escenario: Programar una clase
 
-    Dado que el usuario ingresa al calendario
-
+    Dado que el usuario se ha autenticado
     Cuando el usuario diligencia los campos requeridos
       | profesor   | hora   | clase   |
       | <profesor> | <hora> | <clase> |

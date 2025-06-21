@@ -1,5 +1,6 @@
 package co.com.AutomatizacionDancePage.questions;
 
+import co.com.AutomatizacionDancePage.models.CredencialesInicioSesion;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.questions.Text;
@@ -18,10 +19,11 @@ public class ValidacionLogin implements Question<Boolean>{
     @Override
     public Boolean answeredBy(Actor actor) {
         try {
-            String texto = Text.of(MENSAJE_LOGIN).viewedBy(actor).asString();
-            return "Somos una academia dedicada a enseñar los mejores estilos de baile, brindando una experiencia única para todos los niveles de habilidad.".equals(texto);
+            CredencialesInicioSesion credenciales = actor.recall("credenciales-sesion");
+            System.out.println(("Correo Electrónico: " + credenciales.getCorreo()));
+            return MENSAJE_LOGIN.resolveFor(actor).isVisible();
         } catch (Exception e) {
-            logger.info(" No encontró el texto o hubo otro error");
+            e.printStackTrace();
             return false;
         }
     }

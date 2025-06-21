@@ -58,7 +58,7 @@
           </div>
           <div class="modal-body">
             <p>Aquí puedes ver los detalles de los espacios disponibles.</p>
-            <router-link to="/class-programming" class="btn btn-primary">Ir a Calendario</router-link>
+            <router-link to="/Estudiante/Programar_clase" class="btn btn-primary">Ir a Calendario</router-link>
           </div>
         </div>
       </div>

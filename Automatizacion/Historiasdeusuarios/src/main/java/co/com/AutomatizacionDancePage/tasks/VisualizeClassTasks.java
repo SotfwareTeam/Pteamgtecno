@@ -6,15 +6,13 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import java.util.List;
-
 import static co.com.AutomatizacionDancePage.userinterface.ClassesUserInterface.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class Hu4Tasks implements Task {
-    public static Hu4Tasks insertarDatos(){
-        return Instrumented.instanceOf(Hu4Tasks.class).withProperties();
+public class VisualizeClassTasks implements Task {
+    public static VisualizeClassTasks insertarDatos(){
+        return Instrumented.instanceOf(VisualizeClassTasks.class).withProperties();
     }
 
     @Override

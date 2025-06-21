@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         glue = {"co.com.AutomatizacionDancePage.stepsdefinitions", "co.com.AutomatizacionDancePage.utils.hooks"},
         snippets = SnippetType.CAMELCASE)
 
-public class hu1Runner {
+public class ProgramClassRunner {
 }
