@@ -11,7 +11,7 @@ const userRoutes = require('./routes/userRoutes');
 const classesRoutes = require('./routes/classesRoutes')
 const assistanceReportRoutes = require('./routes/assistanceReportRoutes')
 
-const ip = '192.168.1.12'
+const ip = '192.168.1.11'
 
 
 
