@@ -150,7 +150,7 @@
             </div>
             <div class="modal-body">
               <p>Aquí puedes ver los detalles de los espacios disponibles.</p>
-              <router-link to="/Profesor/Calendario" class="btn btn-primary">Ir a Calendario</router-link>
+              <router-link to="/Admin/programacion_clases" class="btn btn-primary">Ir a Calendario</router-link>
             </div>
           </div>
         </div>

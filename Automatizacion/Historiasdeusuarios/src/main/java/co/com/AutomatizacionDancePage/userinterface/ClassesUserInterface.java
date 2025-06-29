@@ -4,8 +4,8 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class ClassesUserInterface {
-    public static Target BTN_CALENDARIO = Target.the(" Ingreso del Usuario").located(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/img"));
-    public static Target BTN_CALENDARIOMODAL = Target.the("Ingreso del password").located(By.xpath("//*[@id=\"espaciosModal\"]/div/div/div[2]/button"));
+    public static Target BTN_CALENDARIO = Target.the(" Modal Calendario").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div/div[1]/img"));
+    public static Target BTN_CALENDARIOMODAL = Target.the("Redirección a Calendario").located(By.xpath("//*[@id=\"espaciosModal\"]/div/div/div[2]/a"));
     public static Target BOTON_MES_SIG = Target.the(" Mes siguiente").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div[2]/div[1]/div[3]/button"));
     public static String xpathFecha1 =  "//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[3]";
     public static String xpathFecha2 =  "//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/tbody/tr[2]/td[5]";
