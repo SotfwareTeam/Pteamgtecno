@@ -107,6 +107,7 @@ target/serenity/
 **/build/reports/
 
 # ───── Gradle ─────
+gradle/
 .gradle/
 **/.gradle/
 !gradle/wrapper/gradle-wrapper.jar
