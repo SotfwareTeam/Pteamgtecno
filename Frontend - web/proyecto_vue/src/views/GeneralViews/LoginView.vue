@@ -144,6 +144,7 @@ export default {
     console.log("Login Response:", response.data);
 
     if (response.data.rol === "estudiante") {
+      localStorage.setItem('id_usuario', response.data.id_usuario);
       localStorage.setItem('correo', response.data.correo);
       localStorage.setItem('rol', response.data.rol);
       this.$router.push('/Estudiante/Inicio');

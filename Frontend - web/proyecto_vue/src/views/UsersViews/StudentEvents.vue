@@ -2,9 +2,9 @@
   <div>
     <NavbarStudents />
 
-    <div class="container mt-5">
-      <div class="row text-center mt-4">
-        <div class="col-md-4">
+    <div class="container1 mt-5">
+      <div class="row text-center mt-5">
+        <div class="col-md-8">
           <h3>Calendario</h3>
           <img src="/Assets/img/salones.jpg" alt="Calendario" class="img-thumbnail"
                data-bs-toggle="modal" data-bs-target="#espaciosModal">
@@ -14,39 +14,99 @@
           <img src="/Assets/img/profesor.jpg" alt="Profesores" class="img-thumbnail"
                data-bs-toggle="modal" data-bs-target="#profesoresModal">
         </div>
-        <div class="col-md-4">
-          <h3>Competencias</h3>
-          <img src="/Assets/img/list.png" alt="Competencias" class="img-thumbnail"
-               data-bs-toggle="modal" data-bs-target="#competenciasModal">
-        </div>
       </div>
     </div>
 
-    <!-- Carrusel -->
-    <div class="container custom-carousel mt-5">
-      <h1 class="text-center">Eventos</h1>
-      <div id="eventosCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/Assets/img/icons/Evento1.jpeg" class="d-block w-100" alt="Evento 1">
+    <!-- Calendario -->
+<div class="container mt-5">
+        <div class="calendar-title text-center mb-4">
+          <h2>Proximos Eventos</h2>
+        </div>
+        <div class="calendar calendar-container p-3 rounded border-secondary">
+          <div class="row calendar-header d-flex justify-content-between align-items-center">
+            <div class="col-2 text-start">
+              <button @click="prevMonth" class="btn btn-dark">&lt;</button>
+            </div>
+            <div class="col-8 text-center text-dark">
+              <h3 class="m-0">{{ currentMonthName }} {{ currentYear }}</h3>
+            </div>
+            <div class="col-2 text-end">
+              <button @click="nextMonth" class="btn btn-dark">&gt;</button>
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="/Assets/img/icons/Evento2.jpeg" class="d-block w-100" alt="Evento 2">
+          <div class="table-responsive mt-3">
+            <table class="table table-bordered text-center table-secondary">
+              <thead>
+                <tr>
+                  <th v-for="day in daysOfWeek" :key="day">{{ day }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(week, weekIndex) in calendarWeeks" :key="weekIndex">
+                  <td
+                    v-for="(day, dayIndex) in week"
+                    :key="dayIndex"
+                    :class="{
+                      'selected': selectedDate && day.date === selectedDate.date,
+                      'scheduled': isScheduled(day.date),
+                      'text-muted': !day.isCurrentMonth
+                    }"
+                    @click="selectDate(day)"
+                  >
+                    {{ day.day }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="carousel-item">
-            <img src="/Assets/img/icons/Evento3.jpeg" class="d-block w-100" alt="Evento 3">
+          <div class="calendar-footer d-flex flex-wrap justify-content-center mt-3">
+            <button
+              class="btn btn-info mx-2 mb-2 text-white"
+              data-bs-toggle="modal"
+              data-bs-target="#infoModal"
+              :disabled="!selectedDate"
+              @click = "enviarFecha"
+            >
+              Información
+            </button>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#eventosCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#eventosCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Siguiente</span>
-        </button>
       </div>
-    </div>
+
+      <!-- Modal Información -->
+      <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+              <h5 class="modal-title">Información del Día</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div v-if="respuestaServidor">
+                <p><strong>Nombre:</strong> {{ respuestaServidor.nombre }}</p>
+                <p><strong>Tipo Evento:</strong> {{ respuestaServidor.tipo_evento }}</p>
+                <p><strong>Fecha:</strong> {{ respuestaServidor.fecha }}</p>
+                <p><strong>Hora:</strong> {{ respuestaServidor.hora }}</p>
+                <p><strong>Profesor:</strong> {{ respuestaServidor.profesor }}</p>
+              </div>
+              <div v-else>
+                <p>No hay clase programada para este día.</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <router-link
+                v-if="respuestaServidor"
+                to="/Estudiante/inicio"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Programarse
+              </router-link>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Modales -->
     <div class="modal fade" id="espaciosModal" tabindex="-1" aria-hidden="true">
@@ -107,8 +167,10 @@
 </template>
 
 <script>
-import NavbarStudents from '@/components/navbars/NavbarStudents.vue'
-import FooterStudents from '@/components/footers/FooterStudents.vue'
+  import axios from 'axios';
+  import NavbarStudents from '@/components/navbars/NavbarStudents.vue'
+  import FooterStudents from '@/components/footers/FooterStudents.vue'
+  import { Modal } from 'bootstrap'
 
 export default {
   name: 'EventsStudent',
@@ -118,6 +180,23 @@ export default {
   },
   data() {
     return {
+      daysOfWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        currentDate: new Date(),
+        selectedDate: null,
+        scheduledClasses: {},
+        respuestaServidor: null,
+        classData: {
+          profesor: '',
+          sede: '',
+          hora: '',
+          clase: '',
+          dificultad: 'Principiante'
+        },
+        modals: {
+          program: null,
+          delete: null,
+          info: null
+        },
       profesores: [
         {
           imagen: '/Assets/img/user.jpg',
@@ -137,14 +216,153 @@ export default {
       ]
     }
   },
-  mounted() {
-    // Inicializar carrusel de Bootstrap
-    new bootstrap.Carousel(document.getElementById('eventosCarousel'), {
-      interval: 3000,
-      ride: 'carousel'
-    })
+  computed: {
+      currentYear() {
+        return this.currentDate.getFullYear()
+      },
+      currentMonth() {
+        return this.currentDate.getMonth()
+      },
+      currentMonthName() {
+        return this.currentDate.toLocaleDateString('es-ES', { month: 'long' })
+      },
+      calendarWeeks() {
+        const firstDay = new Date(this.currentYear, this.currentMonth, 1).getDay()
+        const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate()
+        const daysInPrevMonth = new Date(this.currentYear, this.currentMonth, 0).getDate()
+
+        let date = 1
+        let prevMonthDate = daysInPrevMonth - firstDay + 1
+        const weeks = []
+
+        for (let i = 0; i < 6; i++) {
+          const week = []
+
+          for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+              week.push({
+                day: prevMonthDate++,
+                date: this.formatDate(this.currentYear, this.currentMonth - 1, prevMonthDate - 1),
+                isCurrentMonth: false
+              })
+            } else if (date > daysInMonth) {
+              week.push({
+                day: date - daysInMonth,
+                date: this.formatDate(this.currentYear, this.currentMonth + 1, date - daysInMonth),
+                isCurrentMonth: false
+              })
+              date++
+            } else {
+              week.push({
+                day: date,
+                date: this.formatDate(this.currentYear, this.currentMonth, date),
+                isCurrentMonth: true
+              })
+              date++
+            }
+          }
+
+          weeks.push(week)
+          if (date > daysInMonth) break
+        }
+
+        return weeks
+      },
+      selectedClass() {
+        if (!this.selectedDate) return null
+        return this.scheduledClasses[this.selectedDate.date] || null
+      }
+    },
+    mounted() {
+      this.modals.info = new Modal(document.getElementById('infoModal'))
+
+      // Cargar clases programadas desde localStorage (o API)
+      const savedClasses = localStorage.getItem('scheduledClasses')
+      if (savedClasses) {
+        this.scheduledClasses = JSON.parse(savedClasses)
+      }
+    },
+    methods: {
+      enviarFecha() {
+  if (!this.selectedDate) return;
+
+  console.log("Simulando petición para fecha:", this.selectedDate.date)
+
+  // Aquí puedes definir tu data simulada "hardcoded" desde consola o lógica interna
+  const clasesSimuladas = {
+    '2025-04-16': {
+      nombre: 'Bachata',
+      tipo_evento: 'Clase de Baile',
+      fecha: '2025-04-29',
+      hora: '18:30',
+      profesor: 'Camilo R.'
+    },
+    '2025-04-17': {
+      nombre: 'Salsa',
+      tipo_evento: 'Clase de Baile',
+      fecha: '2025-05-27',
+      hora: '20:00',
+      profesor: 'Andrea M.'
+    }
   }
+
+  // Busca la clase simulada según la fecha seleccionada
+  const clase = clasesSimuladas[this.selectedDate.date]
+
+  // Simula la respuesta del servidor
+  if (clase) {
+    console.log('🧪 Datos simulados:', clase)
+    this.respuestaServidor = clase
+  } else {
+    this.respuestaServidor = null
+  }
+
+  // Muestra el modal después de actualizar los datos
+  this.$nextTick(() => {
+    const modal = new Modal(document.getElementById('infoModal'))
+    modal.show()
+  })
 }
+
+,
+      formatDate(year, month, day) {
+        const mm = String(month + 1).padStart(2, '0') // mes con 2 dígitos
+        const dd = String(day).padStart(2, '0')       // día con 2 dígitos
+        return `${year}-${mm}-${dd}`
+      },
+      prevMonth() {
+        this.currentDate = new Date(this.currentYear, this.currentMonth - 1, 1)
+      },
+      nextMonth() {
+        this.currentDate = new Date(this.currentYear, this.currentMonth + 1, 1)
+      },
+      selectDate(day) {
+        console.log("Seleccionaste el día:", day);
+        this.selectedDate = day
+      },
+      isScheduled(date) {
+        return !!this.scheduledClasses[date]
+      },
+      saveClass() {
+        if (this.selectedDate) {
+          this.scheduledClasses[this.selectedDate.date] = { ...this.classData }
+          localStorage.setItem('scheduledClasses', JSON.stringify(this.scheduledClasses))
+          this.resetClassData()
+          this.modals.program.hide()
+        }
+      },
+      resetClassData() {
+        this.classData = {
+          profesor: '',
+          sede: '',
+          hora: '',
+          clase: '',
+          dificultad: 'Principiante'
+        }
+      }
+    }
+}
+
 </script>
 
 <style scoped>
@@ -172,8 +390,83 @@ export default {
 }
 
 /* Espaciado */
-.container {
+.container1 {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fcfafa6b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .calendar-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .calendar-header {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    color: white;
+  }
+
+  .table thead th {
+    background-color: #495057;
+    color: white;
+  }
+
+  .table tbody td {
+    cursor: pointer;
+    background-color: #fff;
+    color: #212529;
+  }
+
+  .table tbody td:hover {
+    background-color: #e9ecef;
+  }
+
+  .table tbody td.selected {
+    background-color: #ffc107;
+    color: #212529;
+  }
+
+  .table tbody td.scheduled {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .table tbody td.text-muted {
+    color: #6c757d !important;
+  }
+
+  .btn-success, .btn-danger, .btn-warning, .btn-info {
+    background-color: #495057;
+    border-color: #495057;
+  }
+
+  .btn-success:hover, .btn-danger:hover, .btn-warning:hover, .btn-info:hover {
+    opacity: 0.8;
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .modal-content {
+    background-color: #343a40;
+    color: white;
+  }
+
+  .btn-close-white {
+    filter: invert(1);
+  }
 </style>

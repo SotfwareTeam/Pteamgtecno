@@ -17,9 +17,6 @@
               <router-link class="nav-link mx-lg-2" to="/Admin/inicio">Home</router-link> <!-- correcto -->
             </li>
             <li class="nav-item">
-              <router-link class="nav-link mx-lg-2" to="/ClassView">Clases</router-link> <!-- correcto -->
-            </li>
-            <li class="nav-item">
               <router-link class="nav-link mx-lg-2" to="/Admin/eventos">Eventos</router-link> <!-- podrías crear ruta aparte si quieres algo diferente -->
             </li>
             <li class="nav-item">

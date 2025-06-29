@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($email && $password) {
         try {
             // Solo filtra por correo
-            $sql = "SELECT correo, contrasena, rol FROM login WHERE correo = ?";
+            $sql = "SELECT id_usuario, correo, contrasena, rol FROM login WHERE correo = ?";
             $stmt = $connect->prepare($sql);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -36,8 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Verifica la contraseña con password_verify
                 if (password_verify($password, $row['contrasena'])) {
                     echo json_encode([
+                        "success" => true,
                         "rol" => strtolower($row['rol']),
-                        "correo" => $row['correo']
+                        "correo" => $row['correo'],
+                        "id_usuario" => $row['id_usuario']
                     ]);
                 } else {
                     echo json_encode(["rol" => "noresult"]);
