@@ -29,4 +29,3 @@ public class hu6StepDefinitions {
         theActorInTheSpotlight().should(seeThat(ValidacionRedireccionCalendarioTitulo.validacionRedireccionCalendarioTitulo()));
     }
 }
-
