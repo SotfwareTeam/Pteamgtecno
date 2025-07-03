@@ -1,17 +1,27 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
-require 'conexion.php'; // tu archivo de conexión
 
-$sql = "SELECT id_usuario, nombre, apellido, correo, telefono FROM usuarios WHERE id_rol = 2 AND estado = 'activo'";
-$result = $conn->query($sql);
+$conexion = new mysqli("localhost", "root", "", "dance");
 
-$profesores = [];
-
-while ($row = $result->fetch_assoc()) {
-    $profesores[] = $row;
+if ($conexion->connect_error) {
+    echo json_encode(["error" => "Conexión fallida"]);
+    exit;
 }
 
-header('Content-Type: application/json');
+// Solo usuarios con rol de profesor (id_rol = 2)
+$query = "SELECT id_usuario, nombre FROM usuarios WHERE id_rol = 2";
+
+$resultado = $conexion->query($query);
+
+$profesores = [];
+if ($resultado) {
+    while ($row = $resultado->fetch_assoc()) {
+        $profesores[] = $row;
+    }
+}
+
 echo json_encode($profesores);
+$conexion->close();
+
 ?>

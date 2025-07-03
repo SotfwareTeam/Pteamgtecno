@@ -69,26 +69,31 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <div v-if="respuestaServidor">
-                <p><strong>Nombre:</strong> {{ respuestaServidor.nombre }}</p>
-                <p><strong>Tipo Evento:</strong> {{ respuestaServidor.tipo_evento }}</p>
-                <p><strong>Fecha:</strong> {{ respuestaServidor.fecha }}</p>
-                <p><strong>Hora:</strong> {{ respuestaServidor.hora }}</p>
-                <p><strong>Profesor:</strong> {{ respuestaServidor.profesor }}</p>
+              <div v-if="respuestaServidor.length > 0">
+                <div
+                  v-for="(clase, index) in respuestaServidor"
+                  :key="index"
+                  class="mb-3 border-bottom pb-2"
+                >
+                  <p><strong>Nombre:</strong> {{ clase.nombre }}</p>
+                  <p><strong>Tipo Evento:</strong> {{ clase.tipo_evento }}</p>
+                  <p><strong>Fecha:</strong> {{ clase.fecha }}</p>
+                  <p><strong>Hora:</strong> {{ clase.hora }}</p>
+                  <p><strong>Profesor:</strong> {{ clase.profesor }}</p>
+                   <button
+              class="btn btn-primary me-2"
+              @click="programarClase(clase.id_clase)"
+            >
+              Programarse a "{{ clase.nombre }}"
+            </button>
+                </div>
               </div>
               <div v-else>
                 <p>No hay clase programada para este día.</p>
               </div>
             </div>
             <div class="modal-footer">
-              <router-link
-                v-if="respuestaServidor"
-                to="/Estudiante/inicio"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Programarse
-              </router-link>
+
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
           </div>
@@ -117,7 +122,7 @@ export default {
       currentDate: new Date(),
       selectedDate: null,
       scheduledClasses: {},
-      respuestaServidor: null,
+      respuestaServidor: [],
       classData: {
         profesor: '',
         hora: '',
@@ -189,7 +194,7 @@ export default {
     }
   },
   mounted() {
-    this.modals.info = new Modal(document.getElementById('infoModal'));
+    //this.modals.info = new Modal(document.getElementById('infoModal'));
     this.cargarClasesProgramadas();
   },
   methods: {
@@ -225,21 +230,16 @@ export default {
 
       axios.get(`http://localhost/backend/clases.php?fecha=${this.selectedDate.date}`)
         .then(response => {
-          if (response.data) {
-            console.log('✅ Datos recibidos:', response.data);
+          if (response.data && Array.isArray(response.data)) {
+              console.log('✅ Datos recibidos:', response.data);
             this.respuestaServidor = response.data;
           } else {
-            this.respuestaServidor = null;
+            this.respuestaServidor = [];
           }
-
-          this.$nextTick(() => {
-            const modal = new Modal(document.getElementById('infoModal'));
-            modal.show();
-          });
         })
         .catch(error => {
           console.error('❌ Error al cargar datos:', error);
-          this.respuestaServidor = null;
+          this.respuestaServidor = [];
         });
     },
 
@@ -278,7 +278,37 @@ export default {
         clase: '',
         dificultad: 'Principiante'
       };
-    }
+    },
+programarClase(idClase) {
+  const idUsuario = localStorage.getItem('id_usuario');
+  if (!idUsuario || !idClase) {
+    alert("Error: datos incompletos");
+    return;
+  }
+
+  axios.post('http://localhost/backend/programar_clase.php', {
+    id_clase: idClase,
+    id_usuario: idUsuario
+  },{
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+
+  .then(response => {
+  console.log("➡️ Respuesta:", response.data);
+
+  if (response.data.success) {
+    alert("✅ ¡Te has programado para la clase!");
+  } else {
+    alert("❌ No se pudo programar la clase: " + response.data.error);
+  }
+  })
+  .catch(error => {
+      console.error("❌ Error al enviar la solicitud:", error);
+      alert("❌ Error al enviar la solicitud.");
+  });
+}
   }
 }
 </script>

@@ -1,21 +1,28 @@
 <?php
+date_default_timezone_set('America/Bogota');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// --- Cabeceras CORS ---
+// --- Cabeceras
+header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// --- Manejar preflight OPTIONS ---
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
+// --- Conexión BD
+$conexion = new mysqli("localhost", "root", "", "dance");
+if ($conexion->connect_error) {
+    echo json_encode(['error' => 'Error de conexión con la base de datos']);
+    exit;
+}
 
+// --- Leer datos JSON
 $data = json_decode(file_get_contents("php://input"), true);
-
 $token = $data['token'] ?? '';
 $newPassword = $data['newPassword'] ?? '';
 
@@ -24,36 +31,44 @@ if (empty($token) || empty($newPassword)) {
     exit;
 }
 
-// Buscar correo por token
-$stmt = $conexion->prepare("SELECT email, created_at FROM password_resets WHERE token = ?");
+// --- Validar token
+$stmt = $conexion->prepare("SELECT correo, created_at FROM password_resets WHERE token = ?");
 $stmt->bind_param("s", $token);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if (!$row = $result->fetch_assoc()) {
-    echo json_encode(['error' => 'Token inválido o expirado']);
+    echo json_encode(['error' => 'Token inválido']);
     exit;
 }
 
-// Validar tiempo de expiración (opcional, 10 minutos)
+// --- Validar expiración (1 hora)
 $created_at = strtotime($row['created_at']);
-if ((time() - $created_at) > 600) {
-    $conexion->prepare("DELETE FROM password_resets WHERE token = ?")->bind_param("s", $token)->execute();
+if ((time() - $created_at) > 3600) {
+    $stmtDelete = $conexion->prepare("DELETE FROM password_resets WHERE token = ?");
+    $stmtDelete->bind_param("s", $token);
+    $stmtDelete->execute();
+
     echo json_encode(['error' => 'El token ha expirado.']);
     exit;
 }
 
-$email = $row['email'];
+// --- Actualizar contraseña
+$email = trim(strtolower($row['correo']));
 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-// Actualizar contraseña en login
-$stmtUpdate = $conexion->prepare("UPDATE login SET contrasena = ? WHERE LOWER(correo) = LOWER(?)");
+$stmtUpdate = $conexion->prepare("UPDATE login SET contrasena = ? WHERE TRIM(LOWER(correo)) = ?");
 $stmtUpdate->bind_param("ss", $hashedPassword, $email);
+$stmtUpdate->execute();
 
-if ($stmtUpdate->execute() && $stmtUpdate->affected_rows > 0) {
-    $conexion->prepare("DELETE FROM password_resets WHERE token = ?")->bind_param("s", $token)->execute();
+file_put_contents("debug.log", "TOKEN: $token\nEMAIL: $email\nAFFECTED_ROWS: {$stmtUpdate->affected_rows}\n", FILE_APPEND);
+
+if ($stmtUpdate->affected_rows > 0) {
+    $stmtDelete = $conexion->prepare("DELETE FROM password_resets WHERE token = ?");
+    $stmtDelete->bind_param("s", $token);
+    $stmtDelete->execute();
+
     echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['error' => 'No se pudo actualizar la contraseña']);
+    echo json_encode(['error' => 'No se pudo actualizar la contraseña', 'correo' => $email]);
 }
-?>

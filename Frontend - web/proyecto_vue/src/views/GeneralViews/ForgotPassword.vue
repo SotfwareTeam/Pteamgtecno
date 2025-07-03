@@ -7,13 +7,13 @@
 
           <form @submit.prevent="handleSubmit">
             <div class="mb-3">
-              <label for="email" class="form-label">Correo Electrónico</label>
+              <label for="Correo" class="form-label">Correo Electrónico</label>
               <input
-                type="email"
+                type="Correo"
                 class="form-control"
-                id="email"
-                v-model="email"
-                placeholder="tu@email.com"
+                id="Correo"
+                v-model="Correo"
+                placeholder="tu@Correo.com"
                 required
               >
             </div>
@@ -38,7 +38,7 @@
     name: 'ForgotPassword',
     data() {
       return {
-        email: ''
+        Correo: ''
       }
     },
     methods: {
@@ -46,7 +46,7 @@
   fetch('http://localhost/backend/send_reset_email.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: this.email }) // 👈 Aquí se envía correctamente
+    body: JSON.stringify({ Correo: this.Correo }) // 👈 Aquí se envía correctamente
   })
     .then(response => response.json())
     .then(data => {

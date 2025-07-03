@@ -69,26 +69,31 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <div v-if="respuestaServidor">
-                <p><strong>Nombre:</strong> {{ respuestaServidor.nombre }}</p>
-                <p><strong>Tipo Evento:</strong> {{ respuestaServidor.tipo_evento }}</p>
-                <p><strong>Fecha:</strong> {{ respuestaServidor.fecha }}</p>
-                <p><strong>Hora:</strong> {{ respuestaServidor.hora }}</p>
-                <p><strong>Profesor:</strong> {{ respuestaServidor.profesor }}</p>
+              <div v-if="respuestaServidor.length > 0">
+                <div
+                  v-for="(clase, index) in respuestaServidor"
+                  :key="index"
+                  class="mb-3 border-bottom pb-2"
+                >
+                  <p><strong>Nombre:</strong> {{ clase.nombre }}</p>
+                  <p><strong>Tipo Evento:</strong> {{ clase.tipo_evento }}</p>
+                  <p><strong>Fecha:</strong> {{ clase.fecha }}</p>
+                  <p><strong>Hora:</strong> {{ clase.hora }}</p>
+                  <p><strong>Profesor:</strong> {{ clase.profesor }}</p>
+                  <button
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                @click="cerrarModalYRedirigir(clase)"
+              >
+                Calificar
+              </button>
+                </div>
               </div>
               <div v-else>
                 <p>No hay clase programada para este día.</p>
               </div>
             </div>
             <div class="modal-footer">
-              <router-link
-                v-if="respuestaServidor"
-                to="/Profesor/Inicio"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Calificar
-              </router-link>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
           </div>
@@ -117,7 +122,7 @@ export default {
       currentDate: new Date(),
       selectedDate: null,
       scheduledClasses: {},
-      respuestaServidor: null,
+      respuestaServidor: [],
       classData: {
         profesor: '',
         sede: '',
@@ -192,6 +197,16 @@ export default {
   mounted() {
     this.modals.info = new Modal(document.getElementById('infoModal'));
     this.cargarClasesProgramadas();
+
+    const infoModalEl = document.getElementById('infoModal');
+
+    window.addEventListener('hidden.bs.modal', () => {
+    
+    const backdrop = document.querySelector('.modal-backdrop');
+    if (backdrop) backdrop.remove(); // limpia manualmente
+    document.body.classList.remove('modal-open'); // previene scroll bloqueado
+    document.body.style = ''; // limpia estilos inline
+  });
   },
   methods: {
     enviarFecha() {
@@ -201,9 +216,9 @@ export default {
         .then(response => {
           if (response.data) {
             console.log('✅ Datos recibidos:', response.data);
-            this.respuestaServidor = response.data;
+            this.respuestaServidor = Array.isArray(response.data) ? response.data : [];
           } else {
-            this.respuestaServidor = null;
+            this.respuestaServidor = [];
           }
 
           this.$nextTick(() => {
@@ -226,8 +241,11 @@ export default {
           if (response.data && Array.isArray(response.data)) {
             this.scheduledClasses = {};
             response.data.forEach(clase => {
-              this.scheduledClasses[clase.fecha] = clase;
-            });
+            if (!this.scheduledClasses[clase.fecha]) {
+              this.scheduledClasses[clase.fecha] = [];
+            }
+            this.scheduledClasses[clase.fecha].push(clase);
+          });
             console.log('✅ Días con clases:', this.scheduledClasses);
           }
         })
@@ -241,6 +259,32 @@ export default {
       const dd = String(day).padStart(2, '0');
       return `${year}-${mm}-${dd}`;
     },
+
+    goToCalificacion() {
+      this.$router.push('/Profesor/Calificacion');
+    },
+ cerrarModalYRedirigir(clase) {
+  if (!clase) {
+    console.error('⚠️ Clase no válida');
+    return;
+  }
+try {
+  localStorage.setItem('claseSeleccionada', JSON.stringify(clase));
+} catch (e) {
+  console.error('❌ No se pudo guardar la clase en localStorage', e);
+}
+  const modalEl = document.getElementById('infoModal');
+  const modal = Modal.getInstance(modalEl);
+  if (modal) modal.hide();
+
+  const backdrop = document.querySelector('.modal-backdrop');
+  if (backdrop) backdrop.remove();
+
+  setTimeout(() => {
+    this.$router.push('/Profesor/Calificacion');
+  }, 300);
+}
+,
 
     prevMonth() {
       this.currentDate = new Date(this.currentYear, this.currentMonth - 1, 1);
