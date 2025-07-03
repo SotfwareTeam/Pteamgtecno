@@ -96,79 +96,111 @@
       FooterStudents
     },
     data() {
-      return {
-        profileImage: '/Assets/img/user.jpg',
-        studentData: {
-          name: '',
-          email: '',
-          phone: '',
-          address: ''
-        },
-        studentClasses: [
-          { name: 'Clase de Salsa', grade: 4.5 },
-          { name: 'Clase de Bachata', grade: 3.8 }
-        ]
-      }
+  return {
+    profileImage: '/Assets/img/user.jpg',
+    selectedImageFile: null,
+    studentData: {
+      name: '',
+      email: '',
+      phone: '',
+      address: ''
     },
+    studentClasses: [] // 👈 importante: sin datos por defecto
+  }
+},
     methods: {
       handleImageUpload(event) {
-        const file = event.target.files[0]
-        if (file) {
-          const reader = new FileReader()
-          reader.onload = (e) => {
-            this.profileImage = e.target.result
-          }
-          reader.readAsDataURL(file)
-        }
-      },
+  const file = event.target.files[0];
+  if (file) {
+    this.selectedImageFile = file; // 🔴 Necesario para enviar al backend
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.profileImage = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+},
       saveChanges() {
   const [nombre, apellido] = this.studentData.name.split(' ');
-  const payload = {
-    correo: this.studentData.email,
-    nombre,
-    apellido,
-    telefono: this.studentData.phone,
-    direccion: this.studentData.address
-  };
+  const formData = new FormData();
+  formData.append('id_usuario', localStorage.getItem('id_usuario'));
+  formData.append('nombre', nombre);
+  formData.append('apellido', apellido);
+  formData.append('telefono', this.studentData.phone);
+  formData.append('direccion', this.studentData.address);
+  formData.append('correo', this.studentData.email);
 
-  axios.post('http://localhost/backend/update_user.php', payload)
-    .then(response => {
-      if (response.data.success) {
-        alert('Cambios guardados exitosamente');
-      } else {
-        alert('No se pudo actualizar. Intenta de nuevo');
+  if (this.selectedImageFile) {
+    formData.append('imagen', this.selectedImageFile);
+  }
+
+  axios.post('http://localhost/backend/update_user_full.php', formData)
+    .then(res => {
+      if (res.data.success) {
+        alert('Cambios guardados con imagen');
       }
     })
-    .catch(error => {
-      console.error('Error al guardar cambios:', error);
-      alert('Error de conexión con el servidor');
+    .catch(err => {
+      console.error('Error al guardar:', err);
     });
+},
+
+  async uploadImage() {
+    const formData = new FormData();
+    formData.append('id_usuario', localStorage.getItem('id_usuario'));
+    formData.append('imagen', this.selectedImageFile);
+
+    const res = await axios.post('http://localhost/backend/update_user_image.php', formData);
+    if (res.data.success) {
+      alert('Imagen actualizada');
+    } else {
+      alert('Error al actualizar imagen');
+    }
+  }
+    },
+   mounted() {
+  const correo = localStorage.getItem("correo");
+  const id_usuario = localStorage.getItem("id_usuario");
+
+  // Cargar datos básicos
+ axios.get(`http://localhost/backend/get_user_by_email.php?correo=${correo}`)
+  .then(res => {
+    const data = res.data;
+
+    if (data.error) {
+      console.error("⚠️ Error desde backend:", data.error);
+      return;
+    }
+
+    this.studentData = {
+      name: [data.nombre, data.apellido].filter(Boolean).join(' '),
+      email: data.correo,
+      phone: data.telefono,
+      address: data.direccion
+    };
+
+    this.profileImage = `http://localhost/backend/get_user_image.php?correo=${data.correo}`;
+  })
+  .catch(err => {
+    console.error("❌ Error al obtener datos:", err);
+  });
+
+
+  // Cargar notas reales
+axios.get(`http://localhost/backend/get_notas_usuario.php?id_usuario=${id_usuario}`)
+  .then(res => {
+    if (Array.isArray(res.data)) {
+      this.studentClasses = res.data.filter(n => n.name && n.grade !== null);
+    } else {
+      this.studentClasses = []; // evita errores si viene mal
+    }
+  })
+  .catch(err => {
+    console.error("Error al cargar notas:", err);
+    this.studentClasses = [];
+  });
 }
 
-    },
-    mounted() {
-    const correo = localStorage.getItem("correo");
-    console.log("Cargando perfil de:", correo); // debe coincidir 100% con la DB
-
-    axios.get(`http://localhost/backend/get_user_by_email.php?correo=${correo}`)
-      .then(response => {
-        if (response.data.error) {
-          console.error("Usuario no encontrado");
-        } else {
-          console.log("Datos del usuario:", response.data);
-          this.studentData = {
-          name: `${response.data.nombre} ${response.data.apellido}`,
-          email: response.data.correo,
-          phone: response.data.telefono,
-          address: response.data.direccion
-};
-
-        }
-      })
-      .catch(error => {
-        console.error("Error al cargar perfil:", error);
-      });
-  }
   }
   </script>
 

@@ -50,37 +50,54 @@ export default {
     }
   },
   mounted() {
-    // Capturar el token desde la URL
     this.token = this.$route.query.token
+    console.log("Token capturado desde URL:", this.token)
+
     if (!this.token) {
       alert('Token no válido')
       this.$router.push('/')
     }
   },
   methods: {
+    mostrarAlerta(tipo, mensaje) {
+      alert(`${tipo.toUpperCase()}: ${mensaje}`)
+    },
+
     async handleResetPassword() {
       if (this.newPassword !== this.confirmPassword) {
-        alert('Las contraseñas no coinciden')
+        this.mostrarAlerta('error', 'Las contraseñas no coinciden')
         return
       }
 
+      const payload = {
+        token: this.token,
+        newPassword: this.newPassword
+      }
+
+      console.log("Datos que se enviarán al backend:", payload)
+
       try {
-        const response = await axios.post('http://localhost/backend/reset_password.php', {
-          token: this.token,
-          newPassword: this.newPassword
-        }, {
+        const response = await axios.post('http://localhost/backend/send_reset_password.php', payload, {
           headers: { 'Content-Type': 'application/json' }
         })
 
-        if (response.data.success) {
-          alert('Contraseña actualizada correctamente')
-          this.$router.push('/')
+        console.log("Respuesta cruda de axios:", response)
+        console.log("Respuesta del backend (data):", response.data)
+
+        // 🧠 Aquí se hace la validación robusta:
+        if (typeof response.data === 'object' && response.data.success) {
+          this.mostrarAlerta('éxito', 'Contraseña actualizada correctamente')
+
+          setTimeout(() => {
+            this.$router.push('/')
+          }, 300) // un poco más de tiempo para mostrar alerta
         } else {
-          alert('Error: ' + (response.data.error || 'No se pudo actualizar la contraseña.'))
+          const mensaje = response.data?.error || 'No se pudo actualizar la contraseña.'
+          this.mostrarAlerta('error', mensaje)
         }
       } catch (error) {
-        console.error('Error actualizando contraseña:', error)
-        alert('Error de conexión con el servidor.')
+        console.error('Error al comunicarse con el backend:', error)
+        this.mostrarAlerta('error', 'Error de conexión con el servidor.')
       }
     }
   }

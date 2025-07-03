@@ -47,5 +47,10 @@ if ($stmt->affected_rows > 0) {
     echo json_encode(["success" => false, "message" => "No se actualizó ningún dato"]);
 }
 
+if (isset($_FILES['imagen'])) {
+    file_put_contents("debug_image.log", print_r($_FILES, true));
+}
+
+
 $stmt->close();
 $connect->close();

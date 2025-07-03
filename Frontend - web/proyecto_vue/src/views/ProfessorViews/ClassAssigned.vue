@@ -24,16 +24,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Novedades del Sistema -->
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Novedades del sistema</h5>
-              <p v-for="(news, index) in systemNews" :key="index">{{ news }}</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Tabla de Asistencia -->
@@ -90,7 +80,13 @@
               </div>
               <div class="mb-3">
                 <label for="editClassName" class="form-label">Clase</label>
-                <input type="text" class="form-control" id="editClassName" v-model="editForm.class">
+                <input
+                type="text"
+                class="form-control"
+                id="editClassName"
+                v-model="editForm.class"
+                readonly
+              >
               </div>
               <div class="mb-3">
                 <label for="editGrade" class="form-label">Calificación</label>
@@ -134,11 +130,12 @@ export default {
   },
   data() {
     return {
+      claseSeleccionada: null,
       currentStudent: {
-        name: 'Miguel Ángel',
-        class: 'Salsa',
+        name: '',
+        class: '',
         grade: 4.0,
-        observation: 'Lorem ipsum dolor sit amet...'
+        observation: ''
       },
       editForm: {
         name: '',
@@ -158,11 +155,17 @@ export default {
   mounted() {
   this.editModal = new Modal(document.getElementById('editModal'));
   this.editForm = { ...this.currentStudent };
-  this.fetchUsuarios();
+
+  const claseGuardada = localStorage.getItem('claseSeleccionada');
+  if (claseGuardada) {
+    this.claseSeleccionada = JSON.parse(claseGuardada);
+    this.fetchUsuariosPorClase(this.claseSeleccionada.id_clase);
+  } else {
+    console.warn("⚠️ No se encontró clase en localStorage");
+  }
 },
   methods: {
     selectStudent(student) {
-    console.log('Seleccionado:', student.name);
     this.currentStudent = {
       ...student,
       grade: 3.5,
@@ -192,9 +195,11 @@ export default {
   for (const student of this.students) {
     try {
       const payload = {
-        id_usuario: student.id_usuario,
-        id_clase: student.id_clase,
-        asistencia: student.attendance
+        id_usuario: this.currentStudent.id_usuario,
+        id_clase: this.currentStudent.id_clase,
+        calificacion: this.currentStudent.grade,
+        promedio: this.currentStudent.grade,
+        observacion: this.currentStudent.observation
       };
 
       console.log('📤 Enviando:', payload);
@@ -208,10 +213,11 @@ export default {
   },
   async saveChanges() {
   const payload = {
-    id_usuario: this.currentStudent.id_usuario,
-    id_clase: this.currentStudent.id_clase,
-    calificacion: this.currentStudent.grade,
-    promedio: this.currentStudent.grade // por ahora mismo valor
+      id_usuario: this.currentStudent.id_usuario,
+      id_clase: this.currentStudent.id_clase,
+      calificacion: this.editForm.grade,
+      promedio: this.editForm.grade,
+      observacion: this.editForm.observation
   };
 
   console.log('📤 Enviando calificación:', payload);
@@ -225,6 +231,26 @@ export default {
   }
 
   this.editModal.hide();
+},
+async fetchUsuariosPorClase(id_clase) {
+  try {
+    const res = await axios.get(`http://localhost/backend/get_estudiantes_por_clase.php?id_clase=${id_clase}`);
+    this.students = res.data.map(user => ({
+      id_usuario: user.id_usuario,
+      id_clase: id_clase,
+      name: `${user.nombre} ${user.apellido}`,
+       class: user.nombre_clase || 'Clase',
+      age: 0,
+      attendance: false
+    }));
+
+    if (res.data.length > 0) {
+      this.claseSeleccionada.nombre = res.data[0].nombre_clase;
+    }
+
+  } catch (err) {
+    console.error('❌ Error al cargar estudiantes:', err);
+  }
 }
   }
 }
@@ -263,8 +289,8 @@ thead th {
 }
 
 .btn-primary:hover {
-  background-color: #e0a800;
-  border-color: #e0a800;
+  background-color: #b007ff;
+  border-color: #b007ff;
 }
 
 .attendance-toggle {

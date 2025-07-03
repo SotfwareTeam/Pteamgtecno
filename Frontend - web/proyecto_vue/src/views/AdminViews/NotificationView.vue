@@ -66,7 +66,7 @@ import Pikaday from 'pikaday';
 import 'pikaday/css/pikaday.css';
 import NavbarAdmin from '@/components/navbars/NavbarAdmin.vue';
 import FooterAdmin from '@/components/footers/FooterAdmin.vue';
-import moment from 'moment'; // Importamos Moment.js para formatear la fecha
+import moment from 'moment';
 import { Modal } from 'bootstrap';
 
 export default {
@@ -80,75 +80,144 @@ export default {
       selectedDateFormatted: '',
       selectedClass: null,
       classes: [],
+      classMap: {}, // <- Mapea nombre de clase a id_clase
       customMessage: '',
       sendToTeacher: false,
       modalMessage: '',
-      // Datos simulados de clases programadas (estos datos pueden venir de una base de datos)
-      classData: {
-        '28/04/2025': ['Clase de Salsa', 'Clase de Bachata'],
-        '20/09/2024': ['Clase de Tango', 'Clase de Merengue'],
-        '25/09/2024': ['Clase de Hip-Hop', 'Clase de Ballet'],
-      },
+      markedDates: [],
     };
   },
   computed: {
     formattedSelectedDate() {
-      return this.selectedDate ? moment(this.selectedDate).format('DD/MM/YYYY') : 'Ninguna fecha seleccionada';
+      return this.selectedDate
+        ? moment(this.selectedDate).format('DD/MM/YYYY')
+        : 'Ninguna fecha seleccionada';
     },
   },
   mounted() {
-    const picker = new Pikaday({
-      field: document.getElementById('datepicker'),
-      format: 'DD/MM/YYYY',
-      onSelect: (date) => {
-        this.selectedDate = date;
-        this.loadClasses(moment(date).format('DD/MM/YYYY'));
-      },
+    this.fetchMarkedDates().then(() => {
+      new Pikaday({
+        field: document.getElementById('datepicker'),
+        format: 'DD/MM/YYYY',
+        onSelect: (date) => {
+          this.selectedDate = date;
+          this.loadClasses(moment(date).format('YYYY-MM-DD'));
+        },
+        disableDayFn: (date) => {
+          const formatted = moment(date).format('YYYY-MM-DD');
+          return !this.markedDates.includes(formatted);
+        },
+      });
     });
-    console.log('window.bootstrap en mounted:', window.bootstrap);
   },
   methods: {
-    loadClasses(date) {
-      this.classes = this.classData[date] || [];
+    async fetchMarkedDates() {
+      try {
+        const response = await fetch('http://localhost/backend/get_class_dates.php');
+        const fechas = await response.json();
+        this.markedDates = Array.isArray(fechas) ? fechas : [];
+      } catch (error) {
+        console.error('Error al obtener fechas:', error);
+      }
     },
+
+    async loadClasses(dateFormatted) {
+      try {
+        const response = await fetch('http://localhost/backend/get_classes_by_date.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fecha: dateFormatted }),
+        });
+
+        const data = await response.json();
+
+        // data debe ser un array de objetos: [{ id: 1, nombre: 'Salsa Básica' }]
+        if (Array.isArray(data)) {
+          this.classes = data.map(clase => clase.nombre);
+          this.classMap = {};
+          data.forEach(clase => {
+            this.classMap[clase.nombre] = clase.id;
+          });
+        } else {
+          this.classes = [];
+        }
+      } catch (error) {
+        console.error('Error cargando clases:', error);
+        this.classes = [];
+      }
+    },
+
     showModal(message) {
-         this.modalMessage = message;
-         const myModal = new Modal(document.getElementById('notificationModal'));
-         myModal.show()
+      this.modalMessage = message;
+      const myModal = new Modal(document.getElementById('notificationModal'));
+      myModal.show();
     },
-    sendNotification(message) {
-      if (!this.selectedDate) {
-        alert('Por favor, seleccione una fecha antes de enviar.');
+
+    async sendNotification(message) {
+      if (!this.selectedDate || !this.selectedClass) {
+        alert('Seleccione una fecha y una clase antes de enviar.');
         return;
       }
-      if (!this.selectedClass) {
-        alert('Por favor, seleccione una clase para enviar la notificación.');
+
+      const idClase = this.classMap[this.selectedClass];
+      if (!idClase) {
+        alert('No se pudo identificar la clase.');
         return;
       }
-      this.showModal(message);
+
+      try {
+        const response = await fetch('http://localhost/backend/enviar_notificacion.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id_clase: idClase,
+            mensaje: message,
+            enviar_al_maestro: this.sendToTeacher,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          this.showModal(message);
+        } else {
+          alert('Error al enviar notificación: ' + (result.error || 'Desconocido'));
+        }
+      } catch (error) {
+        console.error('Error enviando notificación:', error);
+        if (error instanceof Response) {
+        const mensaje = await error.text();
+        console.error('Respuesta del servidor:', mensaje);
+      }
+        alert('Fallo al conectar con el servidor o error interno.');
+}
     },
-    sendCustomNotification() {
-      if (!this.selectedDate) {
-        alert('Por favor, seleccione una fecha antes de enviar.');
+
+    async sendCustomNotification() {
+      if (!this.selectedDate || !this.selectedClass) {
+        alert('Seleccione una fecha y una clase.');
         return;
       }
-      if (!this.selectedClass) {
-        alert('Por favor, seleccione una clase para enviar la notificación.');
+
+      if (!this.customMessage.trim()) {
+        alert('Escriba un mensaje personalizado.');
         return;
       }
-      if (this.customMessage) {
-        let fullMessage = `Notificación personalizada enviada: ${this.customMessage}.`;
-        fullMessage += this.sendToTeacher ? ' También fue enviada al maestro.' : '';
-        this.showModal(fullMessage);
-        this.customMessage = ''; // Limpiar el mensaje después de enviar
-        this.sendToTeacher = false; // Resetear el checkbox
-      } else {
-        alert('Por favor, escribe un mensaje antes de enviar.');
-      }
+
+      await this.sendNotification(this.customMessage);
+
+      this.customMessage = '';
+      this.sendToTeacher = false;
     },
   },
 };
 </script>
+
+
 
 <style scoped>
 .container {
