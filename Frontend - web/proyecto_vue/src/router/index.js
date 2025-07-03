@@ -59,7 +59,7 @@ const router = createRouter({
       component: Classes1,
     },
     {
-      path: '/ClassView',
+      path: '/Admin/Calificaciones',
       name: 'ClassView',
       component: ClassView,
     },

@@ -85,9 +85,9 @@
 </template>
 
 <script>
-import FooterTeachers from '@/components/footers/FooterTeachers.vue'
-import NavbarTeachers from '@/components/navbars/NavbarTeachers.vue'
-import axios from 'axios'
+import FooterTeachers from '@/components/footers/FooterTeachers.vue';
+import NavbarTeachers from '@/components/navbars/NavbarTeachers.vue';
+import axios from 'axios';
 
 export default {
   name: 'TeacherProfile',
@@ -98,6 +98,7 @@ export default {
   data() {
     return {
       profileImage: '/Assets/img/user.jpg',
+      selectedImageFile: null,
       teacherData: {
         name: '',
         email: '',
@@ -105,61 +106,95 @@ export default {
         address: ''
       },
       teacherClasses: []
-    }
+    };
   },
   mounted() {
     this.loadTeacherProfile();
+    this.loadTeacherClasses();
   },
   methods: {
     handleImageUpload(event) {
       const file = event.target.files[0];
       if (file) {
+        this.selectedImageFile = file;
         const reader = new FileReader();
         reader.onload = (e) => {
-          this.profileImage = e.target.result;
-        }
+          this.profileImage = e.target.result; // Vista previa inmediata
+        };
         reader.readAsDataURL(file);
       }
     },
+
     async loadTeacherProfile() {
       const correo = localStorage.getItem('correo');
       try {
-        const response = await axios.get(`http://localhost/backend/get_user_by_email.php?correo=${correo}`);
+        const response = await axios.get(`http://localhost/backend/get_user_data.php?correo=${correo}`);
         const data = response.data;
 
+        if (data.error) {
+          console.error("❌ Usuario no encontrado:", data.error);
+          return;
+        }
+
         this.teacherData = {
-          name: data.nombre || '',
-          email: data.correo || '',
-          phone: data.telefono || '',
-          address: data.direccion || ''
+          name: [data.nombre, data.apellido].filter(Boolean).join(' '),
+          email: data.correo,
+          phone: data.telefono,
+          address: data.direccion
         };
 
-        console.log("Perfil cargado:", this.teacherData);
-
+        this.profileImage = data.imagen || '/Assets/img/user.jpg';
       } catch (error) {
-        console.error('Error cargando el perfil:', error);
+        console.error('❌ Error cargando el perfil:', error);
       }
     },
-    async saveChanges() {
-  try {
-    const response = await axios.post('http://localhost/backend/update_user_by_email.php', this.teacherData, {
-      headers: { 'Content-Type': 'application/json' }
-    });
 
-    if (response.data.success) {
-      alert('Perfil actualizado exitosamente');
-      console.log('Datos enviados:', this.teacherData);
-    } else {
-      alert('Error al actualizar perfil');
-      console.error('Error de backend:', response.data.error);
+    async loadTeacherClasses() {
+      const id_usuario = localStorage.getItem('id_usuario');
+      try {
+        const res = await axios.get(`http://localhost/backend/get_notas_usuario.php?id_usuario=${id_usuario}`);
+        if (Array.isArray(res.data)) {
+          this.teacherClasses = res.data.filter(n => n.name && n.grade !== null);
+        } else {
+          this.teacherClasses = [];
+        }
+      } catch (err) {
+        console.error("❌ Error al cargar clases:", err);
+        this.teacherClasses = [];
+      }
+    },
+
+    async saveChanges() {
+      const formData = new FormData();
+      const [nombre, ...rest] = this.teacherData.name.trim().split(' ');
+      const apellido = rest.join(' ') || '';
+
+      formData.append('nombre', nombre);
+      formData.append('apellido', apellido);
+      formData.append('telefono', this.teacherData.phone);
+      formData.append('direccion', this.teacherData.address);
+      formData.append('correo', this.teacherData.email);
+
+      if (this.selectedImageFile) {
+        formData.append('imagen', this.selectedImageFile);
+      }
+
+      try {
+        const res = await axios.post('http://localhost/backend/update_user_by_full.php', formData);
+        console.log("✅ Respuesta:", res.data);
+
+        if (res.data.success) {
+          alert('Cambios guardados con éxito');
+        } else {
+          alert('Error al guardar: ' + res.data.error);
+        }
+      } catch (err) {
+        console.error('❌ Error al guardar:', err);
+        alert('Error de red al guardar');
+      }
     }
-  } catch (error) {
-    console.error('Error al guardar cambios:', error);
-    alert('Error al conectar con el servidor');
   }
-}
-  }
-}
+};
 </script>
 
 

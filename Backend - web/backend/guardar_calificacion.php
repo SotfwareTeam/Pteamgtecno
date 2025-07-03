@@ -21,16 +21,19 @@ $promedio = $data['promedio'] ?? null;
 $fecha = date('Y-m-d');
 
 if ($id_usuario && $id_clase && $calificacion !== null) {
-    // INSERTAR o ACTUALIZAR si ya existe
-    $stmt = $pdo->prepare("
-        INSERT INTO reporte_calificaciones (id_usuario, id_clase, calificacion, promedio, fecha)
-        VALUES (?, ?, ?, ?, ?)
-        ON DUPLICATE KEY UPDATE
-            calificacion = VALUES(calificacion),
-            promedio = VALUES(promedio),
-            fecha = VALUES(fecha)
-    ");
-    $stmt->execute([$id_usuario, $id_clase, $calificacion, $promedio, $fecha]);
+    
+$observacion = $data['observacion'] ?? null;
+
+$stmt = $pdo->prepare("
+  INSERT INTO reporte_calificaciones (id_usuario, id_clase, calificacion, promedio, observacion, fecha)
+  VALUES (?, ?, ?, ?, ?, ?)
+  ON DUPLICATE KEY UPDATE
+    calificacion = VALUES(calificacion),
+    promedio = VALUES(promedio),
+    observacion = VALUES(observacion),
+    fecha = VALUES(fecha)
+");
+$stmt->execute([$id_usuario, $id_clase, $calificacion, $promedio, $observacion, $fecha]);
 
     echo json_encode(['message' => '✅ Calificación guardada/actualizada']);
 } else {

@@ -87,7 +87,11 @@
               <form @submit.prevent="saveClass">
                 <div class="mb-3">
                   <label for="profesor" class="form-label">Profesor</label>
-                  <input type="text" class="form-control" id="profesor" v-model="classData.profesor" required>
+                  <select class="form-select" id="profesor" v-model="classData.profesor" required>
+                    <option v-for="profesor in profesores" :key="profesor.id_usuario" :value="profesor.id_usuario">
+                      {{ profesor.nombre }}
+                    </option>
+                  </select>
                 </div>
                 <div class="mb-3">
                   <label for="hora" class="form-label">Hora</label>
@@ -143,25 +147,26 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <div v-if="selectedClass">
-                <p><strong>Profesor:</strong> {{ selectedClass.profesor }}</p>
-                <p><strong>Hora:</strong> {{ selectedClass.hora }}</p>
-                <p><strong>Clase:</strong> {{ selectedClass.clase }}</p>
-                <p><strong>Dificultad:</strong> {{ selectedClass.dificultad }}</p>
+              <div v-if="selectedClass.length > 0">
+                <div v-for="(clase, index) in selectedClass" :key="index" class="mb-3 border-bottom pb-2">
+                <p><strong>Profesor:</strong> {{ clase.profesor }}</p>
+                <p><strong>Hora:</strong> {{ clase.hora }}</p>
+                <p><strong>Clase:</strong> {{ clase.clase }}</p>
+                <p><strong>Dificultad:</strong> {{ clase.dificultad }}</p>
+                <button
+                @click="goToClassView"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Calificar
+              </button>
+              </div>
               </div>
               <div v-else>
                 <p>No hay clase programada para este día.</p>
               </div>
             </div>
             <div class="modal-footer">
-              <router-link
-                v-if="selectedClass"
-                to="/calificar"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Calificar
-              </router-link>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
           </div>
@@ -189,8 +194,8 @@ export default {
       currentDate: new Date(),
       selectedDate: null,
       scheduledClasses: {}, // aquí se guardan las clases cargadas de la base de datos
+      profesores: [],
       classData: {
-        profesor: '',
         hora: '',
         clase: '',
         dificultad: 'Principiante'
@@ -252,17 +257,33 @@ export default {
       return weeks;
     },
     selectedClass() {
-      if (!this.selectedDate) return null;
-      return this.scheduledClasses[this.selectedDate.date] || null;
+      if (!this.selectedDate) return [];
+      return this.scheduledClasses[this.selectedDate.date] || [];
     }
   },
   mounted() {
+     // Referencias a modales
     this.modals.program = new Modal(document.getElementById('programModal'));
     this.modals.delete = new Modal(document.getElementById('deleteModal'));
     this.modals.info = new Modal(document.getElementById('infoModal'));
-
+   // Cargar datos
+    this.cargarProfesores();
     this.cargarClasesProgramadas(); // Cargar clases apenas entra la vista
-  },
+const infoModalEl = document.getElementById('infoModal');
+  infoModalEl.addEventListener('hidden.bs.modal', () => {
+    document.activeElement?.blur(); // quita foco del botón activo
+  });
+
+  const programModalEl = document.getElementById('programModal');
+  programModalEl.addEventListener('hidden.bs.modal', () => {
+    document.activeElement?.blur();
+  });
+
+  const deleteModalEl = document.getElementById('deleteModal');
+  deleteModalEl.addEventListener('hidden.bs.modal', () => {
+    document.activeElement?.blur();
+  });
+},
   methods: {
     formatDate(year, month, day) {
       const mm = String(month + 1).padStart(2, '0');
@@ -278,7 +299,10 @@ export default {
           if (response.data && Array.isArray(response.data)) {
             this.scheduledClasses = {};
             response.data.forEach(clase => {
-              this.scheduledClasses[clase.fecha] = clase;
+              if (!this.scheduledClasses[clase.fecha]) {
+                this.scheduledClasses[clase.fecha] = [];
+              }
+              this.scheduledClasses[clase.fecha].push(clase);
             });
             console.log('✅ Clases cargadas:', this.scheduledClasses);
           }
@@ -309,6 +333,21 @@ export default {
           console.error('❌ Error guardando clase:', error);
         });
     },
+    cargarProfesores() {
+  axios.get('http://localhost/backend/get_profesores.php')
+    .then(response => {
+      this.profesores = response.data;
+    })
+    .catch(error => {
+      console.error('❌ Error cargando profesores:', error);
+    });
+},
+
+goToClassView() {
+  this.$router.push('/Admin/Calificaciones');
+},
+
+
     deleteClass() {
       if (!this.selectedDate) return;
 

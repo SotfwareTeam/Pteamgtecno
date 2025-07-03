@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
-header('Content-Type: application/json');
+header("Content-Type: application/json");
 
 $conexion = new mysqli("localhost", "root", "", "dance");
 
@@ -13,23 +13,31 @@ if ($conexion->connect_error) {
 $fecha = isset($_GET['fecha']) ? $conexion->real_escape_string($_GET['fecha']) : null;
 
 if (!$fecha) {
-    echo json_encode(null);
+    echo json_encode([]);
     exit;
 }
 
-$query = "SELECT nombre, tipo_clase AS tipo_evento, fecha, hora, profesor,  niveles AS dificultad
+$query = "SELECT 
+            id_clase, 
+            nombre, 
+            tipo_clase AS tipo_evento, 
+            fecha, 
+            hora, 
+            profesor
           FROM clases 
-          WHERE fecha = '$fecha'
-          LIMIT 1";
+          WHERE fecha = '$fecha'";
 
 $result = $conexion->query($query);
 
-if ($result && $row = $result->fetch_assoc()) {
-    $row['hora'] = $row['hora'] ?? 'Sin hora definida';
-    echo json_encode($row);
-} else {
-    echo json_encode(null);
+$clases = [];
+
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $row['hora'] = $row['hora'] ?? 'Sin hora definida';
+        $clases[] = $row;
+    }
 }
 
+echo json_encode($clases);
+
 $conexion->close();
-?>
