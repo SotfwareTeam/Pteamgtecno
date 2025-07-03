@@ -86,8 +86,9 @@
 
 
 <script>
-import FooterAdmin from '@/components/footers/FooterAdmin.vue'
-import NavbarAdmin from '@/components/navbars/NavbarAdmin.vue'
+import FooterAdmin from '@/components/footers/FooterAdmin.vue';
+import NavbarAdmin from '@/components/navbars/NavbarAdmin.vue';
+import axios from 'axios';
 
 export default {
   name: 'admProfile',
@@ -98,78 +99,90 @@ export default {
   data() {
     return {
       profileImage: '/Assets/img/user.jpg',
+      selectedImageFile: null,
       admData: {
         name: '',
         email: '',
         phone: '',
         address: ''
       },
-      admClasses: [
-        { name: 'Clase de Salsa', grade: 4.5 },
-        { name: 'Clase de Bachata', grade: 3.8 }
-      ],
-      testEmail: 'sotfwareteam@gmail.com' // este debe coincidir con el correo del admin logueado
-    }
+      admClasses: []
+    };
   },
   mounted() {
-    this.getAdminData()
+    this.getAdminData();
   },
   methods: {
     handleImageUpload(event) {
-      const file = event.target.files[0]
+      const file = event.target.files[0];
       if (file) {
-        const reader = new FileReader()
+        this.selectedImageFile = file;
+        const reader = new FileReader();
         reader.onload = (e) => {
-          this.profileImage = e.target.result
-        }
-        reader.readAsDataURL(file)
+          this.profileImage = e.target.result;
+        };
+        reader.readAsDataURL(file);
       }
     },
 
     async getAdminData() {
-      try {
-        const response = await fetch(`http://localhost/backend/get_user_by_email.php?correo=${this.testEmail}`)
-        const data = await response.json()
+  const correo = localStorage.getItem("correo");
 
-        if (!data.error) {
-          this.admData.name = data.nombre
-          this.admData.email = data.correo
-          this.admData.phone = data.telefono
-          this.admData.address = data.direccion
-        } else {
-          alert('Usuario no encontrado')
-        }
-      } catch (error) {
-        console.error('Error al obtener datos del admin:', error)
-      }
-    },
+  try {
+    const res = await axios.get(`http://localhost/backend/get_user_data.php?correo=${correo}`);
+    const data = res.data;
+
+    if (!data.error) {
+      this.admData = {
+        name: [data.nombre, data.apellido].filter(Boolean).join(' '),
+        email: data.correo,
+        phone: data.telefono,
+        address: data.direccion
+      };
+
+      // Usamos endpoint PHP para mostrar la imagen
+      this.profileImage = `http://localhost/backend/get_user_image.php?correo=${data.correo}`;
+    } else {
+      alert('Usuario no encontrado');
+    }
+  } catch (error) {
+    console.error('Error al obtener datos del admin:', error);
+  }
+}
+,
 
     async saveChanges() {
-      try {
-        const response = await fetch('http://localhost/backend/update_user_by_email.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: this.admData.email,
-            name: this.admData.name,
-            phone: this.admData.phone,
-            address: this.admData.address
-          })
-        })
+      const formData = new FormData();
+      const [nombre, ...rest] = this.admData.name.trim().split(' ');
+      const apellido = rest.join(' ') || '';
 
-        const data = await response.json()
-        if (data.success) {
-          alert('Cambios guardados exitosamente')
+      formData.append('nombre', nombre);
+      formData.append('apellido', apellido);
+      formData.append('telefono', this.admData.phone);
+      formData.append('direccion', this.admData.address);
+      formData.append('correo', this.admData.email);
+
+      if (this.selectedImageFile) {
+        formData.append('imagen', this.selectedImageFile);
+      }
+
+      try {
+        const res = await axios.post('http://localhost/backend/update_user_full.php', formData);
+        console.log("✅ Respuesta:", res.data);
+
+        if (res.data.success) {
+          alert('Cambios guardados exitosamente');
         } else {
-          alert('Error al guardar los cambios: ' + (data.error || ''))
+          alert('Error al guardar los cambios: ' + (res.data.error || ''));
         }
       } catch (error) {
-        console.error('Error al guardar cambios:', error)
+        console.error('Error al guardar cambios:', error);
       }
     }
   }
-}
+};
 </script>
+
 
 
 

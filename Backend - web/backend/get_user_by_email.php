@@ -11,7 +11,7 @@ if ($conexion->connect_error) {
     die(json_encode(['error' => 'Database connection failed']));
 }
 
-$stmt = $conexion->prepare("SELECT * FROM usuarios WHERE correo = ?");
+$stmt = $conexion->prepare("SELECT nombre, apellido, telefono, direccion, correo FROM usuarios WHERE correo = ?");
 $stmt->bind_param("s", $correo);
 $stmt->execute();
 $result = $stmt->get_result();

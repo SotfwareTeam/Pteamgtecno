@@ -23,8 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($email && $password) {
         try {
-            // Solo filtra por correo
-            $sql = "SELECT id_usuario, correo, contrasena, rol FROM login WHERE correo = ?";
+            // JOIN login con usuarios para obtener estado y rol
+            $sql = "
+                SELECT l.id_usuario, l.correo, l.contrasena, l.rol, u.estado
+                FROM login l
+                JOIN usuarios u ON l.id_usuario = u.id_usuario
+                WHERE l.correo = ?
+                LIMIT 1
+            ";
             $stmt = $connect->prepare($sql);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -33,28 +39,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
 
-                // Verifica la contraseña con password_verify
                 if (password_verify($password, $row['contrasena'])) {
+                    if ($row['rol'] <= 0 || strtolower($row['estado']) !== 'activo') {
+                        echo json_encode(["success" => false, "error" => "Acceso denegado"]);
+                        exit;
+                    }
+
+                    // Obtener nombre del rol
+                    $rolQuery = $connect->prepare("SELECT nombre_rol FROM roles WHERE id_rol = ? LIMIT 1");
+                    $rolQuery->bind_param("i", $row['rol']);
+                    $rolQuery->execute();
+                    $rolQuery->bind_result($nombreRol);
+                    $rolQuery->fetch();
+                    $rolQuery->close();
+
+                    if (!$nombreRol) {
+                        $nombreRol = "desconocido";
+                    }
+
                     echo json_encode([
                         "success" => true,
-                        "rol" => strtolower($row['rol']),
+                        "rol" => strtolower($nombreRol),
                         "correo" => $row['correo'],
                         "id_usuario" => $row['id_usuario']
                     ]);
                 } else {
-                    echo json_encode(["rol" => "noresult"]);
+                    echo json_encode(["success" => false, "error" => "Contraseña incorrecta"]);
                 }
             } else {
-                echo json_encode(["rol" => "noresult"]);
+                echo json_encode(["success" => false, "error" => "Usuario no encontrado"]);
             }
 
             $stmt->close();
         } catch (Exception $e) {
-            echo "Error al buscar los datos:" . $e->getMessage();
+            echo json_encode(["success" => false, "error" => $e->getMessage()]);
         }
     } else {
-        echo "Faltan datos";
+        echo json_encode(["success" => false, "error" => "Faltan datos"]);
     }
 }
 
 $connect->close();
+?>
