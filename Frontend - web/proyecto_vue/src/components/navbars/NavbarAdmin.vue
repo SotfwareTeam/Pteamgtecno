@@ -15,7 +15,7 @@
           <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
             <li class="nav-item">
               <router-link class="nav-link mx-lg-2" to="/Admin/inicio">Home</router-link> <!-- correcto -->
-            </li>
+            </li> 
             <li class="nav-item">
               <router-link class="nav-link mx-lg-2" to="/Admin/eventos">Eventos</router-link> <!-- podrías crear ruta aparte si quieres algo diferente -->
             </li>

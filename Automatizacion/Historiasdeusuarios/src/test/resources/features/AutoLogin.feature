@@ -12,4 +12,4 @@ Característica: Autenticacion en la pagina de Dance
     Cuando ingrese las credenciales correctas (usuario y contrasena)
       | correo                  | contraseña |
       | jpenaquinonez@gmail.com | 1234       |
-    Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Dance
+    Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Dance

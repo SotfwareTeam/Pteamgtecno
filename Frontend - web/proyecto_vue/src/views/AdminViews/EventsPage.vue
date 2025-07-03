@@ -68,17 +68,17 @@
             >
               Información
             </button>
-            <button
-              class="btn btn-success mx-2 mb-2 text-white"
-              data-bs-toggle="modal"
+            <button 
+              class="btn btn-success mx-2 mb-2 text-white" 
+              data-bs-toggle="modal" 
               data-bs-target="#programModal"
               :disabled="!selectedDate"
             >
               Programar
             </button>
-            <button
-              class="btn btn-danger mx-2 mb-2 text-white"
-              data-bs-toggle="modal"
+            <button 
+              class="btn btn-danger mx-2 mb-2 text-white" 
+              data-bs-toggle="modal" 
               data-bs-target="#deleteModal"
               :disabled="!selectedDate || !isScheduled(selectedDate.date)"
             >
@@ -108,9 +108,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <router-link
-                v-if="selectedClass"
-                to="/calificar"
+              <router-link 
+                v-if="selectedClass" 
+                to="/calificar" 
                 class="btn btn-primary"
                 data-bs-dismiss="modal"
               >
@@ -214,7 +214,7 @@
           delete: null,
           info: null
         },
-       profesores: [
+       profesores: [ 
         {
           imagen: '/Assets/img/user.jpg',
           nombre: 'Profesor 1',
@@ -232,7 +232,7 @@
         }
       ]
     }
-  },
+  },       
     computed: {
       currentYear() {
         return this.currentDate.getFullYear()
@@ -390,7 +390,7 @@
   </script>
 
   <style scoped>
-
+  
 .custom-carousel .carousel-inner img {
   height: 350px;
   object-fit: cover;

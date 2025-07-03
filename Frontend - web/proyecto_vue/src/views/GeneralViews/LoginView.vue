@@ -130,7 +130,7 @@ export default {
         address: "",
         birthdate: "",
         imagen: "",
-        rol: "Estudiante" // estudiante
+        rol: "administrador" // estudiante
       }
     };
   },
@@ -192,7 +192,7 @@ export default {
           address: "",
           birthdate: "",
           imagen: "",
-          rol: "Estudiante"
+          rol: "administrador"
         };
       } catch (error) {
         console.error("Error en registro:", error);
