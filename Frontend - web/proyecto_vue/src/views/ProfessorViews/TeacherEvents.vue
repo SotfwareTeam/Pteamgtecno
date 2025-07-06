@@ -261,7 +261,7 @@ export default {
     },
     mounted() {
       this.modals.info = new Modal(document.getElementById('infoModal'))
-
+      this.cargarEventosDesdeAPI();
       // Cargar clases programadas desde localStorage (o API)
       const savedClasses = localStorage.getItem('scheduledClasses')
       if (savedClasses) {
@@ -269,48 +269,24 @@ export default {
       }
     },
     methods: {
-      enviarFecha() {
+     enviarFecha() {
   if (!this.selectedDate) return;
 
-  console.log("Simulando petición para fecha:", this.selectedDate.date)
-
-  // Aquí puedes definir tu data simulada "hardcoded" desde consola o lógica interna
-  const clasesSimuladas = {
-    '2025-04-16': {
-      nombre: 'Bachata',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-04-29',
-      hora: '18:30',
-      profesor: 'Camilo R.'
-    },
-    '2025-04-17': {
-      nombre: 'Salsa',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-05-27',
-      hora: '20:00',
-      profesor: 'Andrea M.'
-    }
-  }
-
-  // Busca la clase simulada según la fecha seleccionada
-  const clase = clasesSimuladas[this.selectedDate.date]
-
-  // Simula la respuesta del servidor
-  if (clase) {
-    console.log('🧪 Datos simulados:', clase)
-    this.respuestaServidor = clase
-  } else {
-    this.respuestaServidor = null
-  }
-
-  // Muestra el modal después de actualizar los datos
-  this.$nextTick(() => {
-    const modal = new Modal(document.getElementById('infoModal'))
-    modal.show()
+  axios.post('http://localhost/backend/get_evento_por_fecha.php', {
+    fecha: this.selectedDate.date
   })
-}
+  .then(res => {
+    this.respuestaServidor = res.data;
 
-,
+    // Mostrar el modal solo después de recibir datos
+    this.modals.info.show();
+  })
+  .catch(err => {
+    console.error("Error al consultar evento:", err);
+    this.respuestaServidor = null;
+    this.modals.info.show();
+  });
+},
       formatDate(year, month, day) {
         const mm = String(month + 1).padStart(2, '0') // mes con 2 dígitos
         const dd = String(day).padStart(2, '0')       // día con 2 dígitos
@@ -345,7 +321,20 @@ export default {
           clase: '',
           dificultad: 'Principiante'
         }
-      }
+      },
+      cargarEventosDesdeAPI() {
+    axios.get('http://localhost/backend/get_eventos.php')
+      .then(res => {
+        const eventos = res.data;
+
+        eventos.forEach(evento => {
+          this.scheduledClasses[evento.fecha] = evento;
+        });
+      })
+      .catch(err => {
+        console.error('Error al cargar eventos:', err);
+      });
+  }
     }
 }
 

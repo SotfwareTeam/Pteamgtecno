@@ -283,48 +283,22 @@ export default {
       }
     },
     methods: {
-      enviarFecha() {
+ enviarFecha() {
   if (!this.selectedDate) return;
 
-  console.log("Simulando petición para fecha:", this.selectedDate.date)
-
-  // Aquí puedes definir tu data simulada "hardcoded" desde consola o lógica interna
-  const clasesSimuladas = {
-    '2025-04-16': {
-      nombre: 'Bachata',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-04-29',
-      hora: '18:30',
-      profesor: 'Camilo R.'
-    },
-    '2025-04-17': {
-      nombre: 'Salsa',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-05-27',
-      hora: '20:00',
-      profesor: 'Andrea M.'
-    }
-  }
-
-  // Busca la clase simulada según la fecha seleccionada
-  const clase = clasesSimuladas[this.selectedDate.date]
-
-  // Simula la respuesta del servidor
-  if (clase) {
-    console.log('🧪 Datos simulados:', clase)
-    this.respuestaServidor = clase
-  } else {
-    this.respuestaServidor = null
-  }
-
-  // Muestra el modal después de actualizar los datos
-  this.$nextTick(() => {
-    const modal = new Modal(document.getElementById('infoModal'))
-    modal.show()
+  axios.post('http://localhost/backend/get_evento_por_fecha.php', {
+    fecha: this.selectedDate.date
   })
-}
-
-,
+  .then(res => {
+    this.respuestaServidor = res.data;
+    this.modals.info.show(); // muestra el modal con los datos reales
+  })
+  .catch(err => {
+    console.error("Error al consultar evento:", err);
+    this.respuestaServidor = null;
+    this.modals.info.show(); // muestra igual el modal indicando que no hay evento
+  });
+},
       formatDate(year, month, day) {
         const mm = String(month + 1).padStart(2, '0') // mes con 2 dígitos
         const dd = String(day).padStart(2, '0')       // día con 2 dígitos
