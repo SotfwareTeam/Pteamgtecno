@@ -399,7 +399,7 @@
 
   const fecha = this.selectedDate.date;
 
-  axios.post('http://localhost/backend/eliminar_evento.php', { fecha })
+  axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/eliminar_evento.php', { fecha })
     .then(res => {
       if (res.data.success) {
         delete this.scheduledClasses[fecha];

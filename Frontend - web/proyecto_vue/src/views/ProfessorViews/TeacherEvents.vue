@@ -290,7 +290,7 @@ export default {
      enviarFecha() {
   if (!this.selectedDate) return;
 
-  axios.post('http://localhost/backend/get_evento_por_fecha.php', {
+  axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_evento_por_fecha.php', {
     fecha: this.selectedDate.date
   })
   .then(res => {
