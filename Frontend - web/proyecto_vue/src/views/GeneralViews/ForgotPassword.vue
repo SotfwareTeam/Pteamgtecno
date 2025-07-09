@@ -43,7 +43,7 @@
     },
     methods: {
   async handleSubmit() {
-  fetch('http://localhost/backend/send_reset_email.php', {
+  fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/send_reset_email.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ Correo: this.Correo }) // 👈 Aquí se envía correctamente

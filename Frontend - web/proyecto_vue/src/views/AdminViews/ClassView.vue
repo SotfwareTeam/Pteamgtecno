@@ -198,7 +198,7 @@ export default {
 
     async fetchUsuariosPorClase(id_clase) {
       try {
-        const res = await axios.get(`http://localhost/backend/get_estudiantes_por_clase.php?id_clase=${id_clase}`);
+        const res = await axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_estudiantes_por_clase.php?id_clase=${id_clase}`);
         this.students = res.data.map(user => ({
           id_usuario: user.id_usuario,
           id_clase: id_clase,
@@ -222,7 +222,7 @@ export default {
       };
 
       try {
-        const res = await axios.post('http://localhost/backend/guardar_calificacion.php', payload);
+        const res = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/guardar_calificacion.php', payload);
         alert('✅ Calificación guardada');
       } catch (err) {
         console.error('❌ Error al guardar calificación:', err);
@@ -242,7 +242,7 @@ export default {
       };
 
       try {
-        const res = await axios.post('http://localhost/backend/guardar_calificacion.php', payload);
+        const res = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/guardar_calificacion.php', payload);
         alert('✅ Calificación registrada');
       } catch (err) {
         console.error('❌ Error al registrar calificación:', err);
@@ -260,7 +260,7 @@ export default {
             id_clase: student.id_clase,
             asistencia: student.attendance
           };
-          const response = await axios.post('http://localhost/backend/guardar_asistencia.php', payload);
+          const response = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/guardar_asistencia.php', payload);
         } catch (err) {
           console.error(`❌ Error al guardar asistencia de ${student.name}`, err);
         }
