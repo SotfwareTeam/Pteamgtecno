@@ -68,17 +68,17 @@
             >
               Información
             </button>
-            <button 
-              class="btn btn-success mx-2 mb-2 text-white" 
-              data-bs-toggle="modal" 
+            <button
+              class="btn btn-success mx-2 mb-2 text-white"
+              data-bs-toggle="modal"
               data-bs-target="#programModal"
               :disabled="!selectedDate"
             >
               Programar
             </button>
-            <button 
-              class="btn btn-danger mx-2 mb-2 text-white" 
-              data-bs-toggle="modal" 
+            <button
+              class="btn btn-danger mx-2 mb-2 text-white"
+              data-bs-toggle="modal"
               data-bs-target="#deleteModal"
               :disabled="!selectedDate || !isScheduled(selectedDate.date)"
             >
@@ -98,7 +98,6 @@
             <div class="modal-body">
               <div v-if="selectedClass">
                 <p><strong>Profesor:</strong> {{ selectedClass.profesor }}</p>
-                <p><strong>Sede:</strong> {{ selectedClass.sede }}</p>
                 <p><strong>Hora:</strong> {{ selectedClass.hora }}</p>
                 <p><strong>Clase:</strong> {{ selectedClass.clase }}</p>
                 <p><strong>Dificultad:</strong> {{ selectedClass.dificultad }}</p>
@@ -108,9 +107,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <router-link 
-                v-if="selectedClass" 
-                to="/calificar" 
+              <router-link
+                v-if="selectedClass"
+                to="/calificar"
                 class="btn btn-primary"
                 data-bs-dismiss="modal"
               >
@@ -121,6 +120,44 @@
           </div>
         </div>
       </div>
+              <!-- Modal Programar -->
+        <div class="modal fade" id="programModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+              <div class="modal-header">
+                <h5 class="modal-title">Programar Clase</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form @submit.prevent="guardarEvento">
+                  <div class="mb-3">
+                    <label>Profesor:</label>
+                    <input v-model="classData.profesor" class="form-control" required />
+                  </div>
+                  <div class="mb-3">
+                    <label>Clase:</label>
+                    <input v-model="classData.clase" class="form-control" required />
+                  </div>
+                  <div class="mb-3">
+                    <label>Tipo de evento:</label>
+                    <select v-model="classData.tipo_evento" class="form-control" required>
+                      <option disabled value="">Selecciona un tipo</option>
+                      <option>Clase</option>
+                      <option>Taller</option>
+                      <option>Concurso</option>
+                      <option>Competencia</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label>Hora:</label>
+                    <input v-model="classData.hora" class="form-control" type="time" required />
+                  </div>
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
             <!-- Modal Eliminar -->
       <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -204,7 +241,6 @@
         scheduledClasses: {},
         classData: {
           profesor: '',
-          sede: '',
           hora: '',
           clase: '',
           dificultad: 'Principiante'
@@ -214,7 +250,7 @@
           delete: null,
           info: null
         },
-       profesores: [ 
+       profesores: [
         {
           imagen: '/Assets/img/user.jpg',
           nombre: 'Profesor 1',
@@ -232,7 +268,7 @@
         }
       ]
     }
-  },       
+  },
     computed: {
       currentYear() {
         return this.currentDate.getFullYear()
@@ -296,52 +332,22 @@
       this.modals.delete = new Modal(document.getElementById('deleteModal'))
       this.modals.info = new Modal(document.getElementById('infoModal'))
 
+      this.cargarEventosDesdeAPI()
       // Cargar clases programadas desde localStorage (o API)
-      const savedClasses = localStorage.getItem('scheduledClasses')
-      if (savedClasses) {
-        this.scheduledClasses = JSON.parse(savedClasses)
-      }
     },
     methods: {
       enviarFecha() {
   if (!this.selectedDate) return;
 
-  console.log("Simulando petición para fecha:", this.selectedDate.date)
+  const evento = this.scheduledClasses[this.selectedDate.date];
 
-  // Aquí puedes definir tu data simulada "hardcoded" desde consola o lógica interna
-  const clasesSimuladas = {
-    '2025-04-16': {
-      nombre: 'Bachata',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-04-29',
-      hora: '18:30',
-      profesor: 'Camilo R.'
-    },
-    '2025-04-17': {
-      nombre: 'Salsa',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-05-27',
-      hora: '20:00',
-      profesor: 'Andrea M.'
-    }
-  }
-
-  // Busca la clase simulada según la fecha seleccionada
-  const clase = clasesSimuladas[this.selectedDate.date]
-
-  // Simula la respuesta del servidor
-  if (clase) {
-    console.log('🧪 Datos simulados:', clase)
-    this.respuestaServidor = clase
+  if (evento) {
+    this.respuestaServidor = evento;
   } else {
-    this.respuestaServidor = null
+    this.respuestaServidor = null;
   }
 
-  // Muestra el modal después de actualizar los datos
-  this.$nextTick(() => {
-    const modal = new Modal(document.getElementById('infoModal'))
-    modal.show()
-  })
+  this.modals.info.show();
 }
 
 , formatDate(year, month, day) {
@@ -371,26 +377,84 @@
         }
       },
             deleteClass() {
-        if (this.selectedDate && this.scheduledClasses[this.selectedDate.date]) {
-          delete this.scheduledClasses[this.selectedDate.date]
-          localStorage.setItem('scheduledClasses', JSON.stringify(this.scheduledClasses))
-        }
-      },
+  if (!this.selectedDate) return;
+
+  const fecha = this.selectedDate.date;
+
+  axios.post('http://localhost/backend/eliminar_evento.php', { fecha })
+    .then(res => {
+      if (res.data.success) {
+        delete this.scheduledClasses[fecha];
+        alert('✅ Evento eliminado correctamente');
+      } else {
+        alert('❌ No se pudo eliminar el evento');
+      }
+    })
+    .catch(err => {
+      console.error('Error al eliminar:', err);
+      alert('Error en la conexión con el servidor');
+    });
+},
       resetClassData() {
         this.classData = {
           profesor: '',
-          sede: '',
           hora: '',
           clase: '',
           dificultad: 'Principiante'
         }
-      }
+      },
+      guardarEvento() {
+  if (!this.selectedDate) return;
+
+  const payload = {
+    nombre: this.classData.clase,
+    tipo_evento: this.classData.tipo_evento,
+    fecha: this.selectedDate.date,
+    hora: this.classData.hora,
+    profesor: this.classData.profesor
+  };
+
+  axios.post('http://localhost/backend/crear_evento.php', payload)
+    .then(res => {
+      alert('✅ Evento guardado correctamente');
+      this.scheduledClasses[this.selectedDate.date] = { ...this.classData };
+      localStorage.setItem('scheduledClasses', JSON.stringify(this.scheduledClasses));
+      this.resetClassData();
+      this.modals.program.hide();
+    })
+    .catch(err => {
+      console.error('❌ Error al guardar evento:', err);
+      alert('Error al guardar evento.');
+    });
+},
+cargarEventosDesdeAPI() {
+  axios.get('http://localhost/backend/get_eventos.php')
+    .then(res => {
+      const eventos = res.data;
+
+      eventos.forEach(evento => {
+        this.scheduledClasses[evento.fecha] = {
+          clase: evento.nombre,
+          tipo_evento: evento.tipo_evento,
+          hora: evento.hora,
+          profesor: evento.profesor,
+          dificultad: 'Desconocida' // si no está en la BD
+        }
+      })
+
+      localStorage.setItem('scheduledClasses', JSON.stringify(this.scheduledClasses));
+    })
+    .catch(err => {
+      console.error('Error al cargar eventos:', err);
+    });
+}
+
     }
 }
   </script>
 
   <style scoped>
-  
+
 .custom-carousel .carousel-inner img {
   height: 350px;
   object-fit: cover;
