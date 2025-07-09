@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+use Firebase\JWT\JWT;
+
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -7,6 +11,7 @@ $host = "localhost";
 $user = "root";
 $password = "";
 $data_base = "dance";
+$key = "keyProvisional123";
 
 $connect = new mysqli($host, $user, $password, $data_base);
 
@@ -53,18 +58,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $rolQuery->fetch();
                     $rolQuery->close();
 
+                    $payload = [
+                        'id_usuario' => $row['id_usuario'],
+                        'correo' => $row['correo'],
+                        'rol' => $row['rol'],
+                        'exp' => time() + (60 * 60)
+                    ];
+
+                    $jwt = JWT::encode($payload, $key, 'HS256');
+
                     if (!$nombreRol) {
                         $nombreRol = "desconocido";
                     }
 
                     echo json_encode([
                         "success" => true,
+                        'token' => $jwt,
                         "rol" => strtolower($nombreRol),
                         "correo" => $row['correo'],
                         "id_usuario" => $row['id_usuario']
                     ]);
                 } else {
-                    echo json_encode(["success" => false, "error" => "Contraseña incorrecta"]);
+                    echo json_encode(["success" => false, "error" => "Contrasena incorrecta"]);
                 }
             } else {
                 echo json_encode(["success" => false, "error" => "Usuario no encontrado"]);

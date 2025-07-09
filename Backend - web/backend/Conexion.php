@@ -12,4 +12,3 @@ try {
     echo json_encode(['error' => 'Conexión fallida: ' . $e->getMessage()]);
     exit();
 }
-?>

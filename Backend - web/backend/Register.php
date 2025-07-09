@@ -1,5 +1,8 @@
 <?php
-// CORS
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -64,8 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt1 = $connect->prepare($sqlUsuarios);
         if (!$stmt1) throw new Exception("Prepare usuarios: " . $connect->error);
-        $stmt1->bind_param("isssssisssss", $rolId, $nombre, $apellido, $sexo, $tipo_doc, $num_doc, $direccion, $telefono, $correo, $estado, $fecha_creacion, $imagen);
+        $stmt1->bind_param("isssssssssss", $rolId, $nombre, $apellido, $sexo, $tipo_doc, $num_doc, $direccion, $telefono, $correo, $estado, $fecha_creacion, $imagen);
         $stmt1->execute();
+        if(!$stmt1->execute()){
+            throw new Exception("Error al insertar en usuarios: " . $stmt1->error);
+        }
         $id_usuario = $connect->insert_id;
         $stmt1->close();
 
@@ -75,6 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$stmt2) throw new Exception("Prepare login: " . $connect->error);
         $stmt2->bind_param("ssii", $correo, $claveHash, $rolId, $id_usuario);
         $stmt2->execute();
+        if(!$stmt2->execute()){
+            throw new Exception("Error al insertar en login: " . $stmt2->error);
+        }
         if ($stmt2->error) throw new Exception("Error al insertar en login: " . $stmt2->error);
         $stmt2->close();
 
@@ -83,6 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_log("Error en registro: " . $e->getMessage());
         echo json_encode(["success" => false, "error" => $e->getMessage()]);
     }
+
+    error_log("Data JSON recibido: " . print_r($data, true));
+
 }
 
 $connect->close();

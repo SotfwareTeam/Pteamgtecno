@@ -4,7 +4,7 @@ if ($conexion->connect_error) {
     die("Error de conexión");
 }
 
-$correo = 'jpenaquinonez@gmail.com';
+$correo = 'capm717@gmail.com';
 $token = bin2hex(random_bytes(32));
 $created_at = date('Y-m-d H:i:s');
 
