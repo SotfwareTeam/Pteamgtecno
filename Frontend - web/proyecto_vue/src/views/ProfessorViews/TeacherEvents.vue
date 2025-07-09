@@ -3,8 +3,8 @@
       <NavbarTeachers />
 
       <div class="container1 mt-5">
-        <div class="row text-center mt-5">
-          <div class="col-md-8">
+        <div class="row text-center mt-4">
+          <div class="col-md-4">
             <h3>Calendario</h3>
             <img src="/Assets/img/salones.jpg" alt="Calendario" class="img-thumbnail"
                  data-bs-toggle="modal" data-bs-target="#espaciosModal">
@@ -13,6 +13,11 @@
             <h3>Profesores</h3>
             <img src="/Assets/img/profesor.jpg" alt="Profesores" class="img-thumbnail"
                  data-bs-toggle="modal" data-bs-target="#profesoresModal">
+          </div>
+          <div class="col-md-4">
+            <h3>Competencias</h3>
+            <img src="/Assets/img/list.png" alt="Competencias" class="img-thumbnail"
+                 data-bs-toggle="modal" data-bs-target="#competenciasModal">
           </div>
         </div>
       </div>
@@ -123,6 +128,19 @@
           </div>
         </div>
       </div>
+      <div class="modal fade show" id="competenciasModal" tabindex="-1" aria-labelledby="competenciasModalLabel" style="display: block;" aria-modal="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="competenciasModalLabel">Detalles de Competencias</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Información sobre las competencias y torneos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
       <div class="modal fade" id="profesoresModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -261,7 +279,7 @@ export default {
     },
     mounted() {
       this.modals.info = new Modal(document.getElementById('infoModal'))
-
+      this.cargarEventosDesdeAPI();
       // Cargar clases programadas desde localStorage (o API)
       const savedClasses = localStorage.getItem('scheduledClasses')
       if (savedClasses) {
@@ -269,48 +287,24 @@ export default {
       }
     },
     methods: {
-      enviarFecha() {
+     enviarFecha() {
   if (!this.selectedDate) return;
 
-  console.log("Simulando petición para fecha:", this.selectedDate.date)
-
-  // Aquí puedes definir tu data simulada "hardcoded" desde consola o lógica interna
-  const clasesSimuladas = {
-    '2025-04-16': {
-      nombre: 'Bachata',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-04-29',
-      hora: '18:30',
-      profesor: 'Camilo R.'
-    },
-    '2025-04-17': {
-      nombre: 'Salsa',
-      tipo_evento: 'Clase de Baile',
-      fecha: '2025-05-27',
-      hora: '20:00',
-      profesor: 'Andrea M.'
-    }
-  }
-
-  // Busca la clase simulada según la fecha seleccionada
-  const clase = clasesSimuladas[this.selectedDate.date]
-
-  // Simula la respuesta del servidor
-  if (clase) {
-    console.log('🧪 Datos simulados:', clase)
-    this.respuestaServidor = clase
-  } else {
-    this.respuestaServidor = null
-  }
-
-  // Muestra el modal después de actualizar los datos
-  this.$nextTick(() => {
-    const modal = new Modal(document.getElementById('infoModal'))
-    modal.show()
+  axios.post('http://localhost/backend/get_evento_por_fecha.php', {
+    fecha: this.selectedDate.date
   })
-}
+  .then(res => {
+    this.respuestaServidor = res.data;
 
-,
+    // Mostrar el modal solo después de recibir datos
+    this.modals.info.show();
+  })
+  .catch(err => {
+    console.error("Error al consultar evento:", err);
+    this.respuestaServidor = null;
+    this.modals.info.show();
+  });
+},
       formatDate(year, month, day) {
         const mm = String(month + 1).padStart(2, '0') // mes con 2 dígitos
         const dd = String(day).padStart(2, '0')       // día con 2 dígitos
@@ -345,7 +339,20 @@ export default {
           clase: '',
           dificultad: 'Principiante'
         }
-      }
+      },
+      cargarEventosDesdeAPI() {
+    axios.get('http://localhost/backend/get_eventos.php')
+      .then(res => {
+        const eventos = res.data;
+
+        eventos.forEach(evento => {
+          this.scheduledClasses[evento.fecha] = evento;
+        });
+      })
+      .catch(err => {
+        console.error('Error al cargar eventos:', err);
+      });
+  }
     }
 }
 

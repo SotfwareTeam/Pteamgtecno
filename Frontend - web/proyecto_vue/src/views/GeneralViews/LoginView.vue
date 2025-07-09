@@ -129,7 +129,10 @@ export default {
         user: "",
         remail: "",
         rpassword: "",
-        rol: "estudiante" // estudiante
+        address: "",
+        birthdate: "",
+        imagen: "",
+        rol: "Estudiante" // estudiante
       }
     };
   },
@@ -209,8 +212,10 @@ export default {
           phone: "",
           remail: "",
           rpassword: "",
-          user: "",
-          rol: "estudiante"
+          address: "",
+          birthdate: "",
+          imagen: "",
+          rol: "Estudiante"
         };
       } catch (error) {
         console.error("Error en registro:", error);

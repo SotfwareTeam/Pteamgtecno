@@ -136,7 +136,7 @@ export default {
   const correo = localStorage.getItem("correo");
 
   try {
-    const res = await axios.get(`http://localhost/backend/get_user_data.php?correo=${correo}`);
+    const res = await axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_user_data.php?correo=${correo}`);
     const data = res.data;
 
     if (!data.error) {
@@ -148,7 +148,7 @@ export default {
       };
 
       // Usamos endpoint PHP para mostrar la imagen
-      this.profileImage = `http://localhost/backend/get_user_image.php?correo=${data.correo}`;
+      this.profileImage = `https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_user_image.php?correo=${data.correo}`;
     } else {
       alert('Usuario no encontrado');
     }
@@ -174,7 +174,7 @@ export default {
       }
 
       try {
-        const res = await axios.post('http://localhost/backend/update_user_full.php', formData);
+        const res = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/update_user_full.php', formData);
         console.log("✅ Respuesta:", res.data);
 
         if (res.data.success) {
