@@ -294,7 +294,7 @@ const infoModalEl = document.getElementById('infoModal');
       const mes = String(this.currentMonth + 1).padStart(2, '0');
       const anio = this.currentYear;
 
-      axios.get(`http://localhost/backend/clases_mes.php?mes=${mes}&anio=${anio}`)
+      axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/clases_mes.php?mes=${mes}&anio=${anio}`)
         .then(response => {
           if (response.data && Array.isArray(response.data)) {
             this.scheduledClasses = {};
@@ -322,7 +322,7 @@ const infoModalEl = document.getElementById('infoModal');
         dificultad: this.classData.dificultad
       };
 
-      axios.post('http://localhost/backend/insertar_clase.php', datos)
+      axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/insertar_clase.php', datos)
         .then(response => {
           console.log('✅ Clase guardada:', response.data);
           this.cargarClasesProgramadas(); // Cargar otra vez después de guardar
@@ -334,7 +334,7 @@ const infoModalEl = document.getElementById('infoModal');
         });
     },
     cargarProfesores() {
-  axios.get('http://localhost/backend/get_profesores.php')
+  axios.get('https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_profesores.php')
     .then(response => {
       this.profesores = response.data;
     })
@@ -351,7 +351,7 @@ goToClassView() {
     deleteClass() {
       if (!this.selectedDate) return;
 
-      axios.post('http://localhost/backend/eliminar_clase.php', { fecha: this.selectedDate.date })
+      axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/eliminar_clase.php', { fecha: this.selectedDate.date })
         .then(response => {
           console.log('✅ Clase eliminada:', response.data);
           this.cargarClasesProgramadas(); // Cargar otra vez después de eliminar

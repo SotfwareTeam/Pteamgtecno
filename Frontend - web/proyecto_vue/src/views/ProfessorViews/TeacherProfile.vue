@@ -128,7 +128,7 @@ export default {
     async loadTeacherProfile() {
       const correo = localStorage.getItem('correo');
       try {
-        const response = await axios.get(`http://localhost/backend/get_user_data.php?correo=${correo}`);
+        const response = await axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_user_data.php?correo=${correo}`);
         const data = response.data;
 
         if (data.error) {
@@ -152,7 +152,7 @@ export default {
     async loadTeacherClasses() {
       const id_usuario = localStorage.getItem('id_usuario');
       try {
-        const res = await axios.get(`http://localhost/backend/get_notas_usuario.php?id_usuario=${id_usuario}`);
+        const res = await axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_notas_usuario.php?id_usuario=${id_usuario}`);
         if (Array.isArray(res.data)) {
           this.teacherClasses = res.data.filter(n => n.name && n.grade !== null);
         } else {
@@ -180,7 +180,7 @@ export default {
       }
 
       try {
-        const res = await axios.post('http://localhost/backend/update_user_by_full.php', formData);
+        const res = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/update_user_by_full.php', formData);
         console.log("✅ Respuesta:", res.data);
 
         if (res.data.success) {

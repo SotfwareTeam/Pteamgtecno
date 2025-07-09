@@ -107,7 +107,7 @@ const formulario = ref({
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost/backend/Usuarios_roles.php')
+    const res = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/Usuarios_roles.php')
     const data = await res.json()
 
     alumnos.value = data.map(usuario => ({
@@ -153,7 +153,7 @@ const cerrarModal = () => {
 
 const guardarCambios = async () => {
   try {
-    const res = await fetch('http://localhost/backend/update_usuario.php', {
+    const res = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/update_usuario.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -192,7 +192,7 @@ const rolesDisponibles = ref([])
 
 onMounted(async () => {
   try {
-    const resUsuarios = await fetch('http://localhost/backend/Usuarios_roles.php')
+    const resUsuarios = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/Usuarios_roles.php')
     const dataUsuarios = await resUsuarios.json()
 
     alumnos.value = dataUsuarios.map(usuario => ({
@@ -203,7 +203,7 @@ onMounted(async () => {
       rol: usuario.estado.charAt(0).toUpperCase() + usuario.estado.slice(1)
     }))
 
-    const resRoles = await fetch('http://localhost/backend/get_roles.php')
+    const resRoles = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_roles.php')
     rolesDisponibles.value = await resRoles.json()
 
   } catch (err) {

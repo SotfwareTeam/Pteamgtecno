@@ -77,7 +77,7 @@ export default {
       console.log("Datos que se enviarán al backend:", payload)
 
       try {
-        const response = await axios.post('http://localhost/backend/send_reset_password.php', payload, {
+        const response = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/send_reset_password.php', payload, {
           headers: { 'Content-Type': 'application/json' }
         })
 

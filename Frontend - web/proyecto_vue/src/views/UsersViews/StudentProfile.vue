@@ -134,7 +134,7 @@
     formData.append('imagen', this.selectedImageFile);
   }
 
-  axios.post('http://localhost/backend/update_user_full.php', formData)
+  axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/update_user_full.php', formData)
     .then(res => {
       if (res.data.success) {
         alert('Cambios guardados con imagen');
@@ -150,7 +150,7 @@
     formData.append('id_usuario', localStorage.getItem('id_usuario'));
     formData.append('imagen', this.selectedImageFile);
 
-    const res = await axios.post('http://localhost/backend/update_user_image.php', formData);
+    const res = await axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/update_user_image.php', formData);
     if (res.data.success) {
       alert('Imagen actualizada');
     } else {
@@ -163,7 +163,7 @@
   const id_usuario = localStorage.getItem("id_usuario");
 
   // Cargar datos básicos
- axios.get(`http://localhost/backend/get_user_by_email.php?correo=${correo}`)
+ axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_user_by_email.php?correo=${correo}`)
   .then(res => {
     const data = res.data;
 
@@ -179,7 +179,7 @@
       address: data.direccion
     };
 
-    this.profileImage = `http://localhost/backend/get_user_image.php?correo=${data.correo}`;
+    this.profileImage = `https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_user_image.php?correo=${data.correo}`;
   })
   .catch(err => {
     console.error("❌ Error al obtener datos:", err);
@@ -187,7 +187,7 @@
 
 
   // Cargar notas reales
-axios.get(`http://localhost/backend/get_notas_usuario.php?id_usuario=${id_usuario}`)
+axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_notas_usuario.php?id_usuario=${id_usuario}`)
   .then(res => {
     if (Array.isArray(res.data)) {
       this.studentClasses = res.data.filter(n => n.name && n.grade !== null);

@@ -130,14 +130,14 @@ export default {
         address: "",
         birthdate: "",
         imagen: "",
-        rol: "administrador" // estudiante
+        rol: "Estudiante" // estudiante
       }
     };
   },
   methods: {
     async submitFormSignIn() {
   try {
-    const response = await axios.post("http://localhost/backend/Login.php", this.LoginData, {
+    const response = await axios.post("https://hqt8rl0q-80.use2.devtunnels.ms/backend/Login.php", this.LoginData, {
       headers: { "Content-Type": "application/json" }
     });
 
@@ -169,7 +169,7 @@ export default {
       try {
         console.log("Enviando:", this.RegisterData);
 
-        await axios.post("http://localhost/backend/Register.php", this.RegisterData, {
+        await axios.post("https://hqt8rl0q-80.use2.devtunnels.ms/backend/Register.php", this.RegisterData, {
           headers: { "Content-Type": "application/json" }
         });
 
@@ -192,7 +192,7 @@ export default {
           address: "",
           birthdate: "",
           imagen: "",
-          rol: "administrador"
+          rol: "Estudiante"
         };
       } catch (error) {
         console.error("Error en registro:", error);
