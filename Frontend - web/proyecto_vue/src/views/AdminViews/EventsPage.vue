@@ -3,8 +3,8 @@
       <NavbarAdmin />
 
 <div class="container1 mt-5">
-        <div class="row text-center mt-5">
-          <div class="col-md-8">
+        <div class="row text-center mt-4">
+          <div class="col-md-4">
             <h3>Calendario</h3>
             <img src="/Assets/img/salones.jpg" alt="Calendario" class="img-thumbnail"
                  data-bs-toggle="modal" data-bs-target="#espaciosModal">
@@ -13,6 +13,11 @@
             <h3>Profesores</h3>
             <img src="/Assets/img/profesor.jpg" alt="Profesores" class="img-thumbnail"
                  data-bs-toggle="modal" data-bs-target="#profesoresModal">
+          </div>
+          <div class="col-md-4">
+            <h3>Competencias</h3>
+            <img src="/Assets/img/list.png" alt="Competencias" class="img-thumbnail"
+                 data-bs-toggle="modal" data-bs-target="#competenciasModal">
           </div>
         </div>
       </div>
@@ -192,6 +197,19 @@
           </div>
         </div>
       </div>
+      <div class="modal fade show" id="competenciasModal" tabindex="-1" aria-labelledby="competenciasModalLabel" style="display: block;" aria-modal="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="competenciasModalLabel">Detalles de Competencias</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Información sobre las competencias y torneos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
       <div class="modal fade" id="profesoresModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
