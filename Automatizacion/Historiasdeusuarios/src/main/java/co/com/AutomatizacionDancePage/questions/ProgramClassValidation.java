@@ -30,8 +30,8 @@ public class ProgramClassValidation implements Question<Boolean> {
             String texto1 = Text.of(VALIDACION_MES).viewedBy(actor).asString();
             String texto2 = Text.of(BOTON_FECHA1).viewedBy(actor).asString();
             String texto3 = Text.of(DIA_FECHA1).viewedBy(actor).asString();
-            return "julio 2025".equals(texto1) && "1".equals(texto2) &&
-                    "Tue".equals(texto3) && "#28a745".equals(colorHex);
+            return "agosto 2025".equals(texto1) && "1".equals(texto2) &&
+                    "Fri".equals(texto3) && "#28a745".equals(colorHex);
         } catch (Exception e){
             logger.info(" Validations doesn´t match");
             return false;

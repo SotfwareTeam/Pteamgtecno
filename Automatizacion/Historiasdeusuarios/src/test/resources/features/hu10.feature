@@ -9,8 +9,8 @@ Característica: Programación de clases
   Antecedentes:
     Dado que el usuario se encuentra en la pagina de inicio de sesion de Dance
     Cuando ingrese las credenciales correctas (usuario y contrasena)
-      | correo            | contraseña |
-      | juanjop@gmail.com | 1234       |
+      | correo                 | contraseña |
+      | sotfwareteam@gmail.com | 1234       |
 
   @ProgramarClase
   Esquema del escenario: Programar una clase

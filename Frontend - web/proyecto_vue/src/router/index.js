@@ -47,11 +47,13 @@ const router = createRouter({
       path: '/Admin/inicio',
       name: 'AdminView',
       component: AdminView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Admin/programacion_clases',
       name: 'AdminProgramingView',
       component: AdminProgramingView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Roles',
@@ -62,84 +64,113 @@ const router = createRouter({
       path: '/Admin/Calificaciones',
       name: 'ClassView',
       component: ClassView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/vclientePage',
       name: 'vclienteview',
       component: Classes2,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Admin/Reporte',
       name: 'ReporteView',
       component: ReporteView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Admin/Notificaciones',
       name: 'NotificationView',
-      component: NotificationView
+      component: NotificationView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Admin/eventos',
       name: 'EventsPage',
-      component: EventsPage
+      component: EventsPage,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Admin/profile',
       name: 'ProfileView',
-      component: ProfileView
+      component: ProfileView,
+      meta: {requiresAuth: true}
     },
     // Vistas estudiantes
     {
       path: '/Estudiante/Inicio',
       name: 'StudentView',
       component: Student,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Estudiante/Eventos',
       name: 'StudentEvents',
       component: StudentEvents,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Estudiante/Perfil',
       name: 'StudentProfile',
       component: StudentProfile,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Estudiante/Programar_clase',
       name: 'StudentProgrammingClass',
       component: StudentProgramming,
+      meta: {requiresAuth: true}
     },
     //Vistas profesor
     {
       path: '/Profesor/Calificacion',
       name: 'ClassAssigned',
       component: ClassAssigned,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Profesor/Perfil',
       name: 'TeacherProfile',
       component: TeacherProfile,
+      meta: {requiresAuth: true}
     },
     {
       path: '/profesor/Inicio',
       name: 'Teacherview',
       component:Teacherview,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Profesor/Calendario',
       name: 'TeacherProgramingView',
       component: TeacherProgramingView,
+      meta: {requiresAuth: true}
     },
     {
       path: '/Profesor/Eventos',
       name: 'TeacherEvents',
       component: TeacherEvents,
+      meta: {requiresAuth: true}
     },
 
 
 
 
-  ],
-})
+  ]
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  if(to.meta.requiresAuth){
+    const token = localStorage.getItem("token");
+
+    if(!token){
+      next({path: '/'});
+    } else{
+    next();
+    }
+  } else{
+    next();
+  }
+});
+
+export default router;

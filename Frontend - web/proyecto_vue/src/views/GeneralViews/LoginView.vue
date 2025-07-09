@@ -105,7 +105,11 @@
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
+import { login } from "@/api/login.js";
+import { register } from '@/api/register.js';
+//import { error } from 'console';
+// import { API_URL } from "@/api/api.js";
 
 export default {
   data() {
@@ -116,9 +120,7 @@ export default {
       },
       RegisterData: {
         name: "",
-        second_name: "",
         surname: "",
-        second_surname: "",
         identification: "",
         identification_number: "",
         phone: "",
@@ -127,72 +129,88 @@ export default {
         user: "",
         remail: "",
         rpassword: "",
-        address: "",
-        birthdate: "",
-        imagen: "",
-        rol: "administrador" // estudiante
+        rol: "estudiante" // estudiante
       }
     };
   },
   methods: {
     async submitFormSignIn() {
-  try {
-    const response = await axios.post("http://localhost/backend/Login.php", this.LoginData, {
-      headers: { "Content-Type": "application/json" }
-    });
+      try {
 
-    console.log("Login Response:", response.data);
-
-    if (response.data.rol === "estudiante") {
-      localStorage.setItem('id_usuario', response.data.id_usuario);
-      localStorage.setItem('correo', response.data.correo);
-      localStorage.setItem('rol', response.data.rol);
-      this.$router.push('/Estudiante/Inicio');
-    } else if (response.data.rol === "administrador") {
-      localStorage.setItem('correo', response.data.correo);
-      localStorage.setItem('rol', response.data.rol);
-      this.$router.push('/Admin/inicio');
-    } else if (response.data.rol === "profesor") {
-      localStorage.setItem('correo', response.data.correo);
-      localStorage.setItem('rol', response.data.rol);
-      this.$router.push('/profesor/Inicio');
-    } else {
-      alert("Correo o contraseña incorrectos");
+        const data = await login(this.LoginData);
+        console.log("Login Response:", data);
+        localStorage.setItem('token', data.token)
+      
+        if (data.rol === "estudiante") {
+          localStorage.setItem('id_usuario', data.id_usuario);
+          localStorage.setItem('correo', data.correo);
+          localStorage.setItem('rol', data.rol);
+          this.$router.push('/Estudiante/Inicio');
+        } else if (data.rol === "administrador") {
+          localStorage.setItem('correo', data.correo);
+          localStorage.setItem('rol', data.rol);
+          this.$router.push('/Admin/inicio');
+        } else if (data.rol === "profesor") {
+          localStorage.setItem('correo', data.correo);
+          localStorage.setItem('rol', data.rol);
+          this.$router.push('/profesor/Inicio');
+        } else {
+          alert("Correo o contraseña incorrectos");
+        }
+      } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+      }
     }
-  } catch (error) {
-    console.error("Error en login:", error);
-  }
-}
 ,
 
     async submitFormSignUp() {
       try {
-        console.log("Enviando:", this.RegisterData);
+        const datos = {
+          name: this.RegisterData.name,
+          surname: this.RegisterData.surname,
+          identification: this.RegisterData.identification,
+          identification_number: this.RegisterData.identification_number,
+          phone: this.RegisterData.phone,
+          gender: this.RegisterData.gender,
+          age: this.RegisterData.age,
+          user: this.RegisterData.user,
+          remail: this.RegisterData.remail,
+          rpassword: this.RegisterData.rpassword,
+          rol: "estudiante",
+          address: "No registrado",
+          imagen: "default.jpg"
+        }
+        console.log("Enviando:", datos);
 
-        await axios.post("http://localhost/backend/Register.php", this.RegisterData, {
-          headers: { "Content-Type": "application/json" }
-        });
-
+        await register(datos)
+          .then((res) => {
+            console.log("Respuesta del servidor:", res?.data);
+            if (res?.data?.success) {
+              alert("Usuario registrado con éxito");
+            } else {
+              alert("Error al registrar: " + (res?.data?.error || "Respuesta no válida"));
+            }
+          }).catch((error) => {
+            console.error("Error en el envío:", error);
+            alert("Hubo un problema al registrar");
+          });
+        
         alert("Usuario registrado con éxito");
 
         // Limpiar los datos
+        
         this.RegisterData = {
           name: "",
-          second_name: "",
           surname: "",
-          second_surname: "",
+          gender: "",
           identification: "",
           identification_number: "",
-          phone: "",
-          gender: "",
           age: "",
-          user: "",
+          phone: "",
           remail: "",
           rpassword: "",
-          address: "",
-          birthdate: "",
-          imagen: "",
-          rol: "administrador"
+          user: "",
+          rol: "estudiante"
         };
       } catch (error) {
         console.error("Error en registro:", error);

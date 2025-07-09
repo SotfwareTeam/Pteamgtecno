@@ -13,8 +13,8 @@ public class EditClassValidation implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor){
-        String profesor = actor.recall(ClasesVariables.profesor.toString());
-        String profesorValidacion = "Profesor: " + profesor;
+        //String profesor = actor.recall(ClasesVariables.profesor.toString());
+        //String profesorValidacion = "Profesor: " + profesor;
         String clase = actor.recall(ClasesVariables.clase.toString());
         String claseValidacion = "Clase: " + clase;
 
@@ -23,7 +23,7 @@ public class EditClassValidation implements Question<Boolean> {
             String texto2 = Text.of(VALIDACION_HORA).viewedBy(actor).asString();
             String texto3 = Text.of(VALIDACION_CLASE).viewedBy(actor).asString();
             String texto4 = Text.of(VALIDACION_DIFICULTAD).viewedBy(actor).asString();
-            return profesorValidacion.equals(texto1) && "Hora: 17:00:00".equals(texto2) &&
+            return "2".equals(texto1) && "Hora: 17:00:00".equals(texto2) &&
                     claseValidacion.equals(texto3) && "Dificultad: Difícil".equals(texto4);
         } catch (Exception e){
             logger.info(" Validations doesn´t match");

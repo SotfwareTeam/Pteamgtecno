@@ -54,7 +54,7 @@ public class Register implements Task{
                 Enter.theValue(credenciales.get(0).getContraseña()).into(INPUT_CONTRASEÑA),
 
                 Click.on(BTN_REGISTER),
-                AceptarAlert2.toAlert(),
+                AceptarAlert.ahora(),
 
                 Click.on(BTN_INICIARSESION)
         );

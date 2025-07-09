@@ -7,14 +7,15 @@ public class ClassesUserInterface {
     public static Target BTN_CALENDARIO = Target.the(" Modal Calendario").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div/div[1]/img"));
     public static Target BTN_CALENDARIOMODAL = Target.the("Redirección a Calendario").located(By.xpath("//*[@id=\"espaciosModal\"]/div/div/div[2]/a"));
     public static Target BOTON_MES_SIG = Target.the(" Mes siguiente").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div[2]/div[1]/div[3]/button"));
-    public static String xpathFecha1 =  "//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[3]";
+    public static String xpathFecha1 =  "//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[6]";
     public static String xpathFecha2 =  "//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/tbody/tr[2]/td[5]";
     public static Target BOTON_FECHA1 = Target.the(" Fecha seleccionada 1").located(By.xpath(xpathFecha1));
-    public static Target DIA_FECHA1 = Target.the(" Fecha seleccionada 1").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/thead/tr/th[3]"));
+    public static Target DIA_FECHA1 = Target.the(" Fecha seleccionada 1").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/thead/tr/th[6]"));
     public static Target BOTON_FECHA2 = Target.the(" Fecha seleccionada 2").located(By.xpath(xpathFecha2));
     public static Target DIA_FECHA2 = Target.the(" Fecha seleccionada 1").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div[2]/div[2]/table/thead/tr/th[5]"));
     public static Target BOTON_PROGRAMAR = Target.the(" Programar clase").located(By.xpath("//*[@id=\"app\"]/div/div[1]/div[2]/div[3]/button[2]"));
     public static Target INPUT_PROFESOR = Target.the(" Input profesor").located(By.xpath("//*[@id=\"profesor\"]"));
+    public static Target SELECT_PROFESOR = Target.the(" Input profesor").located(By.xpath("//*[@id=\"profesor\"]/option"));
     public static Target INPUT_HORA = Target.the(" Input hora").located(By.xpath("//*[@id=\"hora\"]"));
     public static Target INPUT_CLASE = Target.the(" Input clase").located(By.xpath("//*[@id=\"clase\"]"));
     public static Target INPUT_DIFICULTAD = Target.the(" Input dificultad").located(By.xpath("//*[@id=\"dificultad\"]"));

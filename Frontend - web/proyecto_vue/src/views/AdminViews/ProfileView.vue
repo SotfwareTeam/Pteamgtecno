@@ -59,7 +59,7 @@
                   <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 </div>
                 <div class="mb-3">
-                  <router-link to="/" class="btn btn-primary">Cerrar sesión</router-link>
+                  <button to="/" @click="logout" class="btn btn-primary">Cerrar sesión</button>
                 </div>
               </div>
             </form>
@@ -123,6 +123,13 @@ export default {
         };
         reader.readAsDataURL(file);
       }
+    },
+
+    logout(){
+      localStorage.removeItem('token'),
+      localStorage.removeItem('correo'),
+      localStorage.removeItem('rol'),
+      this.$router.push('/')
     },
 
     async getAdminData() {
