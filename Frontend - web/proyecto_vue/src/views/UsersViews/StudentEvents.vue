@@ -3,8 +3,8 @@
     <NavbarStudents />
 
     <div class="container1 mt-5">
-      <div class="row text-center mt-5">
-        <div class="col-md-8">
+      <div class="row text-center mt-4">
+        <div class="col-md-4">
           <h3>Calendario</h3>
           <img src="/Assets/img/salones.jpg" alt="Calendario" class="img-thumbnail"
                data-bs-toggle="modal" data-bs-target="#espaciosModal">
