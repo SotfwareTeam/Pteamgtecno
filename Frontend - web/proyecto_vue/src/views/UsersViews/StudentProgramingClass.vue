@@ -208,7 +208,7 @@ export default {
       const mes = String(this.currentMonth + 1).padStart(2, '0');
       const año = this.currentYear;
 
-      axios.get(`http://localhost/backend/clases_mes.php?mes=${mes}&anio=${año}`)
+      axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/clases_mes.php?mes=${mes}&anio=${año}`)
         .then(response => {
           if (response.data && Array.isArray(response.data)) {
             this.scheduledClasses = {};
@@ -228,7 +228,7 @@ export default {
     enviarFecha() {
       if (!this.selectedDate) return;
 
-      axios.get(`http://localhost/backend/clases.php?fecha=${this.selectedDate.date}`)
+      axios.get(`https://hqt8rl0q-80.use2.devtunnels.ms/backend/clases.php?fecha=${this.selectedDate.date}`)
         .then(response => {
           if (response.data && Array.isArray(response.data)) {
               console.log('✅ Datos recibidos:', response.data);
@@ -286,7 +286,7 @@ programarClase(idClase) {
     return;
   }
 
-  axios.post('http://localhost/backend/programar_clase.php', {
+  axios.post('https://hqt8rl0q-80.use2.devtunnels.ms/backend/programar_clase.php', {
     id_clase: idClase,
     id_usuario: idUsuario
   },{

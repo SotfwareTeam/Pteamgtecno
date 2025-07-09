@@ -113,7 +113,7 @@ export default {
   methods: {
     async fetchMarkedDates() {
       try {
-        const response = await fetch('http://localhost/backend/get_class_dates.php');
+        const response = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_class_dates.php');
         const fechas = await response.json();
         this.markedDates = Array.isArray(fechas) ? fechas : [];
       } catch (error) {
@@ -123,7 +123,7 @@ export default {
 
     async loadClasses(dateFormatted) {
       try {
-        const response = await fetch('http://localhost/backend/get_classes_by_date.php', {
+        const response = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/get_classes_by_date.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ export default {
       }
 
       try {
-        const response = await fetch('http://localhost/backend/enviar_notificacion.php', {
+        const response = await fetch('https://hqt8rl0q-80.use2.devtunnels.ms/backend/enviar_notificacion.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
